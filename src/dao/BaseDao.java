@@ -48,10 +48,10 @@ public class BaseDao {
      * @Date: 2021/12/3 21:54
      * @return: T
      */
-    public <T> T queryForOne(Class<T> classType, String sql, Object params) {
+    public <T> T queryForOne(Class<T> classType, String sql, Object... params) {
         Connection connection = JDBCUtils.getConnection();
         try {
-            return queryRunner.query(connection, sql, new BeanHandler<T>(classType));
+            return queryRunner.query(connection, sql, new BeanHandler<>(classType), params);
         } catch (SQLException e) {
             e.printStackTrace();
         } finally {
@@ -69,10 +69,10 @@ public class BaseDao {
      * @Date: 2021/12/3 21:55
      * @return: java.util.List<T>
      */
-    public <T> List<T> queryForList(Class<T> classType, String sql, Object params) {
+    public <T> List<T> queryForList(Class<T> classType, String sql, Object... params) {
         Connection connection = JDBCUtils.getConnection();
         try {
-            return queryRunner.query(connection, sql, new BeanListHandler<T>(classType));
+            return queryRunner.query(connection, sql, new BeanListHandler<>(classType), params);
         } catch (SQLException e) {
             e.printStackTrace();
         } finally {

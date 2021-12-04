@@ -29,6 +29,15 @@ public class Book {
         this.publishData = publishData;
     }
 
+    /**
+     * @Description: 必须提供空参构造方法，否则QueryRunner无法创建对象，并且注入属性
+     * @Author: BaiYZ
+     * @Date: 2021/12/4 10:08
+     * @return: null
+     */
+    public Book() {
+    }
+
     @Override
     public String toString() {
         return "Book{" +
