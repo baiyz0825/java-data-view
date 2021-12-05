@@ -1,0 +1,107 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta content="width=device-width, initial-scale=1" name="viewport">
+  <link href="../../../dist/css/bootstrap.min.css" rel="stylesheet">
+  <title>Collapse</title>
+</head>
+<body>
+<div class="container">
+  <h1>Collapse <small>Bootstrap Visual Test</small></h1>
+
+  <div id="accordion" role="tablist">
+    <div class="card" role="presentation">
+      <div class="card-header" id="headingOne" role="tab">
+        <h5 class="mb-0">
+          <a aria-controls="collapseOne" aria-expanded="true" data-bs-toggle="collapse" href="#collapseOne">
+            Collapsible Group Item #1
+          </a>
+        </h5>
+      </div>
+
+      <div aria-labelledby="headingOne" class="collapse show" data-bs-parent="#accordion" id="collapseOne"
+           role="tabpanel">
+        <div class="card-body">
+          Anim pariatur cliche reprehenderit, enim eiusmod high life accusamus terry richardson ad squid. 3 wolf moon
+          officia aute, non cupidatat skateboard dolor brunch. Food truck quinoa nesciunt laborum eiusmod. Brunch 3 wolf
+          moon tempor, sunt aliqua put a bird on it squid single-origin coffee nulla assumenda shoreditch et. Nihil anim
+          keffiyeh helvetica, craft beer labore wes anderson cred nesciunt sapiente ea proident. Ad vegan excepteur
+          butcher vice lomo. Leggings occaecat craft beer farm-to-table, raw denim aesthetic synth nesciunt you probably
+          haven't heard of them accusamus labore sustainable VHS.
+        </div>
+      </div>
+    </div>
+    <div class="card" role="presentation">
+      <div class="card-header" id="headingTwo" role="tab">
+        <h5 class="mb-0">
+          <a aria-controls="collapseTwo" aria-expanded="false" class="collapsed" data-bs-toggle="collapse"
+             href="#collapseTwo">
+            Collapsible Group Item #2
+          </a>
+        </h5>
+      </div>
+      <div aria-labelledby="headingTwo" class="collapse" data-bs-parent="#accordion" id="collapseTwo" role="tabpanel">
+        <div class="card-body">
+          Anim pariatur cliche reprehenderit, enim eiusmod high life accusamus terry richardson ad squid. 3 wolf moon
+          officia aute, non cupidatat skateboard dolor brunch. Food truck quinoa nesciunt laborum eiusmod. Brunch 3 wolf
+          moon tempor, sunt aliqua put a bird on it squid single-origin coffee nulla assumenda shoreditch et. Nihil anim
+          keffiyeh helvetica, craft beer labore wes anderson cred nesciunt sapiente ea proident. Ad vegan excepteur
+          butcher vice lomo. Leggings occaecat craft beer farm-to-table, raw denim aesthetic synth nesciunt you probably
+          haven't heard of them accusamus labore sustainable VHS.
+        </div>
+      </div>
+    </div>
+    <div class="card" role="presentation">
+      <div class="card-header" id="headingThree" role="tab">
+        <h5 class="mb-0">
+          <a aria-controls="collapseThree" aria-expanded="false" class="collapsed" data-bs-toggle="collapse"
+             href="#collapseThree">
+            Collapsible Group Item #3
+          </a>
+        </h5>
+      </div>
+      <div aria-labelledby="headingThree" class="collapse" data-bs-parent="#accordion" id="collapseThree"
+           role="tabpanel">
+        <div class="card-body">
+          Anim pariatur cliche reprehenderit, enim eiusmod high life accusamus terry richardson ad squid. 3 wolf moon
+          officia aute, non cupidatat skateboard dolor brunch. Food truck quinoa nesciunt laborum eiusmod. Brunch 3 wolf
+          moon tempor, sunt aliqua put a bird on it squid single-origin coffee nulla assumenda shoreditch et. Nihil anim
+          keffiyeh helvetica, craft beer labore wes anderson cred nesciunt sapiente ea proident. Ad vegan excepteur
+          butcher vice lomo. Leggings occaecat craft beer farm-to-table, raw denim aesthetic synth nesciunt you probably
+          haven't heard of them accusamus labore sustainable VHS.
+        </div>
+      </div>
+    </div>
+    <div class="card" role="presentation">
+      <div class="card-header" id="headingFour" role="tab">
+        <h5 class="mb-0">
+          <a aria-controls="collapseFour" aria-expanded="false" class="collapsed" data-bs-toggle="collapse"
+             href="#collapseFour">
+            Collapsible Group Item with XSS in data-bs-parent
+          </a>
+        </h5>
+      </div>
+      <div aria-labelledby="headingFour" class="collapse" data-bs-parent="<img src=1 onerror=alert(123)>"
+           id="collapseFour" role="tabpanel">
+        <div class="card-body">
+          Anim pariatur cliche reprehenderit, enim eiusmod high life accusamus terry richardson ad squid. 3 wolf moon
+          officia aute, non cupidatat skateboard dolor brunch. Food truck quinoa nesciunt laborum eiusmod. Brunch 3 wolf
+          moon tempor, sunt aliqua put a bird on it squid single-origin coffee nulla assumenda shoreditch et. Nihil anim
+          keffiyeh helvetica, craft beer labore wes anderson cred nesciunt sapiente ea proident. Ad vegan excepteur
+          butcher vice lomo. Leggings occaecat craft beer farm-to-table, raw denim aesthetic synth nesciunt you probably
+          haven't heard of them accusamus labore sustainable VHS.
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<script src="../../dist/dom/event-handler.js"></script>
+<script src="../../dist/dom/selector-engine.js"></script>
+<script src="../../dist/dom/manipulator.js"></script>
+<script src="../../dist/dom/data.js"></script>
+<script src="../../dist/base-component.js"></script>
+<script src="../../dist/collapse.js"></script>
+</body>
+</html>

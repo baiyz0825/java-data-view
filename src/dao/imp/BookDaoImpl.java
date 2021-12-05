@@ -52,6 +52,12 @@ public class BookDaoImpl extends BaseDao implements BookDao {
         return queryForList(Book.class, sql, sortBook);
     }
 
+    @Override
+    public List<Book> searchBookAll() {
+        String sql = "select number,name,sortBook,publisher,author,prices,remainNumber,publishData from `Book`";
+        return queryForList(Book.class, sql);
+    }
+
     /**
      * @param book :
      * @Description: 更新图书信息

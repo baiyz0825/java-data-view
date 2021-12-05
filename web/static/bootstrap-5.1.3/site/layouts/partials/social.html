@@ -1,0 +1,21 @@
+{{ "<!-- Twitter -->" | safeHTML }}
+<meta content="{{ if .IsHome }}summary_large_image{{ else }}summary{{ end }}" name="twitter:card">
+<meta content="@{{ .Site.Params.twitter }}" name="twitter:site">
+<meta content="@{{ .Site.Params.twitter }}" name="twitter:creator">
+<meta content="{{ .Title | markdownify }}" name="twitter:title">
+<meta content="{{ .Page.Params.description | default .Site.Params.description | markdownify }}"
+      name="twitter:description">
+<meta
+  content="{{ if .IsHome }}{{ .Site.Params.social_logo_path | absURL }}{{ else }}{{ .Site.Params.social_image_path | absURL }}{{ end }}"
+  name="twitter:image">
+
+{{ "<!-- Facebook -->" | safeHTML }}
+<meta content="{{ .Permalink }}" property="og:url">
+<meta content="{{ .Title | markdownify }}" property="og:title">
+<meta content="{{ .Page.Params.description | default .Site.Params.description | markdownify }}"
+      property="og:description">
+<meta content="{{ if .IsPage }}article{{ else }}website{{ end }}" property="og:type">
+<meta content="{{ .Site.Params.social_image_path | absURL }}" property="og:image">
+<meta content="image/png" property="og:image:type">
+<meta content="1000" property="og:image:width">
+<meta content="500" property="og:image:height">

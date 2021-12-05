@@ -1,0 +1,18 @@
+<nav aria-label="Secondary navigation" class="bd-subnavbar py-2">
+  <div class="container-xxl d-flex align-items-md-center">
+    <form class="bd-search position-relative me-auto">
+      <input aria-label="Search docs for..." autocomplete="off" class="form-control"
+             data-bd-docs-version="{{ .Site.Params.docs_version }}" id="search-input" placeholder="Search docs..."
+             type="search">
+    </form>
+
+    {{ partial "docs-versions" . }}
+
+    <button aria-controls="bd-docs-nav" aria-expanded="false" aria-label="Toggle docs navigation"
+            class="btn bd-sidebar-toggle d-md-none py-0 px-1 ms-3 order-3 collapsed" data-bs-target="#bd-docs-nav"
+            data-bs-toggle="collapse" type="button">
+      {{ partial "icons/expand.svg" (dict "class" "bi bi-expand" "width" "24" "height" "24") }}
+      {{ partial "icons/collapse.svg" (dict "class" "bi bi-collapse" "width" "24" "height" "24") }}
+    </button>
+  </div>
+</nav>

@@ -39,6 +39,14 @@ public interface BookDao {
     List<Book> searchBookBySort(String sortBook);
 
     /**
+     * @Description: 查询全部图书
+     * @Author: BaiYZ
+     * @Date: 2021/12/5 17:11
+     * @return: java.util.List<bean.Book>
+     */
+    List<Book> searchBookAll();
+
+    /**
      * @param book:
      * @Description: 更新图书信息
      * @Author: BaiYZ

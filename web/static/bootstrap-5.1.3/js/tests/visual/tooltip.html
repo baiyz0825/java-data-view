@@ -1,0 +1,131 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta content="width=device-width, initial-scale=1" name="viewport">
+  <link href="../../../dist/css/bootstrap.min.css" rel="stylesheet">
+  <title>Tooltip</title>
+  <style>
+    #target {
+      border: 1px solid;
+      width: 100px;
+      height: 50px;
+      margin-left: 50px;
+      transform: rotate(270deg);
+      margin-top: 100px;
+    }
+  </style>
+</head>
+<body>
+<div class="container">
+  <h1>Tooltip <small>Bootstrap Visual Test</small></h1>
+
+  <p class="text-muted">Tight pants next level keffiyeh <a data-bs-toggle="tooltip" href="#" title="Default tooltip">you
+    probably</a> haven't heard of them. Photo booth beard raw denim letterpress vegan messenger bag stumptown.
+    Farm-to-table seitan, mcsweeney's fixie sustainable quinoa 8-bit american apparel <a data-bs-toggle="tooltip"
+                                                                                         href="#"
+                                                                                         title="Another tooltip">have
+      a</a> terry richardson vinyl chambray. Beard stumptown, cardigans banh mi lomo thundercats. Tofu biodiesel
+    williamsburg marfa, four loko mcsweeney's cleanse vegan chambray. A really ironic artisan <a
+      data-bs-toggle="tooltip" href="#" title="Another one here too">whatever keytar</a>, scenester farm-to-table banksy
+    Austin <a data-bs-toggle="tooltip" href="#" title="The last tip!">twitter handle</a> freegan cred raw denim
+    single-origin coffee viral.</p>
+
+  <hr>
+
+  <div class="row">
+    <p>
+      <button class="btn btn-secondary" data-bs-placement="auto" data-bs-toggle="tooltip" title="Tooltip on auto"
+              type="button">
+        Tooltip on auto
+      </button>
+      <button class="btn btn-secondary" data-bs-placement="top" data-bs-toggle="tooltip" title="Tooltip on top"
+              type="button">
+        Tooltip on top
+      </button>
+      <button class="btn btn-secondary" data-bs-placement="right" data-bs-toggle="tooltip" title="Tooltip on right"
+              type="button">
+        Tooltip on end
+      </button>
+      <button class="btn btn-secondary" data-bs-placement="bottom" data-bs-toggle="tooltip" title="Tooltip on bottom"
+              type="button">
+        Tooltip on bottom
+      </button>
+      <button class="btn btn-secondary" data-bs-placement="left" data-bs-toggle="tooltip" title="Tooltip on left"
+              type="button">
+        Tooltip on start
+      </button>
+    </p>
+  </div>
+  <div class="row">
+    <p>
+      <button class="btn btn-secondary" data-bs-container="#customContainer" data-bs-placement="left"
+              data-bs-toggle="tooltip" title="Tooltip with container (selector)" type="button">
+        Tooltip with container (selector)
+      </button>
+      <button class="btn btn-secondary" data-bs-placement="left" id="tooltipElement"
+              title="Tooltip with container (element)" type="button">
+        Tooltip with container (element)
+      </button>
+      <button class="btn btn-secondary" data-bs-html="true" data-bs-toggle="tooltip"
+              title="<em>Tooltip</em> <u>with</u> <b>HTML</b>" type="button">
+        Tooltip with HTML
+      </button>
+      <button class="btn btn-secondary" data-bs-container="<img src=1 onerror=alert(123)>" data-bs-placement="left"
+              data-bs-toggle="tooltip" title="Tooltip with XSS" type="button">
+        Tooltip with XSS
+      </button>
+    </p>
+  </div>
+  <div class="row">
+    <div class="col-sm-3">
+      <div id="target" title="Test tooltip on transformed element"></div>
+    </div>
+    <div class="pt-5" id="shadow"></div>
+  </div>
+  <div id="customContainer"></div>
+</div>
+
+<script src="../../../node_modules/@popperjs/core/dist/umd/popper.min.js"></script>
+<script src="../../dist/dom/selector-engine.js"></script>
+<script src="../../dist/dom/event-handler.js"></script>
+<script src="../../dist/dom/manipulator.js"></script>
+<script src="../../dist/dom/data.js"></script>
+<script src="../../dist/base-component.js"></script>
+<script src="../../dist/tooltip.js"></script>
+<script>
+  if (typeof document.body.attachShadow === 'function') {
+    var shadowRoot = document.getElementById('shadow').attachShadow({mode: 'open'})
+    shadowRoot.innerHTML =
+      '<button type="button" class="btn btn-secondary" data-bs-toggle="tooltip" data-bs-placement="top" title="Tooltip on top in a shadow dom">' +
+      '  Tooltip on top in a shadow dom' +
+      '</button>' +
+      '<button id="secondTooltip" type="button" class="btn btn-secondary" data-bs-toggle="tooltip" data-bs-placement="top" title="Tooltip on top in a shadow dom with container option">' +
+      '  Tooltip on top in a shadow dom' +
+      '</button>'
+
+    var firstChildTooltip = new Tooltip(shadowRoot.firstChild)
+    var secondChildTooltip = new Tooltip(shadowRoot.getElementById('secondTooltip'), {
+      container: shadowRoot
+    })
+  }
+
+  [].slice.call(document.querySelectorAll('[data-bs-toggle="tooltip"]'))
+    .forEach(function (tooltip) {
+      new Tooltip(tooltip)
+    })
+
+  var tooltipElement = document.getElementById('tooltipElement')
+  var tooltipElementInstance = new Tooltip(tooltipElement, {
+    container: document.getElementById('customContainer')
+  })
+
+  var target = document.getElementById('target')
+  var targetTooltip = new Tooltip(target, {
+    placement: 'top',
+    trigger: 'manual'
+  })
+  targetTooltip.show()
+</script>
+</body>
+</html>

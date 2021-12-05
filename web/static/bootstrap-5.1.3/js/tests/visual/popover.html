@@ -1,0 +1,59 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta content="width=device-width, initial-scale=1" name="viewport">
+  <link href="../../../dist/css/bootstrap.min.css" rel="stylesheet">
+  <title>Popover</title>
+</head>
+<body>
+<div class="container">
+  <h1>Popover <small>Bootstrap Visual Test</small></h1>
+
+  <button class="btn btn-secondary" data-bs-container="body"
+          data-bs-content="Vivamus sagittis lacus vel augue laoreet rutrum faucibus." data-bs-placement="auto"
+          data-bs-toggle="popover" type="button">
+    Popover on auto
+  </button>
+
+  <button class="btn btn-secondary" data-bs-container="body"
+          data-bs-content="Default placement was on top but not enough place" data-bs-placement="top"
+          data-bs-toggle="popover" type="button">
+    Popover on top
+  </button>
+
+  <button class="btn btn-secondary" data-bs-container="body"
+          data-bs-content="Vivamus sagittis lacus vel augue laoreet rutrum faucibus." data-bs-placement="right"
+          data-bs-toggle="popover" type="button">
+    Popover on end
+  </button>
+
+  <button class="btn btn-secondary" data-bs-container="body"
+          data-bs-content="Vivamus sagittis lacus vel augue laoreet rutrum faucibus." data-bs-placement="bottom"
+          data-bs-toggle="popover" type="button">
+    Popover on bottom
+  </button>
+
+  <button class="btn btn-secondary" data-bs-container="body"
+          data-bs-content="Vivamus sagittis lacus vel augue laoreet rutrum faucibus." data-bs-placement="left"
+          data-bs-toggle="popover" type="button">
+    Popover on start
+  </button>
+</div>
+
+<script src="../../../node_modules/@popperjs/core/dist/umd/popper.min.js"></script>
+<script src="../../dist/dom/event-handler.js"></script>
+<script src="../../dist/dom/selector-engine.js"></script>
+<script src="../../dist/dom/manipulator.js"></script>
+<script src="../../dist/dom/data.js"></script>
+<script src="../../dist/base-component.js"></script>
+<script src="../../dist/tooltip.js"></script>
+<script src="../../dist/popover.js"></script>
+<script>
+  [].slice.call(document.querySelectorAll('[data-bs-toggle="popover"]'))
+    .forEach(function (popover) {
+      new Popover(popover)
+    })
+</script>
+</body>
+</html>

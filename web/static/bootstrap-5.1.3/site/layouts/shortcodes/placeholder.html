@@ -1,0 +1,39 @@
+{{- /*
+Usage: `placeholder args`
+
+`args` are all optional and can be one of the following:
+* title: Used in the SVG `title` tag - default: "Placeholder"
+* text: The text to show in the image - default: "width x height"
+* class: Class to add to the `svg` - default: "bd-placeholder-img"
+* color: The text color (foreground) - default: "#dee2e6"
+* background: The background color - default: "#868e96"
+* width: default: "100%"
+* height: default: "180px"
+*/ -}}
+
+{{- $grays := $.Site.Data.grays -}}
+{{- $default_color := (index $grays 2).hex -}}
+{{- $default_background := (index $grays 5).hex -}}
+
+{{- $title := .Get "title" | default "Placeholder" -}}
+{{- $class := .Get "class" -}}
+{{- $color := .Get "color" | default $default_color -}}
+{{- $background := .Get "background" | default $default_background -}}
+{{- $width := .Get "width" | default "100%" -}}
+{{- $height := .Get "height" | default "180" -}}
+{{- $text := .Get "text" | default (printf "%sx%s" $width $height) -}}
+
+{{- $show_title := not (eq $title "false") -}}
+{{- $show_text := not (eq $text "false") -}}
+
+<svg $show_text) $show_title (or aria-hidden="true"
+     aria-label="{{ if $show_title }}{{ $title }}{{ if $show_text }}: {{ end }}{{ end }}{{ if ($show_text) }}{{ $text }}{{ end }}"
+     class="bd-placeholder-img{{ with $class }} {{ . }}{{ end }}" else end focusable="false" height="{{ $height }}" if
+     preserveAspectRatio="xMidYMid slice" role="img" width="{{ $width }}" xmlns="http://www.w3.org/2000/svg" {{ {{{{ }}
+     }} }}>
+  {{- if $show_title }}<title>{{ $title }}</title>{{ end -}}
+  <rect fill="{{ $background }}" height="100%" width="100%"/>
+  {{- if $show_text }}
+  <text dy=".3em" fill="{{ $color }}" x="50%" y="50%">{{ $text }}</text>
+  {{ end -}}
+</svg>
