@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="ch">
+<head>
+    <meta charset="UTF-8">
+    <title>期刊信息管理系统</title>
+</head>
+
+<body>
+<div>期刊信息管理系统</div>
+<hr>
+<div id="content">
+    <form action="LonginAndRegist.html" method="post">
+        <table align="center" border="0">
+            <caption>欢迎登录</caption>
+            <tr>
+                <td><label for="username">用户名：</label></td>
+                <td><input id="username" name="username" placeholder="学号/工号" type="text"></td>
+            </tr>
+            <tr>
+                <td><label for="password">密&nbsp;&nbsp;&nbsp;&nbsp;码：</label></td>
+                <td><input id="password" name="password" placeholder="密码" type="password"></td>
+            </tr>
+            <tr>
+                <td><label>身&nbsp;&nbsp;&nbsp;&nbsp;份：</label></td>
+                <td><input name="identity" type="radio" value="student">学生&nbsp;&nbsp;&nbsp;&nbsp;
+                    <input name="identity" type="radio" value="administrator">管理员
+                </td>
+            </tr>
+            <tr>
+                <td><label for="checkcode">验证码：</label></td>
+                <td><input id="checkcode" name="checkcode" placeholder="验证码" type="text">
+                    <img src="#">
+                </td>
+            </tr>
+            <tr>
+                <td align="center" colspan="2"><input type="submit" value="登录"/></td>
+            </tr>
+            <tr>
+                <td align="center"><a href="#" target="_blank">立即注册</a></td>
+                <td align="center"><a href="#" target="_blank">忘记密码?</a></td>
+            </tr>
+
+        </table>
+    </form>
+</div>
+</body>
+</html>
