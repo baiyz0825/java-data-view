@@ -12,4 +12,12 @@
         <url-pattern>/book/bookServlet</url-pattern>
         <!--        这个是在浏览器访问的地址-->
     </servlet-mapping>
+    <servlet>
+        <servlet-name>UserServlet</servlet-name>
+        <servlet-class>web.UserServlet</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>UserServlet</servlet-name>
+        <url-pattern>/user/userServlet</url-pattern>
+    </servlet-mapping>
 </web-app>

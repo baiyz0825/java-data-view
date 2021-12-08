@@ -25,7 +25,7 @@ public class BaseDao {
      * @Description: 封装update方法
      * @Author: BaiYZ
      * @Date: 2021/12/3 21:39
-     * @return: int
+     * @return: int -1失败
      */
     public int update(String sql, Object... params) {
         Connection connection = JDBCUtils.getConnection();
