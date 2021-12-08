@@ -10,6 +10,7 @@ import java.util.List;
  * @author BaiYZ
  * @program JavaDataView
  * @description 用户数据库访问实现
+ *查询的表名称一定要正确，否则找不到sql
  * @date 2021-12-03 21:23:40
  */
 public class BookDaoImpl extends BaseDao implements BookDao {
@@ -22,7 +23,7 @@ public class BookDaoImpl extends BaseDao implements BookDao {
      */
     @Override
     public Book searchBookByID(String id) {
-        String sql = "select `number`,`name`,`sortBook`,`publisher`,`author`,`prices`,`remainNumber`,`publishData` from book where number = ?";
+        String sql = "select `number`,`name`,`sortBook`,`publisher`,`author`,`prices`,`remainNumber`,`publishData` from Book where number = ?";
         return queryForOne(Book.class, sql, id);
     }
 
@@ -54,7 +55,7 @@ public class BookDaoImpl extends BaseDao implements BookDao {
 
     @Override
     public List<Book> searchBookAll() {
-        String sql = "select number,name,sortBook,publisher,author,prices,remainNumber,publishData from `Book`";
+        String sql = "select  number,name,sortBook,publisher,author,prices,remainNumber,publishData from `Book`";
         return queryForList(Book.class, sql);
     }
 
@@ -67,7 +68,7 @@ public class BookDaoImpl extends BaseDao implements BookDao {
      */
     @Override
     public int updateBook(Book book) {
-        String sql = "update `book` set name=?,sortBook=?,publisher=?,author=?,prices=?,remainNumber=?,publishData=? where number = ?";
+        String sql = "update `Book` set name=?,sortBook=?,publisher=?,author=?,prices=?,remainNumber=?,publishData=? where number = ?";
         return update(sql, book.getName(), book.getSortBook(), book.getPublisher(), book.getAuthor(), book.getPrices(), book.getRemainNumber(), book.getPublishData(), book.getNumber());
     }
 
@@ -80,7 +81,7 @@ public class BookDaoImpl extends BaseDao implements BookDao {
      */
     @Override
     public int deleteBookById(String id) {
-        String sql = "delete from `book` where number=?";
+        String sql = "delete from `Book` where number=?";
         return update(sql, id);
     }
 
@@ -93,7 +94,7 @@ public class BookDaoImpl extends BaseDao implements BookDao {
      */
     @Override
     public int deleteBookByName(String name) {
-        String sql = "delete from `book` where name=?";
+        String sql = "delete from `Book` where name=?";
         return update(sql, name);
     }
 
@@ -106,7 +107,7 @@ public class BookDaoImpl extends BaseDao implements BookDao {
      */
     @Override
     public int addBook(Book book) {
-        String sql = "insert into `book` (number,name,sortBook,publisher,author,prices,remainNumber,publishData) values (?,?,?,?,?,?,?,?)";
+        String sql = "insert into `Book` (number,name,sortBook,publisher,author,prices,remainNumber,publishData) values (?,?,?,?,?,?,?,?)";
         return update(sql, book.getNumber(), book.getName(), book.getSortBook(), book.getPublisher(), book.getAuthor(), book.getPrices(), book.getRemainNumber(), book.getPublishData());
     }
 }

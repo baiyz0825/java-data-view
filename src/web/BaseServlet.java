@@ -7,7 +7,6 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
-import java.lang.reflect.InvocationTargetException;
 import java.lang.reflect.Method;
 
 /**
@@ -79,7 +78,7 @@ public class BaseServlet extends HttpServlet {
      */
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-
+        doPost(req, resp);
     }
 
     /**
@@ -138,16 +137,14 @@ public class BaseServlet extends HttpServlet {
     protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
         //获取隐藏域标签的需要执行的业务的名称
         String reqAction = req.getParameter("action");
+//        System.out.println(reqAction);
         try {
             //通过反射获取需要执行名称对应的方法
             Method doMethod = this.getClass().getMethod(reqAction, HttpServletRequest.class, HttpServletResponse.class);
-            try {
-                //通过反射获取的Method进行执行对应子类的方法也就是这个方法的调用者（子类）
-                doMethod.invoke(this, req, resp);
-            } catch (IllegalAccessException | InvocationTargetException e) {
-                e.printStackTrace();
-            }
-        } catch (NoSuchMethodException e) {
+            //通过反射获取的Method进行执行对应子类的方法也就是这个方法的调用者（子类）
+            doMethod.invoke(this, req, resp);
+
+        } catch (Exception e) {
             e.printStackTrace();
         }
     }

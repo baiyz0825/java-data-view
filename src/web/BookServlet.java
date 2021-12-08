@@ -1,11 +1,15 @@
 package web;
 
+import bean.Book;
+import service.imp.BookServiceImpl;
+
 import javax.servlet.ServletException;
 import javax.servlet.ServletOutputStream;
 import javax.servlet.ServletResponse;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
+import java.util.List;
 
 /**
  * @author BaiYZ
@@ -134,5 +138,27 @@ public class BookServlet extends BaseServlet {
     @Override
     protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
         super.doPost(req, resp);
+    }
+
+    public void listBook(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
+        //初始化服务类对象
+        BookServiceImpl bookService = new BookServiceImpl();
+        //返回查询的books
+        List<Book> books = bookService.searchBookAll();
+        //存入req 域中
+        req.setAttribute("books", books);
+        //请求转发
+        req.getRequestDispatcher("/pages/book/bookManage.jsp").forward(req, resp);
+    }
+
+    public void delete(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
+        BookServiceImpl bookService = new BookServiceImpl();//获取传入的参数
+        String id = req.getParameter("id");
+//        System.out.println(id);
+        bookService.deleteBookById(id);
+        //重定向返回图书列表(还是访问servlet填充图书信息)
+        System.out.println(req.getContextPath());
+        //重定向返回页面。需要获取工程路径getContextPath()
+        resp.sendRedirect(req.getContextPath() + "/book/bookServlet?action=listBook");
     }
 }
