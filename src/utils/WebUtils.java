@@ -29,4 +29,13 @@ public class WebUtils {
         }
         return beanObject;
     }
+
+    public static Integer parseIntFromString(String target, Integer defaultInteger) {
+        try {
+            return Integer.parseInt(target);//字符串不为空能够成功转换就返回
+        } catch (NumberFormatException e) {
+            e.printStackTrace();
+        }
+        return defaultInteger;//返回默认值
+    }
 }

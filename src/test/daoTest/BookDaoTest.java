@@ -72,4 +72,20 @@ class BookDaoTest {
             e.printStackTrace();
         }
     }
+
+    @Test
+    void searchAllCountBookRecord() {
+        System.out.println(bookDao.searchAllCountBookRecord());
+    }
+
+    @Test
+    void booksForOnePages() {
+        for (Book book : bookDao.booksForOnePages(1, 4)) {
+            System.out.println(book);
+        }
+        System.out.println("-------------------------------");
+        for (Book book : bookDao.booksForOnePages(2, 4)) {
+            System.out.println(book);
+        }
+    }
 }

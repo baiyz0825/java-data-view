@@ -1,7 +1,9 @@
 package web;
 
 import bean.Book;
+import bean.Page;
 import service.imp.BookServiceImpl;
+import utils.WebUtils;
 
 import javax.servlet.ServletException;
 import javax.servlet.ServletOutputStream;
@@ -140,6 +142,14 @@ public class BookServlet extends BaseServlet {
         super.doPost(req, resp);
     }
 
+    /**
+     * @param req:
+     * @param resp:
+     * @Description: 查询全部期刊信息，直接返回List(一次查询，返回全部)
+     * @Author: BaiYZ
+     * @Date: 2021/12/9 8:38
+     * @return: void
+     */
     public void listBook(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
         //初始化服务类对象
         BookServiceImpl bookService = new BookServiceImpl();
@@ -151,6 +161,14 @@ public class BookServlet extends BaseServlet {
         req.getRequestDispatcher("/pages/book/bookManage.jsp").forward(req, resp);
     }
 
+    /**
+     * @param req:
+     * @param resp:
+     * @Description: 删除图书，使用传回的ID进行删除
+     * @Author: BaiYZ
+     * @Date: 2021/12/9 8:38
+     * @return: void
+     */
     public void delete(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
         BookServiceImpl bookService = new BookServiceImpl();//获取传入的参数
         String id = req.getParameter("id");
@@ -160,5 +178,22 @@ public class BookServlet extends BaseServlet {
         System.out.println(req.getContextPath());
         //重定向返回页面。需要获取工程路径getContextPath()
         resp.sendRedirect(req.getContextPath() + "/book/bookServlet?action=listBook");
+    }
+
+    /**
+     * @param req:
+     * @param resp:
+     * @Description: 查询分页服务
+     * @Author: BaiYZ
+     * @Date: 2021/12/9 8:40
+     * @return: void
+     */
+    public void pages(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
+        Integer pageNo = WebUtils.parseIntFromString(req.getParameter("pageNo"), Page.defaultPageNo);
+        Integer pageSize = WebUtils.parseIntFromString(req.getParameter("pageSize"), Page.defaultPageSize);
+        BookServiceImpl bookService = new BookServiceImpl();
+        Page<Book> page = bookService.pages(pageNo, pageSize);
+        req.setAttribute("page", page);
+        req.getRequestDispatcher("/pages/book/bookManage.jsp").forward(req, resp);
     }
 }

@@ -1,6 +1,7 @@
 package service;
 
 import bean.Book;
+import bean.Page;
 
 import java.util.List;
 
@@ -79,4 +80,14 @@ public interface BookService {
      * @Date: 2021/12/5 17:03
      */
     int addBook(Book book);
+
+    /**
+     * @param pageNo:
+     * @param pageSize:
+     * @Description: 提供page方法查询分页，并返回page对象
+     * @Author: BaiYZ
+     * @Date: 2021/12/9 8:54
+     * @return: bean.Page<bean.Book>
+     */
+    Page<Book> pages(Integer pageNo, Integer pageSize);
 }

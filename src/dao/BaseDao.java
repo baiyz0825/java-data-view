@@ -90,7 +90,7 @@ public class BaseDao {
      * @Date: 2021/12/3 22:00
      * @return: java.lang.Number
      */
-    public <T> Number queryForCount(Class<T> classType, String sql, Object params) {
+    public Number queryForCount(String sql, Object... params) {
         Connection connection = JDBCUtils.getConnection();
         try {
             return queryRunner.query(connection, sql, new ScalarHandler<>(), params);
