@@ -20,6 +20,7 @@ import java.util.List;
  * @date 2021-12-05 17:40:46
  */
 public class BookServlet extends BaseServlet {
+    private static final BookServiceImpl bookService = new BookServiceImpl();
     /**
      * Called by the server (via the <code>service</code> method) to
      * allow a servlet to handle a GET request.
@@ -152,12 +153,12 @@ public class BookServlet extends BaseServlet {
      */
     public void listBook(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
         //初始化服务类对象
-        BookServiceImpl bookService = new BookServiceImpl();
+//        BookServiceImpl bookService = new BookServiceImpl();
         //返回查询的books
         List<Book> books = bookService.searchBookAll();
         //存入req 域中
         req.setAttribute("books", books);
-        //请求转发
+        //请求转发-"/"为解析到项目路径
         req.getRequestDispatcher("/pages/book/bookManage.jsp").forward(req, resp);
     }
 
@@ -170,14 +171,15 @@ public class BookServlet extends BaseServlet {
      * @return: void
      */
     public void delete(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-        BookServiceImpl bookService = new BookServiceImpl();//获取传入的参数
-        String id = req.getParameter("id");
+//        BookServiceImpl bookService = new BookServiceImpl();
+        String id = req.getParameter("id");//获取传入的参数
+        String pageNo = req.getParameter("pageNo");
 //        System.out.println(id);
         bookService.deleteBookById(id);
         //重定向返回图书列表(还是访问servlet填充图书信息)
-        System.out.println(req.getContextPath());
+//        System.out.println(req.getContextPath());
         //重定向返回页面。需要获取工程路径getContextPath()
-        resp.sendRedirect(req.getContextPath() + "/book/bookServlet?action=listBook");
+        resp.sendRedirect(req.getContextPath() + "/book/bookServlet?action=pages&pageNo="+pageNo);
     }
 
     /**
@@ -191,9 +193,52 @@ public class BookServlet extends BaseServlet {
     public void pages(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
         Integer pageNo = WebUtils.parseIntFromString(req.getParameter("pageNo"), Page.defaultPageNo);
         Integer pageSize = WebUtils.parseIntFromString(req.getParameter("pageSize"), Page.defaultPageSize);
-        BookServiceImpl bookService = new BookServiceImpl();
+
         Page<Book> page = bookService.pages(pageNo, pageSize);
         req.setAttribute("page", page);
         req.getRequestDispatcher("/pages/book/bookManage.jsp").forward(req, resp);
+    }
+    /**
+     * @Description: 添加期刊
+     * @Author: BaiYZ
+     * @Date: 2021/12/10 0:20
+     * @param req:
+     * @param resp:
+     * @return: void
+     */
+    public void addBook(HttpServletRequest req,HttpServletResponse resp)throws ServletException,IOException{
+        Book book =  WebUtils.gernerateBean(req.getParameterMap(), new Book());
+        bookService.addBook(book);
+      /*  这里使用重定向的原因是因为，
+        如果使用请求转发，这个时候还是一个请求request域中的数据依旧存在还是一次请求，并且在浏览器中使用F5进行刷新其还是会再次提交页面（默认提交最后一次请求）、
+        也就是会导致多次向服务器发送插入请求*/
+        resp.sendRedirect(req.getContextPath()+"/book/bookServlet?action=pages");
+    }
+    /**
+     * @Description: 获取一个图书存入request用于回显
+     * @Author: BaiYZ
+     * @Date: 2021/12/10 0:57
+     * @param req:
+     * @param resp:
+     * @return: void
+     */
+    public void getBook(HttpServletRequest req,HttpServletResponse resp) throws ServletException,IOException{
+        String number = req.getParameter("number");
+        Book book = bookService.searchBookById(number);
+        req.setAttribute("book", book);
+        req.getRequestDispatcher("/pages/book/bookEdit.jsp").forward(req, resp);//一次请求，需要request域中值
+    }
+    /**
+     * @Description: 更新图书，更新完成重定向回去
+     * @Author: BaiYZ
+     * @Date: 2021/12/10 0:57
+     * @param req:
+     * @param resp:
+     * @return: void
+     */
+    public void updateBook(HttpServletRequest req,HttpServletResponse resp) throws ServletException,IOException{
+        Book book = WebUtils.gernerateBean(req.getParameterMap(), new Book());
+        bookService.updateBook(book);
+        resp.sendRedirect(req.getContextPath()+"/book/bookServlet?action=pages");//防止刷新重复提交
     }
 }

@@ -20,10 +20,13 @@
             })
         })
     </script>
-    <title>Title</title>
+    <title>期刊管理</title>
 </head>
 <body>
 <table>
+    <tr>
+        <td><a href="pages/book/bookEdit.jsp">添加图书</a></td>
+    </tr>
     <tr>
         <td>期刊ID编号</td>
         <td>期刊名称</td>
@@ -45,48 +48,60 @@
             <td>${book.prices}</td>
             <td>${book.publishData}</td>
             <td>${book.remainNumber}</td>
-            <td><a href="bookEdit.jsp">修改</a></td>
-            <td><a class="confirmDelete" href="book/bookServlet?action=delete&id=${book.number}">删除</a></td>
+            <td><a href="book/bookServlet?action=getBook&number=${book.number}">修改</a></td>
+            <td><a class="confirmDelete"
+                   href="book/bookServlet?action=delete&id=${book.number}&pageNo=${requestScope.page.pageNo}">删除</a>
+            </td>
         </tr>
     </c:forEach>
 </table>
-<div>
-    <!-- 当界面大于第一页显示首页和上一页-->
-    <c:if test="${requestScope.page.pageNo > 1}">
-        <a href="book/bookServlet?action=pages&pageNo=1">第一页</a>
-        <a href="book/bookServlet?action=pages&pageNo=${requestScope.page.pageNo-1}">上一页</a>
-    </c:if>
-    <!-- 当界面小于最大页面，显示下一页和最后一页-->
-    <c:if test="${requestScope.page.pageNo < requestScope.page.pageCount}">
-        <a href="book/bookServlet?action=pages&pageNo=${requestScope.page.pageNo+1}">下一页</a>
-        <a href="book/bookServlet?action=pages&pageNo=${requestScope.page.pageCount}">最后一页</a>
-    </c:if>
-    <%--        这里使用param对象获取地址栏中的参数Map<key,map>--%>
-    <input id="inputPageNo" name="pageNo" value="${param.pageNo}"><label id="inputPageNoLabel"
-                                                                         for="inputPageNo">跳转</label>
-    <div>总页数：${requestScope.page.pageCount}</div>
-    <div>当前页：${requestScope.page.pageNo}</div>
-    <script type="text/javascript">
-        $(function () {//给label标签绑定单机事件
-            $("#inputPageNoLabel").click(function () {
-                let pageCount =${requestScope.page.pageCount};
-                // alert(pageCount);
-                let pageNo = $("#inputPageNo").val();//获取其标签Value属性值
-                // alert(location.href);//location。href显示当前浏览器的地址栏中的数据，赋值之后是在当前窗口或者父窗口打开地址
-                /* "top.location.href"是最外层的页面跳转
-                 "window.location.href"、"location.href"是本页面跳转
-                 "parent.location.href"是上一层页面跳转.*/
-                //边界检查
-                if (pageNo <= 1)
-                    location.href = "${pageScope.basePath}book/bookServlet?action=pages&pageNo=1";
-                else if (pageNo >= pageCount)
-                    location.href = "${pageScope.basePath}book/bookServlet?action=pages&pageNo=" + pageCount;
-                else
-                    location.href = "${pageScope.basePath}book/bookServlet?action=pages&pageNo=" + pageNo;//在EL表达式中其获取域对象变为了pageScope->pageContext requestScope->Request sessionScope->Session applicationScope->ServletContext
-            })
-        })
-    </script>
-</div>
-
+<table>
+    <tr>
+        <td> <!-- 当界面大于第一页显示首页和上一页-->
+            <c:if test="${requestScope.page.pageNo > 1}">
+                <a href="book/bookServlet?action=pages&pageNo=1">第一页</a>
+                <a href="book/bookServlet?action=pages&pageNo=${requestScope.page.pageNo-1}">上一页</a>
+            </c:if>
+        </td>
+        <td>
+            <!-- 当界面小于最大页面，显示下一页和最后一页-->
+            <c:if test="${requestScope.page.pageNo < requestScope.page.pageCount}">
+                <a href="book/bookServlet?action=pages&pageNo=${requestScope.page.pageNo+1}">下一页</a>
+                <a href="book/bookServlet?action=pages&pageNo=${requestScope.page.pageCount}">最后一页</a>
+            </c:if>
+        </td>
+        <td>
+            <%--        这里使用param对象获取地址栏中的参数Map<key,map>--%>
+            <input id="inputPageNo" name="pageNo" value="${param.pageNo}"><label id="inputPageNoLabel"
+                                                                                 for="inputPageNo">跳转</label>
+            <script type="text/javascript">
+                $(function () {//给label标签绑定单机事件
+                    $("#inputPageNoLabel").click(function () {
+                        let pageCount =${requestScope.page.pageCount};
+                        // alert(pageCount);
+                        let pageNo = $("#inputPageNo").val();//获取其标签Value属性值
+                        // alert(location.href);//location。href显示当前浏览器的地址栏中的数据，赋值之后是在当前窗口或者父窗口打开地址
+                        /* "top.location.href"是最外层的页面跳转
+                         "window.location.href"、"location.href"是本页面跳转
+                         "parent.location.href"是上一层页面跳转.*/
+                        //边界检查
+                        if (pageNo <= 1)
+                            location.href = "${pageScope.basePath}book/bookServlet?action=pages&pageNo=1";
+                        else if (pageNo >= pageCount)
+                            location.href = "${pageScope.basePath}book/bookServlet?action=pages&pageNo=" + pageCount;
+                        else
+                            location.href = "${pageScope.basePath}book/bookServlet?action=pages&pageNo=" + pageNo;//在EL表达式中其获取域对象变为了pageScope->pageContext requestScope->Request sessionScope->Session applicationScope->ServletContext
+                    })
+                })
+            </script>
+        </td>
+        <td>
+            <div>总页数：${requestScope.page.pageCount}</div>
+        </td>
+        <td>
+            <div>当前页：${requestScope.page.pageNo}</div>
+        </td>
+    </tr>
+</table>
 </body>
 </html>
