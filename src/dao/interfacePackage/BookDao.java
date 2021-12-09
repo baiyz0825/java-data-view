@@ -81,4 +81,22 @@ public interface BookDao {
      * @return: int
      */
     int addBook(Book book);
+
+    /**
+     * @Description: 搜索聚合类函数，查询数据库获取其总共地记录数
+     * @Author: BaiYZ
+     * @Date: 2021/12/9 9:00
+     * @return: int
+     */
+    int searchAllCountBookRecord();
+
+    /**
+     * @param pageNo:
+     * @param pageSize:
+     * @Description: 按照其分页页码以及分页大小查询符合的分页中包含的图书
+     * @Author: BaiYZ
+     * @Date: 2021/12/9 9:02
+     * @return: java.util.List<bean.Book>
+     */
+    List<Book> booksForOnePages(int pageNo, int pageSize);
 }

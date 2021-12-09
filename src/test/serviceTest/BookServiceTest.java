@@ -1,6 +1,7 @@
 package test.serviceTest;
 
 import bean.Book;
+import bean.Page;
 import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.Test;
 import service.imp.BookServiceImpl;
@@ -60,5 +61,12 @@ class BookServiceTest {
 
     @Test
     void addBook() {
+    }
+
+    @Test
+    void pages() {
+        BookServiceImpl bookService = new BookServiceImpl();
+        Page<Book> page = bookService.pages(1, Page.defaultPageSize);
+        System.out.println(page);
     }
 }

@@ -11,7 +11,7 @@
     <meta charset="UTF-8">
     <%@include file="pages/include/head.jsp" %>
     <title>期刊管理系统</title>
-    <a href="book/bookServlet?action=listBook">期刊管理</a>
+    <a href="book/bookServlet?action=pages">期刊管理</a>
     <a href="pages/user/login.jsp">登录</a>
 </head>
 <body>

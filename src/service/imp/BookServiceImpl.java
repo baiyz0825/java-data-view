@@ -1,6 +1,7 @@
 package service.imp;
 
 import bean.Book;
+import bean.Page;
 import dao.imp.BookDaoImpl;
 import service.BookService;
 
@@ -48,6 +49,31 @@ public class BookServiceImpl implements BookService {
     @Override
     public List<Book> searchBookAll() {
         return bookDao.searchBookAll();
+    }
+
+    /**
+     * @param pageNo   :
+     * @param pageSize :
+     * @Description: 提供page方法查询分页，并返回page对象
+     * @Author: BaiYZ
+     * @Date: 2021/12/9 8:54
+     * @return: bean.Page<bean.Book>
+     */
+    @Override
+    public Page<Book> pages(Integer pageNo, Integer pageSize) {
+        BookDaoImpl bookDao = new BookDaoImpl();
+        Page<Book> page = new Page<Book>();
+        page.setPageNo(pageNo);
+        page.setPageSize(pageSize);
+        int recordCount = bookDao.searchAllCountBookRecord();
+        page.setRecordCount(recordCount);
+        int pageCount = recordCount / pageSize;//可能存在余数，图书还得一页
+        if (recordCount / pageSize != 0)
+            pageCount++;
+        page.setPageCount(pageCount);
+        List<Book> books = bookDao.booksForOnePages(pageNo, pageSize);//查询分页列表
+        page.setPageData(books);
+        return page;
     }
 
     /**

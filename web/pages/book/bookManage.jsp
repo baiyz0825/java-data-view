@@ -35,7 +35,7 @@
         <td>期刊库存</td>
         <td colspan="2"></td>
     </tr>
-    <c:forEach items="${requestScope.books}" var="book">
+    <c:forEach items="${requestScope.page.pageData}" var="book">
         <tr>
             <td>${book.number}</td>
             <td>${book.name}</td>
