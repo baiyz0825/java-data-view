@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<html lang="ch">
+<head>
+    <meta charset="UTF-8">
+    <link href="../../static/img/title_book.ico" rel="shortcut icon" type="image/x">
+    <title>期刊管理信息</title>
+    <style>
+        body {
+            background: url("../../static/img/background_mount.png") no-repeat fixed;
+            background-size: cover;
+        }
+
+        .toptip {
+            height: 35px;
+            /*border: 3px solid #eeeeee;*/
+            background: rgba(240, 240, 240, .8);
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+        }
+
+        .img_user {
+            position: absolute;
+            right: 0px;
+            width: 50px;
+        }
+
+        .content {
+            width: 400px;
+            height: 480px;
+            border: 3px solid #eeeeee;
+            background: rgba(240, 240, 240, .7);
+            margin: auto;
+            margin-top: 100px;
+        }
+
+        .con_wel {
+            color: black;
+            font-size: 25px;
+            width: 400px;
+            height: 60px;
+            /*border: 1px solid red;*/
+            margin-top: 40px;
+        }
+
+        .td_left {
+            width: 60px;
+            height: 45px;
+            text-align: right;
+            padding-left: 10px;
+        }
+
+        .td_right {
+            padding-left: 5px;
+            padding-right: 10px;
+        }
+
+        #username, #password, #checkCode {
+            width: 260px;
+            height: 32px;
+            border: 1px solid white;
+            border-radius: 5px;
+            padding-left: 10px;
+        }
+
+        #checkCode {
+            width: 150px;
+        }
+
+        #img_check {
+            height: 32px;
+            vertical-align: middle;
+        }
+
+        #btn_sub {
+            width: 150px;
+            height: 50px;
+            background-color: #eeb8af;
+            border: 3px solid #eeeeee;
+            border-radius: 5px;
+            font-size: 20px;
+        }
+
+        .td_login {
+            padding-top: 30px;
+        }
+
+        .td_rgleft {
+            width: 150px;
+            height: 50px;
+            padding-left: 10px;
+        }
+
+        .td_rgright {
+            width: 150px;
+            height: 50px;
+            padding-right: 10px;
+            text-align: right;
+        }
+    </style>
+</head>
+
+<body>
+<div class="toptip">
+    <table>
+        <tr>
+            <td>期刊信息管理系统 首页logo<a href="#" target="-blank" title="首页Logo">
+                <img src="#">
+            </a></td>
+            <td class="img_user"><img src="../../static/img/user2.png"></td>
+        </tr>
+    </table>
+</div>
+<div class="content">
+    <form action="user/userServlet" method="post">
+        <input name="action" type="hidden" value="login">
+        <div class="con_rg">
+            <table align="center" border="0">
+                <caption class="con_wel">——欢迎登录——</caption>
+
+                <tr>
+                    <td class="td_left"><label for="username">用户名：</label></td>
+                    <td class="td_right"><input id="username" name="name" placeholder="请输入学号/工号" type="text"></td>
+                </tr>
+                <tr>
+                    <td class="td_left"><label for="password">密&nbsp;&nbsp;&nbsp;&nbsp;码：</label></td>
+                    <td class="td_right"><input id="password" name="password" placeholder="请输入密码" type="password"></td>
+                </tr>
+                <tr>
+                    <td class="td_left"><label>身&nbsp;&nbsp;&nbsp;&nbsp;份：</label></td>
+                    <td class="td_right"><input name="identity" type="radio" value="student">学生&nbsp;&nbsp;&nbsp;&nbsp;
+                        <input name="identity" type="radio" value="administrator">管理员
+                    </td>
+                </tr>
+                <tr>
+                    <td class="td_left"><label for="checkCode">验证码：</label></td>
+                    <td class="td_right"><input id="checkCode" name="checkCode" placeholder="验证码" type="text">
+                        <img id="img_check" src="#">
+                    </td>
+                </tr>
+                <tr>
+                    <td align="center" class="td_login" colspan="2"><input id="btn_sub" type="submit" value="立即登录"/>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="td_left"></td>
+                    <td class="td_right"></td>
+                </tr>
+                <tr>
+                    <td class="td_rgleft"><a href="#" target="_blank">马上注册</a></td>
+                    <td class="td_rgright"><a href="#" target="_blank">忘记密码?</a></td>
+                </tr>
+            </table>
+        </div>
+
+    </form>
+</div>
+</body>
+</html>
