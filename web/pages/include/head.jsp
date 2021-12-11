@@ -16,5 +16,5 @@
 <%--导入Jqery--%>
 <script type="text/javascript" src="static/scripts/jquery-1.7.2.js"></script>
 <%--导入BootStrap--%>
-<script src="static/bootstrap-5.1.3/dist/js/bootstrap.bundle.min.js"></script>
-<link href="static/bootstrap-5.1.3/dist/css/bootstrap.min.css" rel="stylesheet">
+<script type="text/javascript" src="static/bootstrap-5.1.3-dist/js/bootstrap.bundle.min.js"></script>
+<link href="static/bootstrap-5.1.3-dist/css/bootstrap.min.css" rel="stylesheet">

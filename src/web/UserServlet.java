@@ -18,6 +18,7 @@ import java.io.IOException;
  * @date 2021-12-08 22:45:46
  */
 public class UserServlet extends BaseServlet {
+    private static final UserServiceImpl userService = new UserServiceImpl();
     /**
      * Called by the server (via the <code>service</code> method) to
      * allow a servlet to handle a GET request.
@@ -141,10 +142,9 @@ public class UserServlet extends BaseServlet {
     }
 
     public void login(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-        System.out.println(req.getParameterMap());
+//        System.out.println(req.getParameterMap());
         User user = WebUtils.gernerateBean(req.getParameterMap(), new User());
 //        System.out.println(user);
-        UserServiceImpl userService = new UserServiceImpl();
         if (userService.searchUserByNumber(user.getNumber()) != null || userService.searchUserByName(user.getName()) != null) {
             req.getRequestDispatcher("/pages/user/loginSuccess.jsp").forward(req, resp);
         } else {
@@ -155,6 +155,17 @@ public class UserServlet extends BaseServlet {
     }
 
     public void register(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-
+        User user = WebUtils.gernerateBean(req.getParameterMap(), new User());
+        if (userService.searchUserByName(user.getName()) != null) {
+            req.setAttribute("username", user.getName());
+            req.setAttribute("number", user.getNumber());
+            System.out.println(user.getNumber());
+            req.setAttribute("errorMsg", "用户名已存在！");
+            req.getRequestDispatcher("/pages/user/register.jsp").forward(req, resp);
+        } else {
+            userService.addUser(user);
+            req.setAttribute("successMsg", user.getName());
+            req.getRequestDispatcher("/pages/user/login.jsp").forward(req, resp);
+        }
     }
 }

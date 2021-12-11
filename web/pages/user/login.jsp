@@ -11,45 +11,66 @@
 <head>
     <meta charset="UTF-8">
     <%@include file="../include/head.jsp" %>
+    <link href="static/img/title_book.ico" rel="shortcut icon" type="image/x">
+    <link href="static/css/style.css" rel="stylesheet" type="text/css">
     <title>期刊信息管理系统</title>
 </head>
 <body>
-<div>期刊信息管理系统</div>
-<hr>
-<div id="content">
+<div class="toptip">
+    <table>
+        <tr>
+            <td>期刊信息管理系统 首页logo<a href="#" target="-blank" title="首页Logo">
+                <img src="#">
+            </a></td>
+            <td class="img_user"><img src="static/img/user2.png"></td>
+        </tr>
+    </table>
+</div>
+<div class="content">
     <form action="user/userServlet" method="post">
-        <input type="hidden" name="action" value="login">
-        <table align="center" border="0">
-            <caption>欢迎登录</caption>
-            <tr>
-                <td><label for="username">用户名：</label></td>
-                <td><input id="username" name="name" placeholder="学号/工号" type="text"></td>
-            </tr>
-            <tr>
-                <td><label for="password">密码：</label></td>
-                <td><input id="password" name="password" placeholder="密码" type="password"></td>
-            </tr>
-            <tr>
-                <td><label>身&nbsp;&nbsp;&nbsp;&nbsp;份：</label></td>
-                <td><input name="identity" type="radio" value="student">学生&nbsp;&nbsp;&nbsp;&nbsp;
-                    <input name="identity" type="radio" value="administrator">管理员
-                </td>
-            </tr>
-            <tr>
-                <td><label for="checkCode">验证码：</label></td>
-                <td><input id="checkCode" name="checkCode" placeholder="验证码" type="text">
-                    <img src="#">
-                </td>
-            </tr>
-            <tr>
-                <td align="center" colspan="2"><input type="submit" value="登录"/></td>
-            </tr>
-            <tr>
-                <td align="center"><a href="#" target="_blank">立即注册</a></td>
-                <td align="center"><a href="#" target="_blank">忘记密码?</a></td>
-            </tr>
-
-        </table>
+        <input name="action" type="hidden" value="login">
+        <div class="con_rg">
+            <table align="center" border="0">
+                <caption class="con_wel">——欢迎登录——</caption>
+                <tr>
+                    <td>
+                        <h4>${empty requestScope.successMsg ?"":requestScope.successMsg .concat("恭喜注册成功：") }</h4>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="td_left"><label for="username">用户名：</label></td>
+                    <td class="td_right"><input id="username" name="name" placeholder="请输入学号/工号" type="text"></td>
+                </tr>
+                <tr>
+                    <td class="td_left"><label for="password">密&nbsp;&nbsp;&nbsp;&nbsp;码：</label></td>
+                    <td class="td_right"><input id="password" name="password" placeholder="请输入密码" type="password"></td>
+                </tr>
+                <tr>
+                    <td class="td_left"><label>身&nbsp;&nbsp;&nbsp;&nbsp;份：</label></td>
+                    <td class="td_right"><input name="identity" type="radio" value="student">学生&nbsp;&nbsp;&nbsp;&nbsp;
+                        <input name="identity" type="radio" value="administrator">管理员
+                    </td>
+                </tr>
+                <tr>
+                    <td class="td_left"><label for="checkCode">验证码：</label></td>
+                    <td class="td_right"><input id="checkCode" name="checkCode" placeholder="验证码" type="text">
+                        <img id="img_check" src="#">
+                    </td>
+                </tr>
+                <tr>
+                    <td align="center" class="td_login" colspan="2"><input id="btn_sub" type="submit" value="立即登录"/>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="td_left"></td>
+                    <td class="td_right"></td>
+                </tr>
+                <tr>
+                    <td class="td_rgleft"><a href="pages/user/register.jsp" target="_self">马上注册</a></td>
+                    <td class="td_rgright"><a href="#" target="_self">忘记密码?</a></td>
+                </tr>
+            </table>
+        </div>
     </form>
 </div>
 </body>
