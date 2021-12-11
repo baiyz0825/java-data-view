@@ -5,6 +5,8 @@
       <map>
         <entry key="file://$PROJECT_DIR$/web/pages/book/bookManage.jsp" value="file://$PROJECT_DIR$/web" />
         <entry key="file://$PROJECT_DIR$/web/pages/include/head.jsp" value="file://$PROJECT_DIR$/web" />
+        <entry key="file://$PROJECT_DIR$/web/pages/user/register.html" value="file://$PROJECT_DIR$/web" />
+        <entry key="file://$PROJECT_DIR$/web/pages/user/register.jsp" value="file://$PROJECT_DIR$/web" />
       </map>
     </option>
   </component>
