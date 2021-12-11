@@ -1,1 +1,94 @@
 
+body {
+    background: url("../../static/img/background_mount.png") no-repeat fixed;
+    background-size: cover;
+}
+
+.toptip {
+    height: 35px;
+    /*border: 3px solid #eeeeee;*/
+    background: rgba(240, 240, 240, .8);
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+}
+
+.img_user {
+    position: absolute;
+    right: 0px;
+    width: 50px;
+}
+
+.content {
+    width: 400px;
+    height: 480px;
+    border: 3px solid #eeeeee;
+    background: rgba(240, 240, 240, .7);
+    margin: auto;
+    margin-top: 100px;
+}
+
+.con_wel {
+    color: black;
+    font-size: 25px;
+    width: 400px;
+    height: 60px;
+    /*border: 1px solid red;*/
+    margin-top: 40px;
+}
+
+.td_left {
+    width: 60px;
+    height: 45px;
+    text-align: right;
+    padding-left: 10px;
+}
+
+.td_right {
+    padding-left: 5px;
+    padding-right: 10px;
+}
+
+#username, #password, #checkCode {
+    width: 260px;
+    height: 32px;
+    border: 1px solid white;
+    border-radius: 5px;
+    padding-left: 10px;
+}
+
+#checkCode {
+    width: 150px;
+}
+
+#img_check {
+    height: 32px;
+    vertical-align: middle;
+}
+
+#btn_sub {
+    width: 150px;
+    height: 50px;
+    background-color: #eeb8af;
+    border: 3px solid #eeeeee;
+    border-radius: 5px;
+    font-size: 20px;
+}
+
+.td_login {
+    padding-top: 30px;
+}
+
+.td_rgleft {
+    width: 150px;
+    height: 50px;
+    padding-left: 10px;
+}
+
+.td_rgright {
+    width: 150px;
+    height: 50px;
+    padding-right: 10px;
+    text-align: right;
+}
