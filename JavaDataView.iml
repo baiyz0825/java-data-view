@@ -9,6 +9,7 @@
         <webroots>
           <root url="file://$MODULE_DIR$/web" relative="/" />
         </webroots>
+        <sourceRoots />
       </configuration>
     </facet>
   </component>
@@ -51,7 +52,7 @@
     <orderEntry type="module-library">
       <library>
         <CLASSES>
-          <root url="jar://D:/CodeIDE/Tomcat/9.0.54/lib/jsp-api.jar!/" />
+          <root url="jar://$MODULE_DIR$/../../../../../../CodeIDE/Tomcat/9.0.54/lib/jsp-api.jar!/" />
         </CLASSES>
         <JAVADOC />
         <SOURCES />
@@ -60,12 +61,13 @@
     <orderEntry type="module-library">
       <library>
         <CLASSES>
-          <root url="jar://D:/CodeIDE/Tomcat/9.0.54/lib/servlet-api.jar!/" />
+          <root url="jar://$MODULE_DIR$/../../../../../../CodeIDE/Tomcat/9.0.54/lib/servlet-api.jar!/" />
         </CLASSES>
         <JAVADOC />
         <SOURCES />
       </library>
     </orderEntry>
     <orderEntry type="library" name="li" level="project" />
+    <orderEntry type="library" name="servlet-api" level="project" />
   </component>
 </module>
