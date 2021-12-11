@@ -25,13 +25,15 @@
     <div class="con_wel">
         欢迎登录
     </div>
+    <br/>
     <form action="user/userServlet" method="post">
         <input name="action" type="hidden" value="login">
         <table align="center" border="0">
             <tr>
                 <td align="center" colspan="2">
-                    <div class="alert-success">
+                    <div class="alert-danger">
                         <strong></strong>
+                        </br>
                     </div>
                 </td>
             </tr>
@@ -45,13 +47,13 @@
             </tr>
             <tr>
                 <td class="td_left"><label>身&nbsp;&nbsp;&nbsp;&nbsp;份：</label></td>
-                <td class="td_right"><input name="identity" type="radio" value="student">学生&nbsp;&nbsp;&nbsp;&nbsp;
+                <td class="tdst_right"><input name="identity" type="radio" value="student">学生&nbsp;&nbsp;&nbsp;&nbsp;
                     <input name="identity" type="radio" value="administrator">管理员
                 </td>
             </tr>
             <tr>
                 <td class="td_left"><label for="checkCode">验证码：</label></td>
-                <td class="td_right"><input id="checkCode" name="checkCode" placeholder="验证码" type="text">
+                <td class="tdst_right"><input id="checkCode" name="checkCode" placeholder="验证码" type="text">
                     <img id="img_check" src="#">
                 </td>
             </tr>

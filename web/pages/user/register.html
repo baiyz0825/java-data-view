@@ -13,9 +13,10 @@
 <div class="toptip">
     <table>
         <tr>
-            <td>首页logo<a href="#" target="-blank" title="首页Logo">
+            <td class="toptip_logo">首页logo<a href="#" target="-blank" title="首页Logo">
                 <img src="#">
             </a></td>
+            <td class="toptip_help"><a href="#" target="_blank"><strong>帮助？</strong></a></td>
             <td class="img_user"><img src="../../static/img/user2.png"></td>
         </tr>
     </table>
@@ -25,13 +26,16 @@
     <div class="con_wel">
         欢迎注册
     </div>
+
+    <br/>
     <form action="user/userServlet" method="post">
         <input name="action" type="hidden" value="login">
         <table align="center" border="0">
             <tr>
                 <td align="center" colspan="2">
-                    <div class="alert-success">
+                    <div class="alert-danger">
                         <strong></strong>
+                        </br>
                     </div>
                 </td>
             </tr>
@@ -40,18 +44,28 @@
                 <td class="td_right"><input id="username" name="name" placeholder="请输入学号/工号" type="text"></td>
             </tr>
             <tr>
+                <td class="td_left"><label for="number">手机号：</label></td>
+                <td class="td_right"><input id="number" name="number" placeholder="请输入手机号" type="number"></td>
+            </tr>
+            <tr>
                 <td class="td_left"><label for="password">密&nbsp;&nbsp;&nbsp;&nbsp;码：</label></td>
                 <td class="td_right"><input id="password" name="password" placeholder="请输入密码" type="password"></td>
             </tr>
             <tr>
-                <td class="td_left"><label for="password">确&nbsp;&nbsp;&nbsp;&nbsp;定：</label></td>
+                <td class="td_left"><label for="password_repeat">确&nbsp;&nbsp;&nbsp;&nbsp;定：</label></td>
                 <td class="td_right"><input id="password_repeat" name="password" placeholder="重复密码" type="password">
                 </td>
             </tr>
             <tr>
                 <td class="td_left"><label>身&nbsp;&nbsp;&nbsp;&nbsp;份：</label></td>
-                <td class="td_right"><input name="identity" type="radio" value="student">学生&nbsp;&nbsp;&nbsp;&nbsp;
+                <td class="tdst_right"><input name="identity" type="radio" value="student">学生&nbsp;&nbsp;&nbsp;&nbsp;
                     <input name="identity" type="radio" value="administrator">管理员
+                </td>
+            </tr>
+            <tr>
+                <td class="td_left"><label>性&nbsp;&nbsp;&nbsp;&nbsp;别：</label></td>
+                <td class="tdst_right"><input name="gender" type="radio" value="man">男&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                    <input name="gender" type="radio" value="falseman">女
                 </td>
             </tr>
             <tr>
@@ -64,19 +78,16 @@
                 <td align="center" class="td_login" colspan="2"><input id="btn_sub" type="submit" value="立即注册"/>
                 </td>
             </tr>
-            <tr>
-                <td class="td_left"></td>
-                <td class="td_right"></td>
-            </tr>
         </table>
     </form>
+    <br/>
     <div class="href_register">
         <table>
             <tr>
-                <td class="td_rgleft"><a href="#" target="_blank">马上注册</a></td>
-                <td class="td_rgright"><a href="#" target="_blank">忘记密码?</a></td>
+                <td class="td_rgright" colspan="2"><a href="#" target="_blank">已注册?去登录</a></td>
             </tr>
         </table>
     </div>
+
 </div>
 </body></html>
