@@ -90,4 +90,15 @@ public interface BookService {
      * @return: bean.Page<bean.Book>
      */
     Page<Book> pages(Integer pageNo, Integer pageSize);
+
+    /**
+     * @param book:
+     * @param pageNo:
+     * @param pageSize:
+     * @Description: 实现期刊分类检索
+     * @Author: BaiYZ
+     * @Date: 2021/12/11 18:38
+     * @return: bean.Page<bean.Book>
+     */
+    Page<Book> searchBookPage(Book book, Integer pageNo, Integer pageSize);
 }

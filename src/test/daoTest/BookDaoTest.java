@@ -1,12 +1,15 @@
 package test.daoTest;
 
 import bean.Book;
+import bean.Page;
 import dao.imp.BookDaoImpl;
 import org.junit.jupiter.api.Test;
 
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
+import java.util.ArrayList;
 import java.util.Date;
+import java.util.List;
 
 /**
  * Created with IntelliJ IDEA.
@@ -87,5 +90,34 @@ class BookDaoTest {
         for (Book book : bookDao.booksForOnePages(2, 4)) {
             System.out.println(book);
         }
+    }
+
+    @Test
+    void getSqlFromBean() {
+        BookDaoImpl bookDao = new BookDaoImpl();
+        List<Object> param = new ArrayList<>();
+        Book book = new Book("", "文学", "中国出啊版社", "今天", "", 1.0, 2, null);
+        System.out.println(bookDao.getSqlFromBean(book, "*", param));
+        System.out.println(param);
+    }
+
+    @Test
+    void searchBooksConditionCount() {
+        BookDaoImpl bookDao = new BookDaoImpl();
+        Book book = new Book("", "科", "社", "", "", 1.0, 2, null);
+        System.out.println(bookDao.searchBooksConditionCount(book));
+    }
+
+    @Test
+    void searchBooksConditionPages() {
+        BookDaoImpl bookDao = new BookDaoImpl();
+        int pageSize = 1;
+        int pageNo = 1;
+        Book book = new Book("", "科", "社", "", "", 1.0, 2, null);
+        List<Book> books1 = bookDao.searchBooksConditionPages(book, pageNo, pageSize);
+        List<Book> books2 = bookDao.searchBooksConditionPages(book, pageNo + 1, pageSize);
+        System.out.println(books1);
+        System.out.println("---------");
+        System.out.println(books2);
     }
 }

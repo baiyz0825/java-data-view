@@ -69,4 +69,13 @@ class BookServiceTest {
         Page<Book> page = bookService.pages(1, Page.defaultPageSize);
         System.out.println(page);
     }
+
+    @Test
+    void searchBookPage() {
+        BookServiceImpl bookService = new BookServiceImpl();
+        Book book = new Book("", "科", "社", "", "", 1.0, 2, null);
+        System.out.println(bookService.searchBookPage(book, 1, 1).getPageData());
+        System.out.println("----------");
+        System.out.println(bookService.searchBookPage(book, 2, 1).getPageData());
+    }
 }

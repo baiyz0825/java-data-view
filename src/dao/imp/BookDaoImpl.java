@@ -4,6 +4,9 @@ import bean.Book;
 import dao.BaseDao;
 import dao.interfacePackage.BookDao;
 
+import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.LinkedList;
 import java.util.List;
 
 /**
@@ -14,6 +17,11 @@ import java.util.List;
  * @date 2021-12-03 21:23:40
  */
 public class BookDaoImpl extends BaseDao implements BookDao {
+    //这里使用Object类型容纳，因为在查询的过程中需要替换占位符Like时是字符串
+    // 但是在替换后面的Limit限制需要是数字，因此使用Object类型存放
+    private static List<Object> param = new ArrayList<>();
+
+
     /**
      * @param id :
      * @Description: 使用编号查找图书
@@ -110,6 +118,76 @@ public class BookDaoImpl extends BaseDao implements BookDao {
     public List<Book> booksForOnePages(int pageNo, int pageSize) {
         String sql = "select * from `Book` limit ?,?";
         return queryForList(Book.class, sql, (pageNo - 1) * pageSize, pageSize);
+    }
+
+    /**
+     * @param book :
+     * @Description: 搜索模糊匹配期刊个数
+     * @Author: BaiYZ
+     * @Date: 2021/12/11 18:42
+     * @return: int
+     */
+    @Override
+    public int searchBooksConditionCount(Book book) {
+        String sql = getSqlFromBean(book, "count(*)", param);
+//        System.out.println(sql);
+//        System.out.println(param);
+        Number count = queryForCount(sql, param.toArray());
+        param.clear();
+        return count.intValue();
+    }
+
+    /**
+     * @param book :
+     * @Description: 拼接sql 计算需要查询分页的sql语句
+     * @Author: BaiYZ
+     * @Date: 2021/12/11 18:49
+     * @return: java.lang.String
+     */
+    @Override
+    public String getSqlFromBean(Book book, String pattern, List<Object> param) {
+        String sql = "select " + pattern + " from `Book` where 1=1";
+        if (book.getNumber() != null && !book.getNumber().trim().equals("")) {
+            sql += " and number =?";
+            param.add(book.getNumber());
+            return sql;
+        }
+        if (book.getName() != null && !book.getName().trim().equals("")) {
+            sql += " and name like ?";
+            param.add("%" + book.getName() + "%");
+        }
+        if (book.getAuthor() != null && !book.getAuthor().trim().equals("")) {
+            sql += " and author like ?";
+            param.add("%" + book.getAuthor() + "%");
+        }
+        if (book.getPublisher() != null && !book.getPublisher().trim().equals("")) {
+            sql += " and publisher like ?";
+            param.add("%" + book.getPublisher() + "%");
+        }
+        if (book.getSortBook() != null && !book.getSortBook().equals("")) {
+            sql += " and sortBook like ?";
+            param.add("%" + book.getSortBook() + "%");
+        }
+        return sql;
+    }
+
+    /**
+     * @param book     :
+     * @param pageNo   :
+     * @param pageSize :
+     * @Description: 查询模糊匹配的图书分页
+     * @Author: BaiYZ
+     * @Date: 2021/12/11 18:44
+     * @return: java.util.List<bean.Book>
+     */
+    @Override
+    public List<Book> searchBooksConditionPages(Book book, int pageNo, int pageSize) {
+        String sql = getSqlFromBean(book, "*", param) + " limit ?,?";
+        param.add((pageNo - 1) * pageSize);//object传入数字即可
+        param.add(pageSize);
+        List<Book> ans = queryForList(Book.class, sql, param.toArray());
+        param.clear();
+        return ans;
     }
 
     /**
