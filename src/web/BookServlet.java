@@ -198,22 +198,41 @@ public class BookServlet extends BaseServlet {
         req.setAttribute("page", page);
         req.getRequestDispatcher("/pages/book/bookManage.jsp").forward(req, resp);
     }
+
     /**
+     * @param req:
+     * @param resp:
+     * @Description: 模糊检索生成分页
+     * @Author: BaiYZ
+     * @Date: 2021/12/12 1:22
+     * @return: void
+     */
+    public void searchPages(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
+        Book book = WebUtils.gernerateBean(req.getParameterMap(), new Book());
+        Integer pageNo = WebUtils.parseIntFromString(req.getParameter("pageNo"), Page.defaultPageNo);
+        Integer pageSize = WebUtils.parseIntFromString(req.getParameter("pageSize"), Page.defaultPageSize);
+        Page<Book> searchBookPage = bookService.searchBookPage(book, pageNo, pageSize);
+        req.setAttribute("page", searchBookPage);
+        req.getRequestDispatcher("/pages/book/bookManage.jsp").forward(req, resp);
+    }
+
+    /**
+     * @param req:
+     * @param resp:
      * @Description: 添加期刊
      * @Author: BaiYZ
      * @Date: 2021/12/10 0:20
-     * @param req:
-     * @param resp:
      * @return: void
      */
-    public void addBook(HttpServletRequest req,HttpServletResponse resp)throws ServletException,IOException{
-        Book book =  WebUtils.gernerateBean(req.getParameterMap(), new Book());
+    public void addBook(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
+        Book book = WebUtils.gernerateBean(req.getParameterMap(), new Book());
         bookService.addBook(book);
       /*  这里使用重定向的原因是因为，
         如果使用请求转发，这个时候还是一个请求request域中的数据依旧存在还是一次请求，并且在浏览器中使用F5进行刷新其还是会再次提交页面（默认提交最后一次请求）、
         也就是会导致多次向服务器发送插入请求*/
-        resp.sendRedirect(req.getContextPath()+"/book/bookServlet?action=pages");
+        resp.sendRedirect(req.getContextPath() + "/book/bookServlet?action=pages");
     }
+
     /**
      * @Description: 获取一个图书存入request用于回显
      * @Author: BaiYZ

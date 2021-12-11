@@ -5,6 +5,7 @@ import bean.Page;
 import dao.imp.BookDaoImpl;
 import service.BookService;
 
+import java.util.ArrayList;
 import java.util.List;
 
 /**
@@ -61,7 +62,6 @@ public class BookServiceImpl implements BookService {
      */
     @Override
     public Page<Book> pages(Integer pageNo, Integer pageSize) {
-        BookDaoImpl bookDao = new BookDaoImpl();
         Page<Book> page = new Page<Book>();
         page.setPageNo(pageNo);
         page.setPageSize(pageSize);
@@ -72,6 +72,31 @@ public class BookServiceImpl implements BookService {
             pageCount++;
         page.setPageCount(pageCount);
         List<Book> books = bookDao.booksForOnePages(pageNo, pageSize);//查询分页列表
+        page.setPageData(books);
+        return page;
+    }
+
+    /**
+     * @param book     :
+     * @param pageNo   :
+     * @param pageSize :
+     * @Description: 实现图书分类检索
+     * @Author: BaiYZ
+     * @Date: 2021/12/11 18:38
+     * @return: bean.Page<bean.Book>
+     */
+    @Override
+    public Page<Book> searchBookPage(Book book, Integer pageNo, Integer pageSize) {
+        Page<Book> page = new Page<Book>();
+        page.setPageNo(pageNo);
+        page.setPageSize(pageSize);
+        int recordCount = bookDao.searchBooksConditionCount(book);
+        page.setRecordCount(recordCount);
+        int pageCount = recordCount / pageSize;//可能存在余数，图书还得一页
+        if (recordCount / pageSize != 0)
+            pageCount++;
+        page.setPageCount(pageCount);
+        List<Book> books = bookDao.searchBooksConditionPages(book, pageNo, pageSize);//查询分页列表
         page.setPageData(books);
         return page;
     }

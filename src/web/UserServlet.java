@@ -146,7 +146,7 @@ public class UserServlet extends BaseServlet {
         User user = WebUtils.gernerateBean(req.getParameterMap(), new User());
 //        System.out.println(user);
         if (userService.searchUserByNumber(user.getNumber()) != null || userService.searchUserByName(user.getName()) != null) {
-            req.getRequestDispatcher("/pages/user/loginSuccess.jsp").forward(req, resp);
+            req.getRequestDispatcher("/index.jsp").forward(req, resp);
         } else {
             req.setAttribute("errorMsg", "用户名或密码错误！");
             req.setAttribute("userName", user.getName());

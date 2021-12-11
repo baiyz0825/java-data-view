@@ -13,6 +13,7 @@
     <title>期刊管理系统</title>
     <a href="book/bookServlet?action=pages">期刊管理</a>
     <a href="pages/user/login.jsp">登录</a>
+    <a href="pages/book/bookSearch.jsp">登录</a>
 </head>
 <body>
 </body>

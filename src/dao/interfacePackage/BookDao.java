@@ -99,4 +99,33 @@ public interface BookDao {
      * @return: java.util.List<bean.Book>
      */
     List<Book> booksForOnePages(int pageNo, int pageSize);
+
+    /**
+     * @param book:
+     * @Description: 搜索模糊匹配期刊个数
+     * @Author: BaiYZ
+     * @Date: 2021/12/11 18:42
+     * @return: int
+     */
+    int searchBooksConditionCount(Book book);
+
+    /**
+     * @param book:
+     * @param pageNo:
+     * @param pageSize:
+     * @Description: 查询匹配的图书分页
+     * @Author: BaiYZ
+     * @Date: 2021/12/11 18:44
+     * @return: java.util.List<bean.Book>
+     */
+    List<Book> searchBooksConditionPages(Book book, int pageNo, int pageSize);
+
+    /**
+     * @param book:
+     * @Description: 拼接sql
+     * @Author: BaiYZ
+     * @Date: 2021/12/11 18:49
+     * @return: java.lang.String
+     */
+    String getSqlFromBean(Book book, String pattern, List<Object> param);
 }
