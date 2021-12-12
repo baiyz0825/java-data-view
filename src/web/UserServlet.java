@@ -9,7 +9,10 @@ import javax.servlet.ServletOutputStream;
 import javax.servlet.ServletResponse;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 import java.io.IOException;
+
+import static com.google.code.kaptcha.Constants.KAPTCHA_SESSION_KEY;
 
 /**
  * @author BaiYZ
@@ -19,6 +22,7 @@ import java.io.IOException;
  */
 public class UserServlet extends BaseServlet {
     private static final UserServiceImpl userService = new UserServiceImpl();
+
     /**
      * Called by the server (via the <code>service</code> method) to
      * allow a servlet to handle a GET request.
@@ -142,30 +146,52 @@ public class UserServlet extends BaseServlet {
     }
 
     public void login(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-//        System.out.println(req.getParameterMap());
+        HttpSession session = req.getSession();
+        String captcha = (String) session.getAttribute(KAPTCHA_SESSION_KEY);
+        session.removeAttribute(KAPTCHA_SESSION_KEY);
+        String checkCode = req.getParameter("checkCode");
+        //        System.out.println(req.getParameterMap());
         User user = WebUtils.gernerateBean(req.getParameterMap(), new User());
 //        System.out.println(user);
-        if (userService.searchUserByNumber(user.getNumber()) != null || userService.searchUserByName(user.getName()) != null) {
-            req.getRequestDispatcher("/index.jsp").forward(req, resp);
+        if (checkCode != null && checkCode.equalsIgnoreCase(captcha)) {
+            if (userService.searchUserByNumber(user.getNumber()) != null || userService.searchUserByName(user.getName()) != null) {
+                req.getRequestDispatcher("/index.jsp").forward(req, resp);
+            } else {
+                req.setAttribute("errorMsg", "用户名或密码错误！");
+                req.setAttribute("userName", user.getName());
+                req.getRequestDispatcher("/pages/user/login.jsp").forward(req, resp);
+            }
         } else {
-            req.setAttribute("errorMsg", "用户名或密码错误！");
+            req.setAttribute("errorMsg", "验证码错误！");
             req.setAttribute("userName", user.getName());
             req.getRequestDispatcher("/pages/user/login.jsp").forward(req, resp);
         }
     }
 
     public void register(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
+        HttpSession session = req.getSession();
+        String captcha = (String) session.getAttribute(KAPTCHA_SESSION_KEY);
+        session.removeAttribute(KAPTCHA_SESSION_KEY);
+        String checkCode = req.getParameter("checkCode");
         User user = WebUtils.gernerateBean(req.getParameterMap(), new User());
-        if (userService.searchUserByName(user.getName()) != null) {
+        if (checkCode != null && checkCode.equalsIgnoreCase(captcha)) {
+            if (userService.searchUserByName(user.getName()) != null) {
+                req.setAttribute("username", user.getName());
+                req.setAttribute("number", user.getNumber());
+//                System.out.println(user.getNumber());
+                req.setAttribute("errorMsg", "用户名已存在！");
+                req.getRequestDispatcher("/pages/user/register.jsp").forward(req, resp);
+            } else {
+                userService.addUser(user);
+                req.setAttribute("successMsg", user.getName());
+                req.getRequestDispatcher("/index.jsp").forward(req, resp);
+            }
+        } else {
             req.setAttribute("username", user.getName());
             req.setAttribute("number", user.getNumber());
-            System.out.println(user.getNumber());
-            req.setAttribute("errorMsg", "用户名已存在！");
+            req.setAttribute("password", user.getPassword());
+            req.setAttribute("errorMsg", "验证码错误！");
             req.getRequestDispatcher("/pages/user/register.jsp").forward(req, resp);
-        } else {
-            userService.addUser(user);
-            req.setAttribute("successMsg", user.getName());
-            req.getRequestDispatcher("/pages/user/login.jsp").forward(req, resp);
         }
     }
 }

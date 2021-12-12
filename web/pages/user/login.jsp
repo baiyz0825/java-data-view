@@ -13,6 +13,7 @@
     <%@include file="../include/head.jsp" %>
     <link href="static/img/title_book.ico" rel="shortcut icon" type="image/x">
     <link href="static/css/style.css" rel="stylesheet" type="text/css">
+    <script src="static/scripts/captchaFlush.js" type="text/javascript"></script>
     <title>期刊信息管理系统</title>
 </head>
 <body>
@@ -22,7 +23,7 @@
             <td>首页logo<a href="#" target="-blank" title="首页Logo">
                 <img src="#">
             </a></td>
-            <td class="img_user"><img src="../../static/img/user2.png"></td>
+            <td class="img_user"><img src="static/img/user2.png"></td>
         </tr>
     </table>
 </div>
@@ -43,7 +44,9 @@
             </tr>
             <tr>
                 <td class="td_left"><label for="username">用户名：</label></td>
-                <td class="td_right"><input id="username" name="name" placeholder="请输入学号/工号" type="text"></td>
+                <td class="td_right"><input id="username" name="name"
+                                            placeholder="${empty requestScope.userName?"请输入学号或者工号":""}" type="text"
+                                            value="${empty requestScope.userName?"":requestScope.userName}"></td>
             </tr>
             <tr>
                 <td class="td_left"><label for="password">密&nbsp;&nbsp;&nbsp;&nbsp;码：</label></td>
@@ -57,8 +60,8 @@
             </tr>
             <tr>
                 <td class="td_left"><label for="checkCode">验证码：</label></td>
-                <td class="td_right"><input id="checkCode" name="checkCode" placeholder="验证码" type="text">
-                    <img id="img_check" src="#">
+                <td class="td_right"><input id="checkCode" name="checkCode" value="" type="text">
+                    <img id="img_check" src="captcha.jpg" alt="">
                 </td>
             </tr>
             <tr>

@@ -54,3 +54,7 @@
 11. 测试模糊匹配Service层测试
 12. 测试注册
 13. 完成登陆页面设计
+
+# 存在问题，无法检索时间匹配的期刊信息
+
+`JDBC format [yyyy-MM-dd] to create a java.sql.Date`

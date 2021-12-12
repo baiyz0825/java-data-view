@@ -8,8 +8,7 @@
       <root url="jar://$PROJECT_DIR$/web/WEB-INF/lib/taglibs-standard-impl-1.2.1.jar!/" />
       <root url="jar://$PROJECT_DIR$/web/WEB-INF/lib/taglibs-standard-spec-1.2.1.jar!/" />
       <root url="jar://$PROJECT_DIR$/web/WEB-INF/lib/commons-logging-1.1.1.jar!/" />
-      <root url="jar://$PROJECT_DIR$/../../../../../../apache-tomcat-10.0.13/lib/servlet-api.jar!/" />
-      <root url="jar://$PROJECT_DIR$/../../../../../../apache-tomcat-10.0.13/lib/jsp-api.jar!/" />
+      <root url="jar://$PROJECT_DIR$/web/WEB-INF/lib/kaptcha-2.3.2.jar!/" />
     </CLASSES>
     <JAVADOC>
       <root url="jar://$PROJECT_DIR$/web/WEB-INF/lib/commons-beanutils-1.8.0-javadoc.jar!/" />
