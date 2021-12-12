@@ -45,7 +45,7 @@ body {
 }
 
 /*表单项属性*/
-#bookname, #sortbook, #publisher, #author, #publishdata {
+#name, #sortBook, #publisher, #author, #publishData {
     width: 160px;
     height: 40px;
     border: 1px hidden white;
