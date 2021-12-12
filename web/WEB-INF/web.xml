@@ -3,6 +3,8 @@
          xmlns="http://xmlns.jcp.org/xml/ns/javaee"
          xsi:schemaLocation="http://xmlns.jcp.org/xml/ns/javaee http://xmlns.jcp.org/xml/ns/javaee/web-app_4_0.xsd"
          version="4.0">
+    <!--配置期刊管理的BookServlet程序-->
+
     <servlet>
         <servlet-name>BookServlet</servlet-name>
         <servlet-class>web.BookServlet</servlet-class>
@@ -12,6 +14,7 @@
         <url-pattern>/book/bookServlet</url-pattern>
         <!--        这个是在浏览器访问的地址-->
     </servlet-mapping>
+    <!--配置期刊管理的UserServlet程序-->
     <servlet>
         <servlet-name>UserServlet</servlet-name>
         <servlet-class>web.UserServlet</servlet-class>
@@ -19,5 +22,14 @@
     <servlet-mapping>
         <servlet-name>UserServlet</servlet-name>
         <url-pattern>/user/userServlet</url-pattern>
+    </servlet-mapping>
+    <!--谷歌验证码的KaptchaServlet程序-->
+    <servlet>
+        <servlet-name>KaptchaServlet</servlet-name>
+        <servlet-class>com.google.code.kaptcha.servlet.KaptchaServlet</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>KaptchaServlet</servlet-name>
+        <url-pattern>/captcha.jpg</url-pattern>
     </servlet-mapping>
 </web-app>

@@ -49,24 +49,6 @@
       </library>
     </orderEntry>
     <orderEntry type="library" exported="" scope="PROVIDED" name="Tomcat 9.0.54" level="application_server_libraries" />
-    <orderEntry type="module-library">
-      <library>
-        <CLASSES>
-          <root url="jar://$MODULE_DIR$/../../../../../../CodeIDE/Tomcat/9.0.54/lib/jsp-api.jar!/" />
-        </CLASSES>
-        <JAVADOC />
-        <SOURCES />
-      </library>
-    </orderEntry>
-    <orderEntry type="module-library">
-      <library>
-        <CLASSES>
-          <root url="jar://$MODULE_DIR$/../../../../../../CodeIDE/Tomcat/9.0.54/lib/servlet-api.jar!/" />
-        </CLASSES>
-        <JAVADOC />
-        <SOURCES />
-      </library>
-    </orderEntry>
     <orderEntry type="library" name="li" level="project" />
     <orderEntry type="library" name="servlet-api" level="project" />
   </component>
