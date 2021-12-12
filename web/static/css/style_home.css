@@ -17,15 +17,32 @@ body {
 
 /*表单*/
 .content {
+    width: 100%;
+    height: 300px;
+    border: 0px solid red;
+    background: none;
+    /*padding-top: 8px;*/
+    padding-bottom: 0;
+    margin: 0 auto;
+    overflow: hidden;
+}
+
+.con_frist {
     width: 850px;
     height: 120px;
     border: 0px solid red;
     background: rgba(0, 0, 0, .6);
-    padding-top: 8px;
     margin: 0 auto;
-    margin-bottom: 50px;
     overflow: hidden;
     box-shadow: 0 25px 45px rgba(0, 0, 0, .5);
+    margin-bottom: 50px;
+    padding-top: 9px;
+}
+
+.con_second {
+    width: 100%;
+    height: 60px;
+    border: 0px solid red;
 }
 
 /*表项*/
@@ -72,8 +89,7 @@ input::-webkit-input-placeholder { /* WebKit, Blink, Edge */
     color: white;
     -webkit-transition-duration: 0.4s; /* Safari */
     transition-duration: 0.4s;
-    border: 0px solid white;
-    margin-bottom: 100px;
+    margin-bottom: 0;
     overflow: hidden;
     box-shadow: 0 20px 45px rgba(0, 0, 0, .5);
 }

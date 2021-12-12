@@ -34,33 +34,33 @@
 <div class="content">
     <form action="book/bookServlet" method="get">
         <input name="action" type="hidden" value="searchPages">
-        <table align="center" border="0">
-            <tr>
-                <td class="td_top"><label for="name"><strong>期刊名称</strong></label></td>
-                <td class="td_top"><label for="sortBook"><strong>期刊种类</strong></label></td>
-                <td class="td_top"><label for="publisher"><strong>期刊出版社</strong></label></td>
-                <td class="td_top"><label for="author"><strong>期刊作者</strong></label></td>
-                <td class="td_top"><label for="publishData"><strong>出版时间</strong></label></td>
+        <div class="con_frist">
+            <table align="center" border="0">
+                <tr>
+                    <td class="td_top"><label for="name"><strong>期刊名称</strong></label></td>
+                    <td class="td_top"><label for="sortBook"><strong>期刊种类</strong></label></td>
+                    <td class="td_top"><label for="publisher"><strong>期刊出版社</strong></label></td>
+                    <td class="td_top"><label for="author"><strong>期刊作者</strong></label></td>
+                    <td class="td_top"><label for="publishData"><strong>出版时间</strong></label></td>
 
-            </tr>
-            <tr>
-                <td class="td_bottom"><input id="name" name="name" type="text" value=""></td>
-                <td class="td_bottom"><input id="sortBook" name="sortBook" type="text" value=""></td>
-                <td class="td_bottom"><input id="publisher" name="publisher" type="text" value=""></td>
-                <td class="td_bottom"><input id="author" name="author" type="text" value=""></td>
-                <td class="td_bottom"><input id="publishData" name="publishData" type="text" value=""></td>
-            </tr>
-        </table>
-        <table align="center" border="0">
-            <tr>
-                <td align="center"><input id="btn_conf" type="submit" value="搜索"></td>
-            </tr>
-        </table>
+                </tr>
+                <tr>
+                    <td class="td_bottom"><input id="name" name="name" type="text" value=""></td>
+                    <td class="td_bottom"><input id="sortBook" name="sortBook" type="text" value=""></td>
+                    <td class="td_bottom"><input id="publisher" name="publisher" type="text" value=""></td>
+                    <td class="td_bottom"><input id="author" name="author" type="text" value=""></td>
+                    <td class="td_bottom"><input id="publishData" name="publishData" type="text" value=""></td>
+                </tr>
+            </table>
+        </div>
+        <div class="con_second">
+            <table align="center" border="0">
+                <tr>
+                    <td align="center"><input id="btn_conf" type="submit" value="搜索"></td>
+                </tr>
+            </table>
+        </div>
     </form>
-</div>
-
-<div>
-
 </div>
 
 <div class="box">
