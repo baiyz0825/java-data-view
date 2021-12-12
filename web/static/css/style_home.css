@@ -1,0 +1,122 @@
+/*背景*/
+body {
+    background: url("../../static/img/oreg.png") no-repeat fixed;
+    background-size: cover;
+}
+
+/*图片*/
+.img_home {
+    height: 185px;
+    background-image: url("../../static/img/man.png");
+    border: 0 solid black;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 160px;
+}
+
+/*表单*/
+.content {
+    width: 850px;
+    height: 120px;
+    border: 0px solid red;
+    background: rgba(0, 0, 0, .6);
+    padding-top: 8px;
+    margin: 0 auto;
+    margin-bottom: 50px;
+    overflow: hidden;
+    box-shadow: 0 25px 45px rgba(0, 0, 0, .5);
+}
+
+/*表项*/
+.td_top {
+    width: 160px;
+    height: 40px;
+    border: 0px solid white;
+    text-align: center;
+    font-size: 20px;
+    background: none;
+    color: white;
+    padding-top: 24px;
+}
+
+.td_bottom {
+
+}
+
+/*表单项属性*/
+#bookname, #sortbook, #publisher, #author, #publishdata {
+    width: 160px;
+    height: 40px;
+    border: 1px hidden white;
+    border-bottom-style: solid;
+    background: none;
+    text-align: center;
+    color: white;
+}
+
+/*提示字颜色*/
+input::-webkit-input-placeholder { /* WebKit, Blink, Edge */
+    color: #a4a4a4;
+}
+
+/*搜索按键*/
+#btn_conf {
+    width: 120px;
+    height: 50px;
+    /*background-color: #FB8573;*/
+    background: rgba(0, 0, 0, .6);
+    border: none;
+    /*border-radius: 5px;*/
+    font-size: 25px;
+    color: white;
+    -webkit-transition-duration: 0.4s; /* Safari */
+    transition-duration: 0.4s;
+    border: 0px solid white;
+    margin-bottom: 100px;
+    overflow: hidden;
+    box-shadow: 0 20px 45px rgba(0, 0, 0, .5);
+}
+
+#btn_conf:hover {
+    background-color: #F74B35
+}
+
+/*书*/
+.table_book {
+    width: 100%;
+    height: 30%;
+    overflow: hidden;
+}
+
+.box {
+    width: 100%;
+    height: 320px;
+    margin: 0 auto;
+    overflow: hidden;
+    border: 0 solid black;
+    position: relative;
+    background: rgba(0, 0, 0, .6);
+    padding-top: 10px;
+}
+
+.imglist {
+    animation: rolling 10s linear infinite;
+    position: absolute;
+    display: flex;
+}
+
+img {
+    float: left;
+    margin-right: 5px;
+
+}
+
+@keyframes rolling {
+    from {
+        transform: translateX(0);
+    }
+    to {
+        transform: translateX(-38%);
+    }
+}

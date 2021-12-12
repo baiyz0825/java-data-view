@@ -1,0 +1,38 @@
+/*顶栏*/
+.toptip {
+    height: 50px;
+    /*border: 3px solid #eeeeee;*/
+    background: rgba(240, 240, 240, .8);
+    font-size: 20px;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    z-index: 1;
+}
+
+/*logo*/
+.toptip_logo {
+    padding-top: 5px;
+}
+
+/*帮助？*/
+.toptip_help {
+    /*width: 8%;*/
+    right: 8%;
+    position: fixed;
+    border: 0 solid red;
+    padding-top: 5px;
+}
+
+.toptip_help a {
+    color: black;
+    text-decoration: none;
+}
+
+/*顶栏用户头像*/
+.img_user {
+    position: absolute;
+    right: 0;
+    width: 50px;
+}

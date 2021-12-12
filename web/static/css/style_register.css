@@ -4,44 +4,6 @@ body {
     background-size: cover;
 }
 
-/*顶栏*/
-.toptip {
-    height: 50px;
-    /*border: 3px solid #eeeeee;*/
-    background: rgba(240, 240, 240, .8);
-    font-size: 20px;
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100%;
-}
-
-/*logo*/
-.toptip_logo {
-    padding-top: 5px;
-}
-
-/*帮助？*/
-.toptip_help {
-    /*width: 8%;*/
-    right: 8%;
-    position: fixed;
-    border: 0 solid red;
-    padding-top: 5px;
-}
-
-.toptip_help a {
-    color: black;
-    text-decoration: none;
-}
-
-/*顶栏用户头像*/
-.img_user {
-    position: absolute;
-    right: 0px;
-    width: 50px;
-}
-
 /*欢迎注册*/
 .con_wel {
     color: white;
@@ -89,6 +51,7 @@ body {
     padding-right: 10px;
 }
 
+/*提示字颜色*/
 input::-webkit-input-placeholder { /* WebKit, Blink, Edge */
     color: #a4a4a4;
 }
@@ -102,6 +65,7 @@ input::-webkit-input-placeholder { /* WebKit, Blink, Edge */
     font-size: 17px;
     border: 1px hidden white;
     border-bottom-style: solid;
+    color: white;
 }
 
 .tdst_right {
