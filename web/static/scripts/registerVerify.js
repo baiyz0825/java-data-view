@@ -1,8 +1,8 @@
 $(function () {//加载完页面加载脚本
-    $("#submitBtn").click(function () {//添加单击事件
+    $("#btn_sub").click(function () {//添加单击事件
         let username = $("#username").val();
         let password = $("#password").val();
-        let passwordRepeat = $("#passwordRepeat").val();
+        let passwordRepeat = $("#password_repeat").val();
         let number = $("#number").val();
         let verifyCode = $("#checkCode").val();
         let regExpUserName = /^\w{4,15}$/;//正则表达式匹-配位密码（字母开头 A-Z 0~9 a-z允许符号）
@@ -20,6 +20,12 @@ $(function () {//加载完页面加载脚本
             $("#img_check").attr("src", "captcha.jpg?a" + new Date());
             return false;
         }
+        //校验电话号码与验证码
+        else if ((number !== "") && !regExpPhoneNumber.test(number)) {
+            $("#errorMsg").text("电话号码错误！");
+            $("#img_check").attr("src", "captcha.jpg?a" + new Date());
+            return false;
+        }
         //校验密码
         else if (!regExpPassword.test(password)) {
             $("#errorMsg").text("密码强度太弱！");
@@ -30,12 +36,6 @@ $(function () {//加载完页面加载脚本
         //校验密码第二次
         else if (password !== passwordRepeat) {
             $("#errorMsg").text("密码不一致！");
-            $("#img_check").attr("src", "captcha.jpg?a" + new Date());
-            return false;
-        }
-        //校验电话号码与验证码
-        else if ((number !== "") && !regExpPhoneNumber.test(number)) {
-            $("#errorMsg").text("电话号码错误！");
             $("#img_check").attr("src", "captcha.jpg?a" + new Date());
             return false;
         }
