@@ -4,48 +4,31 @@ body {
     background-size: cover;
 }
 
-/*顶栏*/
-.toptip {
-    height: 35px;
-    /*border: 3px solid #eeeeee;*/
-    background: rgba(240, 240, 240, .8);
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100%;
-}
-
-/*顶栏用户头像*/
-.img_user {
-    position: absolute;
-    right: 0px;
-    width: 50px;
-}
-
 /*表单*/
 .content {
-    width: 400px;
+    width: 600px;
     height: 500px;
     border: 0px solid red;
-    background: rgba(240, 240, 240, .75);
-    border-radius: 20px;
+    background: rgba(0, 0, 0, .6);
+    /*border-radius: 10px;*/
     margin: 100px auto;
     overflow: hidden;
     box-shadow: 0 25px 45px rgba(0, 0, 0, .5);
+    font-size: 20px;
 }
 
 /*欢迎登录*/
 .con_wel {
     color: white;
-    font-size: 30px;
-    width: 400px;
-    height: 50px;
-    border: 0px solid red;
-    margin-top: 40px;
+    font-size: 35px;
+    width: 100%;
+    height: 80px;
+    border: 1px hidden white;
+    border-bottom-style: solid;
+    padding-top: 10px;
     text-align: center;
     overflow: hidden;
     /*background-color: #81DAF5;*/
-    background: rgba(79, 206, 241, 0.5)
 }
 
 /*左侧表项*/
@@ -54,6 +37,9 @@ body {
     height: 45px;
     text-align: right;
     padding-left: 10px;
+    border: 1px;
+    border-radius: 5px;
+    color: white;
 }
 
 /*右侧表项*/
@@ -62,15 +48,27 @@ body {
     padding-right: 10px;
 }
 
+input::-webkit-input-placeholder { /* WebKit, Blink, Edge */
+    color: #a4a4a4;
+}
 /*用户名、密码、验证码表项*/
 #username, #password, #checkCode {
     width: 260px;
     height: 32px;
-    border: 1px solid white;
-    border-radius: 5px;
+    background: none;
+    border: 1px hidden white;
+    border-bottom-style: solid;
+    /*border-radius: 5px;*/
     padding-left: 10px;
+    font-size: 17px;
+    color: white;
 }
 
+.tdst_right {
+    color: #a4a4a4;
+    padding-left: 10px;
+    font-size: 17px;
+}
 /*验证码表项*/
 #checkCode {
     width: 150px;
@@ -86,7 +84,7 @@ body {
 #btn_sub {
     width: 150px;
     height: 50px;
-    background-color: #eeb8af;
+    background-color: #FB8573;
     /*background-image: linear-gradient(#81DAF5);*/
     /*background: rgba(79, 206, 241, 0.5);*/
     border: none;
@@ -94,8 +92,13 @@ body {
     border-radius: 5px;
     font-size: 25px;
     color: white;
+    -webkit-transition-duration: 0.4s; /* Safari */
+    transition-duration: 0.4s;
 }
 
+#btn_sub:hover {
+    background-color: #F74B35
+}
 /*立即登录表项*/
 .td_login {
     padding-top: 30px;
@@ -103,33 +106,34 @@ body {
 
 /*马上注册*/
 .td_rgleft {
-    width: 200px;
+    width: 300px;
     height: 50px;
-    padding-left: 10px;
+    padding-left: 50px;
 }
 
 .td_rgleft a {
     color: white;
     text-decoration: none;
+    font-size: 17px;
+}
+
+/*忘记密码*/
+.td_rgright {
+    width: 300px;
+    height: 50px;
+    padding-right: 50px;
+    text-align: right;
 }
 
 .td_rgright a {
     color: white;
     text-decoration: none;
+    font-size: 17px;
 }
 
-/*忘记密码*/
-.td_rgright {
-    width: 200px;
-    height: 50px;
-    padding-right: 10px;
-    text-align: right;
-}
-
-.href_register {
-    width: 400px;
-    height: 40px;
-    border: 0px solid red;
-    overflow: hidden;
-    background: rgba(79, 206, 241, 0.5)
-}
+/*.href_register {*/
+/*    width: 400px;*/
+/*    height: 40px;*/
+/*    border: 0px solid red;*/
+/*    overflow: hidden;*/
+/*}*/
