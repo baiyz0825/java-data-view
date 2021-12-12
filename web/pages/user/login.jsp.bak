@@ -1,27 +1,25 @@
 <%--
   Created by IntelliJ IDEA.
   User: byz08
-  Date: 2021/12/12
-  Time: 20:01
+  Date: 2021/12/8
+  Time: 22:34
   To change this template use File | Settings | File Templates.
 --%>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
-<!DOCTYPE html>
-<html lang="ch">
+<html>
 <head>
     <meta charset="UTF-8">
     <%@include file="../include/head.jsp" %>
-    <link href="static/css/style.css" rel="stylesheet" type="text/css">
     <link href="static/img/title_book.ico" rel="shortcut icon" type="image/x">
+    <link href="static/css/style.css" rel="stylesheet" type="text/css">
     <link href="static/css/style_top.css" rel="stylesheet" type="text/css">
     <script src="static/scripts/captchaFlush.js" type="text/javascript"></script>
     <title>登录</title>
 </head>
-
 <body>
 <div class="toptip">
-    <table>
+    <table style="">
         <tr>
             <td>首页logo<a href="#" target="-blank" title="首页Logo">
                 <img src="#">
@@ -35,13 +33,12 @@
     <div class="con_wel">
         欢迎登录
     </div>
-    <br/>
     <form action="user/userServlet" method="post">
         <input name="action" type="hidden" value="login">
         <table align="center" border="0">
             <tr>
                 <td align="center" colspan="2">
-                    <div class="alert-danger" style="background: none">
+                    <div class="alert-success" style="background: none">
                         <strong>${empty requestScope.errorMsg ?"":requestScope.errorMsg}</strong>
                         </br>
                     </div>
@@ -65,7 +62,7 @@
             </tr>
             <tr>
                 <td class="td_left"><label for="checkCode">验证码：</label></td>
-                <td class="tdst_right"><input id="checkCode" name="checkCode" placeholder="验证码" type="text">
+                <td class="tdst_right"><input id="checkCode" name="checkCode" value="" type="text">
                     <img id="img_check" src="captcha.jpg" alt="">
                 </td>
             </tr>
