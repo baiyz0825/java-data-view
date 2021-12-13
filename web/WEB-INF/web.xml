@@ -7,7 +7,7 @@
 
     <servlet>
         <servlet-name>BookServlet</servlet-name>
-        <servlet-class>web.BookServlet</servlet-class>
+        <servlet-class>web.servlet.BookServlet</servlet-class>
     </servlet>
     <servlet-mapping>
         <servlet-name>BookServlet</servlet-name>
@@ -17,7 +17,7 @@
     <!--配置期刊管理的UserServlet程序-->
     <servlet>
         <servlet-name>UserServlet</servlet-name>
-        <servlet-class>web.UserServlet</servlet-class>
+        <servlet-class>web.servlet.UserServlet</servlet-class>
     </servlet>
     <servlet-mapping>
         <servlet-name>UserServlet</servlet-name>
@@ -32,4 +32,12 @@
         <servlet-name>KaptchaServlet</servlet-name>
         <url-pattern>/captcha.jpg</url-pattern>
     </servlet-mapping>
+    <filter>
+        <filter-name>AdminFilter</filter-name>
+        <filter-class>web.filters.AdminFilter</filter-class>
+    </filter>
+    <filter-mapping>
+        <filter-name>AdminFilter</filter-name>
+        <url-pattern>/pages/adminManager/*</url-pattern>
+    </filter-mapping>
 </web-app>

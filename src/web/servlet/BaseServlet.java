@@ -1,4 +1,4 @@
-package web;
+package web.servlet;
 
 import javax.servlet.ServletException;
 import javax.servlet.ServletOutputStream;

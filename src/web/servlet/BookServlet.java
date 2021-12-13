@@ -1,4 +1,4 @@
-package web;
+package web.servlet;
 
 import bean.Book;
 import bean.Page;
@@ -209,7 +209,7 @@ public class BookServlet extends BaseServlet {
      */
     public void searchPages(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
         Book book = WebUtils.gernerateBean(req.getParameterMap(), new Book());
-        System.out.println(book);
+//        System.out.println(book);
         Integer pageNo = WebUtils.parseIntFromString(req.getParameter("pageNo"), Page.defaultPageNo);
         Integer pageSize = WebUtils.parseIntFromString(req.getParameter("pageSize"), Page.defaultPageSize);
         Page<Book> searchBookPage = bookService.searchBookPage(book, pageNo, pageSize);

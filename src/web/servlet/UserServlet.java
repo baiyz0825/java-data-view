@@ -1,4 +1,4 @@
-package web;
+package web.servlet;
 
 import bean.User;
 import service.imp.UserServiceImpl;
@@ -7,6 +7,7 @@ import utils.WebUtils;
 import javax.servlet.ServletException;
 import javax.servlet.ServletOutputStream;
 import javax.servlet.ServletResponse;
+import javax.servlet.http.Cookie;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
@@ -147,14 +148,28 @@ public class UserServlet extends BaseServlet {
 
     public void login(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
         HttpSession session = req.getSession();
+        //captcha会将请求的验证码存入session域之中，在web.xml配置谷歌验证码servlet之后其在每次访问验证码servlet程序都会生成验证码，保存到session域之中
         String captcha = (String) session.getAttribute(KAPTCHA_SESSION_KEY);
+        //获取到验证码之后应该删除session域中的验证码吗，防止用户重复请求数据，导致servlet过多响应
         session.removeAttribute(KAPTCHA_SESSION_KEY);
+        //获取用户发送而来的验证码
         String checkCode = req.getParameter("checkCode");
         //        System.out.println(req.getParameterMap());
         User user = WebUtils.gernerateBean(req.getParameterMap(), new User());
-//        System.out.println(user);
+        //从数据库中查询是否存在指定用户名
+        User verifyUser = userService.searchUserByName(user.getName());
+        //System.out.println(user);
         if (checkCode != null && checkCode.equalsIgnoreCase(captcha)) {
-            if (userService.searchUserByNumber(user.getNumber()) != null || userService.searchUserByName(user.getName()) != null) {
+            if (verifyUser != null) {
+                //登陆成功，生成用户cookie保存用户名
+                Cookie userCookie = new Cookie("userName", verifyUser.getName());
+                //设置cookie最大生命周期
+                userCookie.setMaxAge(30 * 60);
+                //将cookie存储到resp中
+                resp.addCookie(userCookie);
+                //保存用户到session域之中（方便权限检查以及登陆信息的显示（页面切换时也可以显示，只要是访问一次也就是不关闭浏览器都应存在））
+                session.setAttribute("user", verifyUser);
+                //请求转发
                 req.getRequestDispatcher("/index.jsp").forward(req, resp);
             } else {
                 req.setAttribute("errorMsg", "用户名或密码错误！");
@@ -193,5 +208,20 @@ public class UserServlet extends BaseServlet {
             req.setAttribute("errorMsg", "验证码错误！");
             req.getRequestDispatcher("/pages/user/register.jsp").forward(req, resp);
         }
+    }
+
+    /**
+     * @param req:
+     * @param resp:
+     * @Description: 添加用户注销功能
+     * @Author: BaiYZ
+     * @Date: 2021/12/13 23:38
+     * @return: void
+     */
+    public void logout(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
+        //删除当前session域中保存的信息
+        req.getSession().invalidate();
+        //请求重定向清除所有session以及req中的信息3zx
+        resp.sendRedirect(req.getContextPath() + "/index.jsp");
     }
 }
