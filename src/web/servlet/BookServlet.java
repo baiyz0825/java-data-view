@@ -159,7 +159,7 @@ public class BookServlet extends BaseServlet {
         //存入req 域中
         req.setAttribute("books", books);
         //请求转发-"/"为解析到项目路径
-        req.getRequestDispatcher("/pages/book/bookManage.jsp").forward(req, resp);
+        req.getRequestDispatcher("/pages/adminManager/bookManage.jsp").forward(req, resp);
     }
 
     /**
@@ -196,7 +196,7 @@ public class BookServlet extends BaseServlet {
 
         Page<Book> page = bookService.pages(pageNo, pageSize);
         req.setAttribute("page", page);
-        req.getRequestDispatcher("/pages/book/bookManage.jsp").forward(req, resp);
+        req.getRequestDispatcher("/pages/adminManager/bookManage.jsp").forward(req, resp);
     }
 
     /**
@@ -214,7 +214,7 @@ public class BookServlet extends BaseServlet {
         Integer pageSize = WebUtils.parseIntFromString(req.getParameter("pageSize"), Page.defaultPageSize);
         Page<Book> searchBookPage = bookService.searchBookPage(book, pageNo, pageSize);
         req.setAttribute("page", searchBookPage);
-        req.getRequestDispatcher("/pages/book/bookManage.jsp").forward(req, resp);
+        req.getRequestDispatcher("/pages/adminManager/bookManage.jsp").forward(req, resp);
     }
 
     /**
@@ -246,7 +246,7 @@ public class BookServlet extends BaseServlet {
         String number = req.getParameter("number");
         Book book = bookService.searchBookById(number);
         req.setAttribute("book", book);
-        req.getRequestDispatcher("/pages/book/bookEdit.jsp").forward(req, resp);//一次请求，需要request域中值
+        req.getRequestDispatcher("/pages/adminManager/bookEdit.jsp").forward(req, resp);//一次请求，需要request域中值
     }
     /**
      * @Description: 更新图书，更新完成重定向回去

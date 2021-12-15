@@ -29,7 +29,7 @@ class UserServiceTest {
 
     @Test
     void addUser() {
-        User user = new User("zhanga", "11212143", "女", "183274829");
+        User user = new User("zhanga", "11212143", "女", "183274829", 0, 1);
         System.out.println(userService.addUser(user));
     }
 }

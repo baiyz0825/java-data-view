@@ -11,12 +11,16 @@ public class User {
     private String password;
     private String sex;
     private String number;
+    private int admin;//权限
+    private int identity;//身份 1：老师 0：同学
 
-    public User(String name, String password, String sex, String number) {
+    public User(String name, String password, String sex, String number, int admin, int identity) {
         this.name = name;
         this.password = password;
         this.sex = sex;
         this.number = number;
+        this.admin = admin;
+        this.identity = identity;
     }
 
     /**
@@ -35,6 +39,8 @@ public class User {
                 ", password='" + password + '\'' +
                 ", sex='" + sex + '\'' +
                 ", number='" + number + '\'' +
+                ", admin=" + admin +
+                ", identity=" + identity +
                 '}';
     }
 
@@ -68,5 +74,21 @@ public class User {
 
     public void setNumber(String number) {
         this.number = number;
+    }
+
+    public int getAdmin() {
+        return admin;
+    }
+
+    public void setAdmin(int admin) {
+        this.admin = admin;
+    }
+
+    public int getIdentity() {
+        return identity;
+    }
+
+    public void setIdentity(int identity) {
+        this.identity = identity;
     }
 }

@@ -72,8 +72,9 @@
             </tr>
             <tr>
                 <td class="td_left"><label>身&nbsp;&nbsp;&nbsp;&nbsp;份：</label></td>
-                <td class="tdst_right"><input name="identity" type="radio" value="student">学生&nbsp;&nbsp;&nbsp;&nbsp;
-                    <input name="identity" type="radio" value="administrator">管理员
+                <td class="tdst_right">
+                    <input name="identity" type="radio" value="0">学生&nbsp;&nbsp;&nbsp;&nbsp;
+                    <input name="identity" type="radio" value="1">老师
                 </td>
             </tr>
             <tr>

@@ -1,5 +1,7 @@
 package web.filters;
 
+import bean.User;
+
 import javax.servlet.*;
 import javax.servlet.http.HttpServletRequest;
 import java.io.IOException;
@@ -49,13 +51,18 @@ public class AdminFilter implements Filter {
         //强制转换对象到HttpServletRequest(是ServletRequest的子类)
         HttpServletRequest httpServletRequest = (HttpServletRequest) request;
         //获取域中存储的用户信息
-        Object verityUser = httpServletRequest.getSession().getAttribute("user");
-        if (verityUser != null) {
-            //过滤放行
+        User verityUser = (User) httpServletRequest.getSession().getAttribute("user");
+        //没登陆直接退出
+        if (verityUser == null) {
+            httpServletRequest.getRequestDispatcher("/pages/user/login.jsp").forward(request, response);
+        }
+        //登陆后判断是否存在权限
+        if (verityUser != null && verityUser.getAdmin() == 1) {
+            //存在用户并且权限完整过滤放行
             chain.doFilter(request, response);
         } else {
-            //权限检查失败，不给予放行
-            httpServletRequest.getRequestDispatcher("/pages/user/login.jsp").forward(request, response);
+            //权限不够拦截
+            httpServletRequest.getRequestDispatcher("/pages/common/adminAttention.html").forward(request, response);
         }
     }
 

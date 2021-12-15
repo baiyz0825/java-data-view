@@ -14,6 +14,8 @@
         <url-pattern>/book/bookServlet</url-pattern>
         <!--        这个是在浏览器访问的地址-->
     </servlet-mapping>
+
+
     <!--配置期刊管理的UserServlet程序-->
     <servlet>
         <servlet-name>UserServlet</servlet-name>
@@ -23,6 +25,8 @@
         <servlet-name>UserServlet</servlet-name>
         <url-pattern>/user/userServlet</url-pattern>
     </servlet-mapping>
+
+
     <!--谷歌验证码的KaptchaServlet程序-->
     <servlet>
         <servlet-name>KaptchaServlet</servlet-name>
@@ -32,6 +36,18 @@
         <servlet-name>KaptchaServlet</servlet-name>
         <url-pattern>/captcha.jpg</url-pattern>
     </servlet-mapping>
+
+
+    <servlet>
+        <servlet-name>FileServlet</servlet-name>
+        <servlet-class>web.servlet.FileServlet</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>FileServlet</servlet-name>
+        <url-pattern>/fileServlet</url-pattern>
+    </servlet-mapping>
+
+
     <filter>
         <filter-name>AdminFilter</filter-name>
         <filter-class>web.filters.AdminFilter</filter-class>

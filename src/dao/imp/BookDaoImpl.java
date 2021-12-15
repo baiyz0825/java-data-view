@@ -31,7 +31,7 @@ public class BookDaoImpl extends BaseDao implements BookDao {
      */
     @Override
     public Book searchBookByID(String id) {
-        String sql = "select `number`,`name`,`sortBook`,`publisher`,`author`,`prices`,`remainNumber`,`publishData` from Book where number = ?";
+        String sql = "select `number`,`name`,`sortBook`,`publisher`,`author`,`prices`,`remainNumber`,`publishData`,`src`from Book where number = ?";
         return queryForOne(Book.class, sql, id);
     }
 
@@ -44,7 +44,7 @@ public class BookDaoImpl extends BaseDao implements BookDao {
      */
     @Override
     public Book searchBookByName(String name) {
-        String sql = "select number,name,sortBook,publisher,author,prices,remainNumber,publishData from `Book` where name =?";
+        String sql = "select number,name,sortBook,publisher,author,prices,remainNumber,publishData,src from `Book` where name =?";
         return queryForOne(Book.class, sql, name);
     }
 
@@ -57,13 +57,13 @@ public class BookDaoImpl extends BaseDao implements BookDao {
      */
     @Override
     public List<Book> searchBookBySort(String sortBook) {
-        String sql = "select number,name,sortBook,publisher,author,prices,remainNumber,publishData from `Book` where sortBook =?";
+        String sql = "select number,name,sortBook,publisher,author,prices,remainNumber,publishData,src from `Book` where sortBook =?";
         return queryForList(Book.class, sql, sortBook);
     }
 
     @Override
     public List<Book> searchBookAll() {
-        String sql = "select  number,name,sortBook,publisher,author,prices,remainNumber,publishData from `Book`";
+        String sql = "select  number,name,sortBook,publisher,author,prices,remainNumber,publishData,src from `Book`";
         return queryForList(Book.class, sql);
     }
 
@@ -76,8 +76,8 @@ public class BookDaoImpl extends BaseDao implements BookDao {
      */
     @Override
     public int updateBook(Book book) {
-        String sql = "update `Book` set name=?,sortBook=?,publisher=?,author=?,prices=?,remainNumber=?,publishData=? where number = ?";
-        return update(sql, book.getName(), book.getSortBook(), book.getPublisher(), book.getAuthor(), book.getPrices(), book.getRemainNumber(), book.getPublishData(), book.getNumber());
+        String sql = "update `Book` set name=?,sortBook=?,publisher=?,author=?,prices=?,remainNumber=?,publishData=?,src=? where number = ?";
+        return update(sql, book.getName(), book.getSortBook(), book.getPublisher(), book.getAuthor(), book.getPrices(), book.getRemainNumber(), book.getPublishData(), book.getNumber(), book.getSrc());
     }
 
     /**
@@ -212,7 +212,7 @@ public class BookDaoImpl extends BaseDao implements BookDao {
      */
     @Override
     public int addBook(Book book) {
-        String sql = "insert into `Book` (number,name,sortBook,publisher,author,prices,remainNumber,publishData) values (?,?,?,?,?,?,?,?)";
-        return update(sql, book.getNumber(), book.getName(), book.getSortBook(), book.getPublisher(), book.getAuthor(), book.getPrices(), book.getRemainNumber(), book.getPublishData());
+        String sql = "insert into `Book` (number,name,sortBook,publisher,author,prices,remainNumber,publishData,src) values (?,?,?,?,?,?,?,?,?)";
+        return update(sql, book.getNumber(), book.getName(), book.getSortBook(), book.getPublisher(), book.getAuthor(), book.getPrices(), book.getRemainNumber(), book.getPublishData(), book.getSrc());
     }
 }

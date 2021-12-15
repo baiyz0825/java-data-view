@@ -31,7 +31,7 @@ class UserDaoImplTest {
 
     @Test
     void addUser() {
-        User user = new User("li", "adghadgh", "男", "18109273856");
+        User user = new User("li", "adghadgh", "男", "18109273856", 0, 0);
         userDao.addUser(user);
     }
 }

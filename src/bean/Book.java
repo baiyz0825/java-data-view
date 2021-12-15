@@ -17,8 +17,9 @@ public class Book {
     private Double prices;//价格
     private Integer remainNumber;//剩余库存数量
     private Date publishData;//精确到天 出版时间
+    private String src;//图书照片
 
-    public Book(String number, String sortBook, String publisher, String name, String author, Double prices, Integer remainNumber, Date publishData) {
+    public Book(String number, String sortBook, String publisher, String name, String author, Double prices, Integer remainNumber, Date publishData, String src) {
         this.number = number;
         this.sortBook = sortBook;
         this.publisher = publisher;
@@ -27,6 +28,7 @@ public class Book {
         this.prices = prices;
         this.remainNumber = remainNumber;
         this.publishData = publishData;
+        this.src = src;
     }
 
     /**
@@ -40,7 +42,8 @@ public class Book {
 
     @Override
     public String toString() {
-        return "Book{" + "number='" + number + '\'' +
+        return "Book{" +
+                "number='" + number + '\'' +
                 ", sortBook='" + sortBook + '\'' +
                 ", publisher='" + publisher + '\'' +
                 ", name='" + name + '\'' +
@@ -48,6 +51,7 @@ public class Book {
                 ", prices=" + prices +
                 ", remainNumber=" + remainNumber +
                 ", publishData=" + publishData +
+                ", src='" + src + '\'' +
                 '}';
     }
 
@@ -113,5 +117,13 @@ public class Book {
 
     public void setPublishData(Date publishData) {
         this.publishData = publishData;
+    }
+
+    public String getSrc() {
+        return src;
+    }
+
+    public void setSrc(String src) {
+        this.src = src;
     }
 }

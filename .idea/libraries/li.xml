@@ -9,17 +9,25 @@
       <root url="jar://$PROJECT_DIR$/web/WEB-INF/lib/taglibs-standard-spec-1.2.1.jar!/" />
       <root url="jar://$PROJECT_DIR$/web/WEB-INF/lib/commons-logging-1.1.1.jar!/" />
       <root url="jar://$PROJECT_DIR$/web/WEB-INF/lib/kaptcha-2.3.2.jar!/" />
+      <root url="jar://$PROJECT_DIR$/web/WEB-INF/lib/commons-fileupload-1.2.1.jar!/" />
+      <root url="jar://$PROJECT_DIR$/web/WEB-INF/lib/commons-io-1.4.jar!/" />
+      <root url="jar://$PROJECT_DIR$/web/WEB-INF/lib/commons-codec-1.15.jar!/" />
     </CLASSES>
     <JAVADOC>
       <root url="jar://$PROJECT_DIR$/web/WEB-INF/lib/commons-beanutils-1.8.0-javadoc.jar!/" />
       <root url="jar://$PROJECT_DIR$/web/WEB-INF/lib/commons-dbutils-1.7-javadoc.jar!/" />
       <root url="jar://$PROJECT_DIR$/web/WEB-INF/lib/druid-1.2.8-javadoc.jar!/" />
+      <root url="jar://$PROJECT_DIR$/web/WEB-INF/lib/commons-fileupload-1.2.1-bin.zip!/commons-fileupload-1.2.1/site/apidocs" />
+      <root url="jar://$PROJECT_DIR$/web/WEB-INF/lib/commons-fileupload-1.2.1-bin.zip!/commons-fileupload-1.2.1/site/testapidocs" />
+      <root url="jar://$PROJECT_DIR$/web/WEB-INF/lib/commons-io-2.0-bin.zip!/commons-io-2.0/docs" />
+      <root url="jar://$PROJECT_DIR$/web/WEB-INF/lib/commons-codec-1.15-javadoc.jar!/" />
     </JAVADOC>
     <SOURCES>
       <root url="jar://$PROJECT_DIR$/web/WEB-INF/lib/commons-beanutils-1.8.0-sources.jar!/" />
       <root url="jar://$PROJECT_DIR$/web/WEB-INF/lib/commons-dbutils-1.7-sources.jar!/" />
       <root url="jar://$PROJECT_DIR$/web/WEB-INF/lib/druid-1.2.8-sources.jar!/" />
       <root url="jar://$PROJECT_DIR$/web/WEB-INF/lib/Tomcate9.0.54.jar!/" />
+      <root url="jar://$PROJECT_DIR$/web/WEB-INF/lib/commons-codec-1.15-sources.jar!/" />
     </SOURCES>
   </library>
 </component>

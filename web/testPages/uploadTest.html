@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="en" xmlns="">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<form action="http://localhost:8088/JavaDataView/testServlet" enctype="multipart/form-data" method="post">
+    <input name="image" placeholder="编号" type="file" value="">
+    <input placeholder="提交" type="submit">
+</form>
+<from action="book/bookServlet" method="get">
+    <input name="action" type="hidden" value="addBook">
+    <input name="action" type="hidden" value="upload">
+    <input name="name" placeholder="名字" type="text" value="">
+    <input name="prices" placeholder="价格" type="text" value="">
+    <input name="number" placeholder="编号" type="text" value="">
+</from>
+</body>
+</html>

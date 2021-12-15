@@ -1,6 +1,7 @@
 package web.servlet;
 
 import bean.User;
+import org.apache.commons.codec.digest.DigestUtils;
 import service.imp.UserServiceImpl;
 import utils.WebUtils;
 
@@ -12,6 +13,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 import java.io.IOException;
+import java.util.Arrays;
 
 import static com.google.code.kaptcha.Constants.KAPTCHA_SESSION_KEY;
 
@@ -146,6 +148,14 @@ public class UserServlet extends BaseServlet {
         super.doPost(req, resp);
     }
 
+    /**
+     * @param req:
+     * @param resp:
+     * @Description: 用户登陆模块，添加md加密
+     * @Author: BaiYZ
+     * @Date: 2021/12/15 9:38
+     * @return: void
+     */
     public void login(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
         HttpSession session = req.getSession();
         //captcha会将请求的验证码存入session域之中，在web.xml配置谷歌验证码servlet之后其在每次访问验证码servlet程序都会生成验证码，保存到session域之中
@@ -154,13 +164,14 @@ public class UserServlet extends BaseServlet {
         session.removeAttribute(KAPTCHA_SESSION_KEY);
         //获取用户发送而来的验证码
         String checkCode = req.getParameter("checkCode");
-        //        System.out.println(req.getParameterMap());
         User user = WebUtils.gernerateBean(req.getParameterMap(), new User());
         //从数据库中查询是否存在指定用户名
+        //获取用户输入的密码，并生成Md5加密字符串
         User verifyUser = userService.searchUserByName(user.getName());
+        String passwordNotVerify = DigestUtils.md5Hex(user.getPassword());
         //System.out.println(user);
         if (checkCode != null && checkCode.equalsIgnoreCase(captcha)) {
-            if (verifyUser != null) {
+            if (passwordNotVerify.equals(verifyUser.getPassword())) {//与数据库中存储的MD5密码匹配
                 //登陆成功，生成用户cookie保存用户名
                 Cookie userCookie = new Cookie("userName", verifyUser.getName());
                 //设置cookie最大生命周期
@@ -183,20 +194,31 @@ public class UserServlet extends BaseServlet {
         }
     }
 
+    /**
+     * @param req:
+     * @param resp:
+     * @Description: 用户注册（MD5加密）
+     * @Author: BaiYZ
+     * @Date: 2021/12/15 9:38
+     * @return: void
+     */
     public void register(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
+        //处理获取验证码
         HttpSession session = req.getSession();
         String captcha = (String) session.getAttribute(KAPTCHA_SESSION_KEY);
         session.removeAttribute(KAPTCHA_SESSION_KEY);
         String checkCode = req.getParameter("checkCode");
+        //建立用户提交的用户信息
         User user = WebUtils.gernerateBean(req.getParameterMap(), new User());
         if (checkCode != null && checkCode.equalsIgnoreCase(captcha)) {
-            if (userService.searchUserByName(user.getName()) != null) {
+            if (userService.searchUserByName(user.getName()) != null) {//数据库用户名重复
                 req.setAttribute("username", user.getName());
                 req.setAttribute("number", user.getNumber());
 //                System.out.println(user.getNumber());
                 req.setAttribute("errorMsg", "用户名已存在！");
                 req.getRequestDispatcher("/pages/user/register.jsp").forward(req, resp);
             } else {
+                user.setPassword(DigestUtils.md5Hex(user.getPassword())); //使用MD5加密用户密码
                 userService.addUser(user);
                 req.setAttribute("successMsg", user.getName());
                 req.getRequestDispatcher("/index.jsp").forward(req, resp);

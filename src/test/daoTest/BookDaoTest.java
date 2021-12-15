@@ -45,7 +45,7 @@ class BookDaoTest {
         try {
             Date utilsDate = format.parse("2012-12-2");
             java.sql.Date date = new java.sql.Date(utilsDate.getTime());
-            Book book = new Book("201585", "科普", "机械出版社", "科学中国", "刘子欣", 99.9, 100, date);
+            Book book = new Book("201585", "科普", "机械出版社", "科学中国", "刘子欣", 99.9, 100, date, null);
             System.out.println(bookDao.updateBook(book));
         } catch (ParseException e) {
             e.printStackTrace();
@@ -69,7 +69,7 @@ class BookDaoTest {
         try {
             Date utilsDate = format.parse("2018-10-2");
             java.sql.Date date = new java.sql.Date(utilsDate.getTime());
-            Book book = new Book("25147", "科普", "机械出版社", "量子宇宙第一期", "刘子欣", 99.9, 100, date);
+            Book book = new Book("25147", "科普", "机械出版社", "量子宇宙第一期", "刘子欣", 99.9, 100, date, null);
             System.out.println(bookDao.addBook(book));
         } catch (ParseException e) {
             e.printStackTrace();
@@ -96,7 +96,7 @@ class BookDaoTest {
     void getSqlFromBean() {
         BookDaoImpl bookDao = new BookDaoImpl();
         List<Object> param = new ArrayList<>();
-        Book book = new Book("", "文学", "中国出啊版社", "今天", "", 1.0, 2, null);
+        Book book = new Book("", "文学", "中国出啊版社", "今天", "", 1.0, 2, null, null);
         System.out.println(bookDao.getSqlFromBean(book, "*", param));
         System.out.println(param);
     }
@@ -104,7 +104,7 @@ class BookDaoTest {
     @Test
     void searchBooksConditionCount() {
         BookDaoImpl bookDao = new BookDaoImpl();
-        Book book = new Book("", "科", "社", "", "", 1.0, 2, null);
+        Book book = new Book("", "科", "社", "", "", 1.0, 2, null, null);
         System.out.println(bookDao.searchBooksConditionCount(book));
     }
 
@@ -113,7 +113,7 @@ class BookDaoTest {
         BookDaoImpl bookDao = new BookDaoImpl();
         int pageSize = 1;
         int pageNo = 1;
-        Book book = new Book("", "科", "社", "", "", 1.0, 2, null);
+        Book book = new Book("", "科", "社", "", "", 1.0, 2, null, null);
         List<Book> books1 = bookDao.searchBooksConditionPages(book, pageNo, pageSize);
         List<Book> books2 = bookDao.searchBooksConditionPages(book, pageNo + 1, pageSize);
         System.out.println(books1);

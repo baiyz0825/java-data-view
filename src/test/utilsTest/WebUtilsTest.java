@@ -1,7 +1,10 @@
 package test.utilsTest;
 
+import org.apache.commons.codec.digest.DigestUtils;
 import org.junit.jupiter.api.Test;
 import utils.WebUtils;
+
+import java.util.Arrays;
 
 import static org.junit.jupiter.api.Assertions.*;
 
@@ -23,4 +26,11 @@ class WebUtilsTest {
     void parseIntFromString() {
         System.out.println(WebUtils.parseIntFromString("", 0));
     }
+
+    @Test
+    void md5Test() {
+        String object = "adgh267";
+        System.out.println(DigestUtils.md5Hex(object));
+    }
+
 }

@@ -135,9 +135,10 @@ public class BaseServlet extends HttpServlet {
      */
     @Override
     protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
+
         //获取隐藏域标签的需要执行的业务的名称
         String reqAction = req.getParameter("action");
-//        System.out.println(reqAction);
+        //System.out.println(reqAction);
         try {
             //通过反射获取需要执行名称对应的方法
             Method doMethod = this.getClass().getMethod(reqAction, HttpServletRequest.class, HttpServletResponse.class);
@@ -147,5 +148,6 @@ public class BaseServlet extends HttpServlet {
         } catch (Exception e) {
             e.printStackTrace();
         }
+
     }
 }

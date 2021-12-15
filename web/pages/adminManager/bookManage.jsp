@@ -25,7 +25,7 @@
 <body>
 <table>
     <tr>
-        <td><a href="bookEdit.jsp">添加图书</a></td>
+        <td><a href="/pages/adminManager/bookEdit.jsp">添加图书</a></td>
     </tr>
     <tr>
         <td>期刊ID编号</td>
