@@ -5,6 +5,7 @@
       <map>
         <entry key="file://$PROJECT_DIR$/web/pages/adminManager/bookManage.jsp" value="file://$PROJECT_DIR$/web" />
         <entry key="file://$PROJECT_DIR$/web/pages/book/bookManage.jsp" value="file://$PROJECT_DIR$/web" />
+        <entry key="file://$PROJECT_DIR$/web/pages/book/bookSearch.jsp" value="file://$PROJECT_DIR$/web/pages/book" />
         <entry key="file://$PROJECT_DIR$/web/pages/include/head.jsp" value="file://$PROJECT_DIR$/web" />
         <entry key="file://$PROJECT_DIR$/web/pages/main.jsp" value="file://$PROJECT_DIR$/web" />
         <entry key="file://$PROJECT_DIR$/web/pages/user/login.jsp" value="file://$PROJECT_DIR$/web" />

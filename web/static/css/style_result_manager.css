@@ -1,0 +1,65 @@
+body {
+    background: url("../../static/img/oreg.png") no-repeat fixed;
+    background-size: cover;
+}
+
+.content {
+    width: 90%;
+    height: 700px;
+    background: rgba(0, 0, 0, .6);
+    margin: 0 auto;
+    margin-top: 50px;
+    overflow: hidden;
+    color: white;
+}
+
+.content_left {
+    border: 0px solid black;
+    width: 600px;
+    height: 700px;
+    float: left;
+}
+
+.con_book {
+    border-bottom: 2px solid white;
+    border-left: 2px solid white;
+    width: 550px;
+    height: 220px;
+    margin-left: 45px;
+    margin-top: 5px;
+
+}
+
+.td_bookimg {
+    padding-left: 10px;
+    padding-right: 10px;
+    height: 150px;
+    width: 115px;
+}
+
+.td_bookinform {
+    height: 22px;
+    width: 85px;
+    font-size: 15px;
+}
+
+.td_rebookinform {
+    height: 22px;
+    width: 250px;
+    font-size: 15px;
+}
+
+.td_key {
+    /*background: black;*/
+    width: 50px;
+}
+
+.td_key a {
+    background: rgba(20, 20, 20, 0.5);
+    border-radius: 5px;
+    font-size: 15px;
+    color: white;
+    text-decoration: none;
+    cursor: pointer;
+    padding: 5px;
+}

@@ -19,8 +19,8 @@
 <div class="toptip">
     <table>
         <tr>
-            <td class="toptip_logo">首页logo<a href="#" target="-blank" title="首页Logo">
-                <img src="#">
+            <td class="toptip_logo"><a href="index.jsp" target="-blank" title="首页Logo">
+                <img src="static/img/LIBAIlogo.png" height="50px">
             </a></td>
             <td class="toptip_help"><a href="#" target="_blank"><strong>帮助？</strong></a></td>
             <td class="img_user"><img src="static/img/user2.png"></td>
@@ -32,7 +32,6 @@
     <div class="con_wel">
         欢迎注册
     </div>
-
     <br/>
     <form action="user/userServlet" method="post">
         <input name="action" type="hidden" value="register">

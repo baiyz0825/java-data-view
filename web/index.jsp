@@ -8,23 +8,24 @@
     <script src="static/bootstrap-5.1.3-dist/js/bootstrap.bundle.min.js"></script>
     <link href="static/bootstrap-5.1.3-dist/css/bootstrap.min.css" rel="stylesheet">
     <link href="static/img/title_book.ico" rel="shortcut icon" type="image/x">
-    <link href="static/css/style_home.css" rel="stylesheet" type="text/css">
-    <link href="static/css/style_top.css" rel="stylesheet" type="text/css">
+    <link href="static/css/style_home.css" rel="stylesheet">
+    <link href="static/css/style_top.css" rel="stylesheet">
     <title>首页</title>
 </head>
 <body>
 <div class="toptip">
-    <table>
-        <tr>
-            <td class="toptip_logo">首页logo<a href="#" target="-blank" title="首页Logo">
-                <img src="#">
-            </a></td>
-            <td class="toptip_help"><a href="#" target="_blank"><strong>帮助？</strong></a></td>
-            <td class="img_user"><img src="static/img/user2.png"></td>
-        </tr>
-    </table>
+    <div class="toptip_logo"><a href="#" target="">
+        <img src="static/img/LIBAIlogo.png" height="40px">
+    </a></div>
+    <div class="dropdown">
+        <button class="img_user"><img src="static/img/user2.png"></button>
+        <div class="dropdown-content">
+            <a href="#">注册</a>
+            <a href="#">登录</a>
+            <a href="#">帮助？</a>
+        </div>
+    </div>
 </div>
-
 
 <div class="img_home">
     <img src="static/img/man.png" width=400px>

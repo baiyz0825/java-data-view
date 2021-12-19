@@ -1,7 +1,7 @@
 /*顶栏*/
 .toptip {
     height: 40px;
-    border: 0px solid blue;
+    border: 0px solid red;
     background: #efefef;
     font-size: 18px;
     position: fixed;
@@ -10,6 +10,7 @@
     width: 100%;
     z-index: 1;
     box-shadow: 0 5px 10px rgba(0, 0, 0, .5);
+
 }
 
 /*logo*/
@@ -19,7 +20,28 @@
     padding-left: 30px;
     vertical-align: middle;
     margin-bottom: 0;
+    border: 0px solid red;
     float: left;
+}
+
+.toptip_search {
+    padding-top: 2px;
+    width: 450px;
+    border: 0px solid red;
+    float: left;
+}
+
+#name, #sortBook, #publisher, #author, #publishData {
+    width: 70px;
+    height: 25px;
+    background: none;
+    padding-left: 10px;
+    font-size: 14px;
+}
+
+#btn_conf {
+    height: 30px;
+    width: 50px;
 }
 
 /*顶栏用户头像*/
@@ -31,6 +53,7 @@
     border: 0px solid red;
     cursor: pointer;
     margin-right: 30px;
+
 }
 
 .dropdown {
@@ -68,3 +91,4 @@
 .dropdown:hover .img_user {
     background-color: gray;
 }
+

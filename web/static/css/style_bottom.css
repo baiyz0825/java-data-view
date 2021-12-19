@@ -1,6 +1,42 @@
 .bottomtip {
     width: 100%;
-    height: 100px;
-    border: 1px solid black;
-    background: #25cff2;
+    height: 35px;
+    border: 0px solid red;
+    background: #efefef;
+    bottom: 0;
+    left: 0;
+    position: fixed;
+    padding-top: 5px;
+    overflow: hidden;
+}
+
+
+.botton_key a {
+    color: black;
+    text-decoration: none;
+    font-size: 14px;
+}
+
+.botton_key {
+    width: 80px;
+    height: 25px;
+    position: static;
+}
+
+.botton_key_jump {
+    width: 50px;
+    height: 25px;
+    margin-left: 1px;
+}
+
+#inputPageNo {
+    width: 50px;
+    height: 19px;
+}
+
+.num {
+    border: 0px solid black;
+    height: 20px;
+    width: 70px;
+    margin-left: 20px;
 }

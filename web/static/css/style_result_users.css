@@ -1,0 +1,38 @@
+body {
+    background: url("../../static/img/oreg.png") no-repeat fixed;
+    background-size: cover;
+}
+
+.content {
+    width: 90%;
+    height: 700px;
+    background: rgba(0, 0, 0, .6);
+    margin: 0 auto;
+    margin-top: 50px;
+    overflow: hidden;
+}
+
+.content_left {
+    border: 1px solid black;
+    width: 500px;
+    height: 700px;
+    float: left;
+}
+
+.con_book {
+    border: 1px solid white;
+    width: 440px;
+    height: 160px;
+    margin-left: 15px;
+    margin-top: 5px;
+}
+
+.td_bookimg {
+    height: 150px;
+    width: 115px;
+}
+
+.td_bookinform {
+    color: white;
+    font-size: 15px;
+}
