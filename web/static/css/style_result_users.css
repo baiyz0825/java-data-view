@@ -10,24 +10,28 @@ body {
     margin: 0 auto;
     margin-top: 50px;
     overflow: hidden;
+    box-shadow: 0 5px 10px rgba(0, 0, 0, .7);
 }
 
 .content_left {
-    border: 1px solid black;
-    width: 500px;
+    /*padding-left: 40px;*/
+    margin-left: 40px;
+    border: 0px solid black;
+    width: 570px;
     height: 700px;
     float: left;
 }
 
 .con_book {
     border: 1px solid white;
-    width: 440px;
-    height: 160px;
+    width: 540px;
+    height: 165px;
     margin-left: 15px;
     margin-top: 5px;
 }
 
 .td_bookimg {
+    padding: 5px;
     height: 150px;
     width: 115px;
 }
@@ -35,4 +39,8 @@ body {
 .td_bookinform {
     color: white;
     font-size: 15px;
+}
+
+.td_rebookinform {
+    width: 300px;
 }

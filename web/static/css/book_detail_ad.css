@@ -1,0 +1,99 @@
+body {
+    background: url("../../static/img/oreg.png") no-repeat fixed;
+    background-size: cover;
+}
+
+.content {
+    width: 1000px;
+    height: 640px;
+    background: rgba(0, 0, 0, .6);
+    margin: 0 auto;
+    margin-top: 95px;
+    overflow: hidden;
+    color: white;
+    box-shadow: 0 5px 10px rgba(0, 0, 0, .7);
+    padding-top: 20px;
+}
+
+.book_img {
+    height: 600px;
+    width: 425px;
+    border: 0px solid red;
+    padding-right: 30px;
+    padding-left: 20px;
+}
+
+.td_bookinform_title {
+    padding-left: 30px;
+    height: 70px;
+    width: 600px;
+    /*font-size: 45px;*/
+    border: 0px solid red;
+}
+
+.td_bookinform {
+    padding-left: 10px;
+    width: 180px;
+    height: 40px;
+    font-size: 25px;
+    /*border-bottom: 2px solid #CCCCCC;*/
+}
+
+#name {
+    font-size: 45px;
+    color: white;
+    border: none;
+    background: none;
+}
+
+#publishData, #author, #publisher, #sortBook, #number, #remainNumber, #prices {
+    padding-left: 5px;
+    font-size: 19px;
+    color: #CCCCCC;
+    outline-style: none;
+    background: none;
+    width: 280px;
+    height: 35px;
+    border: 0px solid red;
+    /*border-bottom: 1px solid #CCCCCC;*/
+}
+
+.td_confirm {
+    height: 30px;
+    padding-bottom: 0;
+}
+
+#confirm {
+    width: 70px;
+    height: 40px;
+    background: rgba(20, 20, 20, 0.5);
+    color: white;
+    border-radius: 5px;
+    border: none;
+    font-size: 20px;
+    margin-left: 300px;
+    cursor: pointer;
+}
+
+#cancel {
+    width: 70px;
+    height: 40px;
+    background: rgba(20, 20, 20, 0.5);
+    color: white;
+    border-radius: 5px;
+    border: none;
+    font-size: 20px;
+    margin-left: 10px;
+    cursor: pointer;
+}
+
+.td_rebookinform {
+    border: 0px solid red;
+}
+
+input:focus {
+    border-color: #66afe9;
+    outline: 0;
+    -webkit-box-shadow: inset 0 1px 1px rgba(0, 0, 0, .075), 0 0 8px rgba(102, 175, 233, .6);
+    box-shadow: inset 0 1px 1px rgba(0, 0, 0, .075), 0 0 8px rgba(102, 175, 233, .6)
+}

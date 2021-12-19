@@ -11,6 +11,7 @@ body {
     margin-top: 50px;
     overflow: hidden;
     color: white;
+    box-shadow: 0 5px 10px rgba(0, 0, 0, .7);
 }
 
 .content_left {
@@ -21,8 +22,7 @@ body {
 }
 
 .con_book {
-    border-bottom: 2px solid white;
-    border-left: 2px solid white;
+    border: 1px solid white;
     width: 550px;
     height: 220px;
     margin-left: 45px;
