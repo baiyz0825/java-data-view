@@ -1,11 +1,14 @@
 package web.servlet;
 
+import bean.Book;
 import org.apache.commons.fileupload.FileItem;
 import org.apache.commons.fileupload.FileItemFactory;
 import org.apache.commons.fileupload.FileUploadException;
 import org.apache.commons.fileupload.disk.DiskFileItemFactory;
 import org.apache.commons.fileupload.servlet.ServletFileUpload;
-import web.servlet.BaseServlet;
+import service.imp.BookServiceImpl;
+import utils.FilelUtils;
+import utils.WebUtils;
 
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
@@ -25,13 +28,8 @@ public class FileServlet extends HttpServlet {
 
     @Override
     protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-        doGet(req, resp);
-    }
-
-    public void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-        //使用隐藏域判断上传的是用户头像还是图书照片
-
-
+        //移出提交保留的参数
+        req.removeAttribute("BookImg");
         //判断上传的数据是否是多段的，如果是多段的才进行上传
         if (ServletFileUpload.isMultipartContent(req)) {
             //创建文件信息工厂类，使用其磁盘信息工厂类的子类进行实现
@@ -43,10 +41,12 @@ public class FileServlet extends HttpServlet {
                 //解析数据
                 //获取上传的多段数据的List集合
                 List<FileItem> list = servletFileUpload.parseRequest(req);
+                String number = null;
                 for (FileItem fileItem : list) {
                     if (fileItem.isFormField()) {
                         System.out.println(fileItem.getFieldName());
-                        System.out.println(fileItem.getString("UTF-8"));
+                        number = fileItem.getString("UTF-8");
+                        System.out.println(number);
                     } else {
                         //获取表单项的值
                         System.out.println(fileItem.getFieldName());
@@ -56,9 +56,26 @@ public class FileServlet extends HttpServlet {
                         try {
                             //获取后缀名称
                             String filename = fileItem.getName().substring(fileItem.getName().lastIndexOf("."));
-                            //拼接文件名称
-                            System.out.println(filename);
-                            fileItem.write(new File("e:\\javadataviewTest\\" + filename));
+                            //获取存盘路径
+                            String StoreRootPath = FilelUtils.getSavePath();
+                            String ImgPath = "\\Img\\Book";
+                            String randomUUID = WebUtils.getUUID();
+                            filename = randomUUID + filename;
+                            String finalName = StoreRootPath + ImgPath + "\\" + filename;
+                            //配置相对路径存入数据库
+                            String relativeFilePath = "BookImg/" + filename;
+                            //输出到文件夹中
+                            System.out.println("输出的目标文件名称为：" + finalName);
+                            File output = new File(finalName);
+                            fileItem.write(output);
+                            //地址存入数据库
+                            BookServiceImpl bookService = new BookServiceImpl();
+                            if (number != null) {
+                                Book book = bookService.searchBookById(number);
+                                book.setSrc(relativeFilePath);
+                                book.setAuthor("我是利辛县");
+                                bookService.updateBook(book);
+                            }
                         } catch (Exception e) {
                             e.printStackTrace();
                         }
@@ -71,5 +88,8 @@ public class FileServlet extends HttpServlet {
             //是的话输出
             //不是的话进行存储
         }
+    }
+
+    public void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
     }
 }

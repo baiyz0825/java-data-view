@@ -6,6 +6,9 @@ import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.Test;
 import service.imp.BookServiceImpl;
 
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
+import java.util.Date;
 import java.util.List;
 
 import static org.junit.jupiter.api.Assertions.*;
@@ -49,6 +52,7 @@ class BookServiceTest {
     void deleteBookById() {
         BookServiceImpl bookService = new BookServiceImpl();
         bookService.deleteBookById("98745632");
+
     }
 
     @Test
@@ -57,10 +61,34 @@ class BookServiceTest {
 
     @Test
     void updateBook() {
+        SimpleDateFormat format = new SimpleDateFormat("yyyy-MM-dd");
+        Date utilsDate = null;
+        try {
+            utilsDate = format.parse("2018-10-2");
+        } catch (ParseException e) {
+            e.printStackTrace();
+        }
+        java.sql.Date date = new java.sql.Date(utilsDate.getTime());
+        Book book = new Book("22626", "BCD", "ad", "双方都是", "对方是否的", 266.1, 3, date, "");
+        book.setSrc("sfd/fsdfd/ads/");
+        System.out.println(book.getSrc());
+        BookServiceImpl bookService = new BookServiceImpl();
+        bookService.updateBook(book);
     }
 
     @Test
     void addBook() {
+        SimpleDateFormat format = new SimpleDateFormat("yyyy-MM-dd");
+        Date utilsDate = null;
+        try {
+            utilsDate = format.parse("2018-10-2");
+        } catch (ParseException e) {
+            e.printStackTrace();
+        }
+        java.sql.Date date = new java.sql.Date(utilsDate.getTime());
+        Book book = new Book("22626", "BCD", "ad", "我叫小黄", "零一二萨尼", 266.1, 3, date, "");
+        BookServiceImpl bookService = new BookServiceImpl();
+        bookService.addBook(book);
     }
 
     @Test

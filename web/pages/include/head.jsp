@@ -8,7 +8,9 @@
 <%
     //    获取=协议名称+服务器地址+服务器端口号+工程路径+"/"
     String basePath = request.getScheme() + "://" + request.getServerName() + ":" + request.getServerPort() + request.getContextPath() + "/";
+    String resourcesPath = request.getScheme() + "://" + request.getServerName() + ":" + request.getServerPort() + "/";
     pageContext.setAttribute("basePath", basePath);//将服务器基地址确认存入pageContext中（也就是El表达式中的pageScope）
+    pageContext.setAttribute("resourcesPath", resourcesPath);
 //    System.out.println(basePath);
 %>
 <base href="<%=basePath%>">

@@ -4,6 +4,7 @@ import bean.User;
 import org.apache.commons.beanutils.BeanUtils;
 
 import java.util.Map;
+import java.util.UUID;
 
 /**
  * @author BaiYZ
@@ -37,5 +38,15 @@ public class WebUtils {
             e.printStackTrace();
         }
         return defaultInteger;//返回默认值
+    }
+
+    /**
+     * @Description: 获取随机识别码区
+     * @Author: BaiYZ
+     * @Date: 2021/12/19 10:10
+     * @return: java.lang.String
+     */
+    public static String getUUID() {
+        return UUID.randomUUID().toString().replace("-", "");//调用java uuid类
     }
 }

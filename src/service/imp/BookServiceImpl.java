@@ -102,6 +102,18 @@ public class BookServiceImpl implements BookService {
     }
 
     /**
+     * @param number :
+     * @Description: 获取N个随机的图书
+     * @Author: BaiYZ
+     * @Date: 2021/12/19 8:43
+     * @return: java.util.List<bean.Book>
+     */
+    @Override
+    public List<Book> getRandomBooks(int number) {
+        return bookDao.getRandomBookFromList(number);
+    }
+
+    /**
      * @param sortBook :
      * @Description: 使用分类查询图书
      * @Author: BaiYZ

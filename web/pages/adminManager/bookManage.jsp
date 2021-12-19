@@ -25,7 +25,7 @@
 <body>
 <table>
     <tr>
-        <td><a href="/pages/adminManager/bookEdit.jsp">添加图书</a></td>
+        <td><a href="pages/adminManager/bookEdit.jsp">添加图书</a></td>
     </tr>
     <tr>
         <td>期刊ID编号</td>
@@ -49,6 +49,7 @@
             <td>${book.publishData}</td>
             <td>${book.remainNumber}</td>
             <td><a href="book/bookServlet?action=getBook&number=${book.number}">修改</a></td>
+            <td><a href="book/bookServlet?action=insertImgForBook&number=${book.number}">增加图片</a></td>
             <td><a class="confirmDelete"
                    href="book/bookServlet?action=delete&id=${book.number}&pageNo=${requestScope.page.pageNo}">删除</a>
             </td>

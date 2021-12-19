@@ -128,4 +128,13 @@ public interface BookDao {
      * @return: java.lang.String
      */
     String getSqlFromBean(Book book, String pattern, List<Object> param);
+
+    /**
+     * @param number:
+     * @Description: 获取随机的几个Book对象
+     * @Author: BaiYZ
+     * @Date: 2021/12/19 8:27
+     * @return: java.util.List<bean.Book>
+     */
+    List<Book> getRandomBookFromList(int number);
 }

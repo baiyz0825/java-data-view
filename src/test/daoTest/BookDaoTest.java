@@ -120,4 +120,11 @@ class BookDaoTest {
         System.out.println("---------");
         System.out.println(books2);
     }
+
+    @Test
+    void getRandomBookFromList() {
+        BookDaoImpl bookDao = new BookDaoImpl();
+        List<Book> randomBookFromList = bookDao.getRandomBookFromList(5);
+        System.out.println(randomBookFromList);
+    }
 }

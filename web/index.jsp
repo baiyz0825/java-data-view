@@ -12,7 +12,6 @@
     <link href="static/css/style_top.css" rel="stylesheet" type="text/css">
     <title>首页</title>
 </head>
-
 <body>
 <div class="toptip">
     <table>
@@ -65,18 +64,28 @@
 
 <div class="box">
     <div class="imglist">
-        <img src="static/img/book/Atlantis.jpg" width=199px>
-        <img src="static/img/book/African%20Journal%20on%20Conflict%20Resolution.jpg" width=202px>
-        <img src="static/img/book/Innovation.jpg" width=207px>
-        <img src="static/img/book/Minority%20Translators%20Journal.jpg" width=208px>
-        <img src="static/img/book/Songs%20Bimonthly.jpg" width=210px>
-        <img src="static/img/book/Contemporary%20Artists.jpg" width=214px>
-        <img src="static/img/book/Trends%20of%20Recent%20Researches%20on%20The%20History%20of%20China.jpg"
-             width=201px>
-        <img src="static/img/book/Art.jpg" width=210px>
-        <img src="static/img/book/XinJiang.jpg" width=210px>
-        <img src="static/img/book/Chinese%20Theatre%20Arts.jpg" width=210px>
-        <img src="static/img/book/Creation.jpg" width=210px>
+        <c:forEach items="${sessionScope.indexData}" var="book">
+            <a href="book/bookServlet?action=getOneBookDetails&number=${book.number}">
+                <img src="${pageScope.resourcesPath.concat(book.src)}" alt="${book.name}" width=210px>
+            </a>
+        </c:forEach>
+        <%
+            //更新页面信息之后删除Session域中存储的信息，方便刷新后再次获取
+            session.removeAttribute("indexData");
+        %>
+
+        <%--        <img src="../static/img/book/Atlantis.jpg" width=199px>--%>
+        <%--        <img src="../static/img/book/African%20Journal%20on%20Conflict%20Resolution.jpg" width=202px>--%>
+        <%--        <img src="../static/img/book/Innovation.jpg" width=207px>--%>
+        <%--        <img src="../static/img/book/Minority%20Translators%20Journal.jpg" width=208px>--%>
+        <%--        <img src="../static/img/book/Songs%20Bimonthly.jpg" width=210px>--%>
+        <%--        <img src="../static/img/book/Contemporary%20Artists.jpg" width=214px>--%>
+        <%--        <img src="../static/img/book/Trends%20of%20Recent%20Researches%20on%20The%20History%20of%20China.jpg"--%>
+        <%--             width=201px>--%>
+
+        <%--        <img src="../static/img/book/XinJiang.jpg" width=210px>--%>
+        <%--        <img src="../static/img/book/Chinese%20Theatre%20Arts.jpg" width=210px>--%>
+        <%--        <img src="../static/img/book/Creation.jpg" width=210px>--%>
     </div>
 </div>
 

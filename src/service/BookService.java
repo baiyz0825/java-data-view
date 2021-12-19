@@ -101,4 +101,14 @@ public interface BookService {
      * @return: bean.Page<bean.Book>
      */
     Page<Book> searchBookPage(Book book, Integer pageNo, Integer pageSize);
+
+    /**
+     * @param number:
+     * @Description: 获取N个随机的图书
+     * @Author: BaiYZ
+     * @Date: 2021/12/19 8:43
+     * @return: java.util.List<bean.Book>
+     */
+    List<Book> getRandomBooks(int number);
+
 }

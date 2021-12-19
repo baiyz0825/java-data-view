@@ -77,7 +77,7 @@ public class BookDaoImpl extends BaseDao implements BookDao {
     @Override
     public int updateBook(Book book) {
         String sql = "update `Book` set name=?,sortBook=?,publisher=?,author=?,prices=?,remainNumber=?,publishData=?,src=? where number = ?";
-        return update(sql, book.getName(), book.getSortBook(), book.getPublisher(), book.getAuthor(), book.getPrices(), book.getRemainNumber(), book.getPublishData(), book.getNumber(), book.getSrc());
+        return update(sql, book.getName(), book.getSortBook(), book.getPublisher(), book.getAuthor(), book.getPrices(), book.getRemainNumber(), book.getPublishData(), book.getSrc(), book.getNumber());
     }
 
     /**
@@ -214,5 +214,18 @@ public class BookDaoImpl extends BaseDao implements BookDao {
     public int addBook(Book book) {
         String sql = "insert into `Book` (number,name,sortBook,publisher,author,prices,remainNumber,publishData,src) values (?,?,?,?,?,?,?,?,?)";
         return update(sql, book.getNumber(), book.getName(), book.getSortBook(), book.getPublisher(), book.getAuthor(), book.getPrices(), book.getRemainNumber(), book.getPublishData(), book.getSrc());
+    }
+
+    /**
+     * @param number :
+     * @Description: 获取随机的几个Book对象
+     * @Author: BaiYZ
+     * @Date: 2021/12/19 8:27
+     * @return: java.util.List<bean.Book>
+     */
+    @Override
+    public List<Book> getRandomBookFromList(int number) {
+        String sql = "select * from `Book` order by rand() limit ?";
+        return queryForList(Book.class, sql, number);
     }
 }

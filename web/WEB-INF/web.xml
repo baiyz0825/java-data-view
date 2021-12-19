@@ -44,7 +44,7 @@
     </servlet>
     <servlet-mapping>
         <servlet-name>FileServlet</servlet-name>
-        <url-pattern>/fileServlet</url-pattern>
+        <url-pattern>/file/fileServlet</url-pattern>
     </servlet-mapping>
 
 
@@ -55,5 +55,14 @@
     <filter-mapping>
         <filter-name>AdminFilter</filter-name>
         <url-pattern>/pages/adminManager/*</url-pattern>
+    </filter-mapping>
+
+    <filter>
+        <filter-name>IndexFilter</filter-name>
+        <filter-class>web.filters.IndexFilter</filter-class>
+    </filter>
+    <filter-mapping>
+        <filter-name>IndexFilter</filter-name>
+        <url-pattern>/index.jsp</url-pattern>
     </filter-mapping>
 </web-app>

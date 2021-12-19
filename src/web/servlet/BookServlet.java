@@ -248,17 +248,46 @@ public class BookServlet extends BaseServlet {
         req.setAttribute("book", book);
         req.getRequestDispatcher("/pages/adminManager/bookEdit.jsp").forward(req, resp);//一次请求，需要request域中值
     }
+
     /**
+     * @param req:
+     * @param resp:
      * @Description: 更新图书，更新完成重定向回去
      * @Author: BaiYZ
      * @Date: 2021/12/10 0:57
-     * @param req:
-     * @param resp:
      * @return: void
      */
-    public void updateBook(HttpServletRequest req,HttpServletResponse resp) throws ServletException,IOException{
+    public void updateBook(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
         Book book = WebUtils.gernerateBean(req.getParameterMap(), new Book());
-        bookService.updateBook(book);
-        resp.sendRedirect(req.getContextPath()+"/book/bookServlet?action=pages");//防止刷新重复提交
+        resp.sendRedirect(req.getContextPath() + "/book/bookServlet?action=pages");//防止刷新重复提交
+    }
+
+    public void insertImgForBook(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
+        String number = req.getParameter("number");
+        Book book = bookService.searchBookById(number);
+        req.setAttribute("BookImg", book);
+        req.getRequestDispatcher("/pages/adminManager/uploadBookImg.jsp").forward(req, resp);//一次请求，需要request域中值
+    }
+
+    /**
+     * @param req:
+     * @param resp:
+     * @Description: 获取首页索引的图书图片信息
+     * @Author: BaiYZ
+     * @Date: 2021/12/19 16:48
+     * @return: void
+     */
+    public void getIndexData(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
+        List<Book> list = bookService.getRandomBooks(Integer.parseInt(req.getParameter("numberBook")));
+        req.getSession().setAttribute("indexData", list);
+        resp.sendRedirect(req.getContextPath() + "/index.jsp");
+//        req.getRequestDispatcher("/pages/index.jsp").forward(req, resp);
+    }
+
+    public void getOneBookDetails(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
+        String number = req.getParameter("number");
+        Book book = bookService.searchBookById(number);
+        req.setAttribute("book", book);
+        req.getRequestDispatcher("/pages/book/bookDetails.jsp").forward(req, resp);
     }
 }
