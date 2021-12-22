@@ -10,18 +10,49 @@
     <link href="static/img/title_book.ico" rel="shortcut icon" type="image/x">
     <link href="static/css/style_home.css" rel="stylesheet">
     <link href="static/css/style_top.css" rel="stylesheet">
+    <script type="text/javascript">
+        // let indexUrl = "http://localhost:8088/JavaDataView/index,jsp";
+        // let errorPage = "http://localhost:8088/JavaDataView/pages/common/errprPage.html";
+
+        //jquery a标签不能使用click事件，其触发的是onclick事件
+        // function aLinkBtn() {
+        //     $.ajax({
+        //         url: "user/userServlet",
+        //         type: "GET",
+        //         dataType: "json",
+        //         data: {
+        //             action: "logout"
+        //         },
+        //         success: function (data) {
+        //             alert(data);
+        //             if (data === "success") {
+        //                 $(location).attr("href", indexUrl);
+        //             } else {
+        //                 $(location).attr("href", errorPage);
+        //             }
+        //         }
+        //     })
+        // }
+    </script>
     <title>首页</title>
 </head>
 <body>
 <div class="toptip">
-    <div class="toptip_logo"><a href="#" target="">
+    <div class="toptip_logo"><a href="http://localhost:8088/JavaDataView/">
         <img src="static/img/LIBAIlogo.png" height="40px">
     </a></div>
     <div class="dropdown">
         <button class="img_user"><img src="static/img/user2.png"></button>
         <div class="dropdown-content">
-            <a href="#">注册</a>
-            <a href="#">登录</a>
+            <c:choose>
+                <c:when test="${sessionScope.user == null}">
+                    <a href="pages/user/login.jsp">登录</a>
+                    <a href="pages/user/register.jsp">注册</a>
+                </c:when>
+                <c:when test="${sessionScope.user != null}">
+                    <a href="#">注销</a>
+                </c:when>
+            </c:choose>
             <a href="#">帮助？</a>
         </div>
     </div>

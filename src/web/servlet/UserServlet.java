@@ -13,7 +13,6 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 import java.io.IOException;
-import java.util.Arrays;
 
 import static com.google.code.kaptcha.Constants.KAPTCHA_SESSION_KEY;
 
@@ -180,7 +179,7 @@ public class UserServlet extends BaseServlet {
                 resp.addCookie(userCookie);
                 //保存用户到session域之中（方便权限检查以及登陆信息的显示（页面切换时也可以显示，只要是访问一次也就是不关闭浏览器都应存在））
                 session.setAttribute("user", verifyUser);
-                //请求转发
+//                请求转发
                 req.getRequestDispatcher("/index.jsp").forward(req, resp);
             } else {
                 req.setAttribute("errorMsg", "用户名或密码错误！");
@@ -221,6 +220,7 @@ public class UserServlet extends BaseServlet {
                 user.setPassword(DigestUtils.md5Hex(user.getPassword())); //使用MD5加密用户密码
                 userService.addUser(user);
                 req.setAttribute("successMsg", user.getName());
+//                resp.sendRedirect(req.getContextPath()+"/book/bookServlet?action=getIndexData&numberBook=2");//获取新的页面数据，因为使用过滤器在登陆成功之后执行了doFilter方法放行不会再次请求分页信息
                 req.getRequestDispatcher("/index.jsp").forward(req, resp);
             }
         } else {
@@ -241,9 +241,15 @@ public class UserServlet extends BaseServlet {
      * @return: void
      */
     public void logout(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-        //删除当前session域中保存的信息
+        //设置json回传注销是否成功信息
         req.getSession().invalidate();
+        if (req.getSession().getAttribute("user") == null)
+            resp.getWriter().write("success");
+        //使用上面Json代替
         //请求重定向清除所有session以及req中的信息3zx
-        resp.sendRedirect(req.getContextPath() + "/index.jsp");
+        //resp.sendRedirect(req.getContextPath() + "/pages/user/logoutSuccess.html");
+        //删除当前session域中保存的信息
+
+
     }
 }

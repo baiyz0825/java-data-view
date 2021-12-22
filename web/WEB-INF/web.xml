@@ -64,5 +64,13 @@
     <filter-mapping>
         <filter-name>IndexFilter</filter-name>
         <url-pattern>/index.jsp</url-pattern>
+        <!--        拦截内部转发-->
+        <!--        Filter默认下只拦截外部提交的请求，forward和include这些内部转发都不会被过滤
+                    <dispatcher>REQUEST</dispatcher>
+                    <dispatcher>FORWARD</dispatcher>
+                    <dispatcher>INCLUDE</dispatcher>
+                    <dispatcher>EXCEPTION</dispatcher>
+        -->
+        <dispatcher>FORWARD</dispatcher>
     </filter-mapping>
 </web-app>
