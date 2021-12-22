@@ -21,21 +21,25 @@
 
 <body>
 <div class="toptip">
-    <table>
-        <tr>
-            <td>首页logo<a href="#" target="-blank" title="首页Logo">
-                <img src="#">
-            </a></td>
-            <td class="img_user"><img src="static/img/user2.png"></td>
-        </tr>
-    </table>
+    <div class="toptip_logo"><a href="#" target="">
+        <img src="static/img/LIBAIlogo.png" height="40px">
+    </a></div>
+    <div class="dropdown">
+        <button class="img_user"><img src="static/img/user2.png"></button>
+        <div class="dropdown-content">
+            <a href="#">帮助？</a>
+        </div>
+    </div>
 </div>
+
+<%--<div id="bg1" class="bgbox"></div>--%>
+<%--<div id="bg2" class="bgbox"></div>--%>
+<%--<div id="bg3" class="bgbox"></div>--%>
 
 <div class="content">
     <div class="con_wel">
         欢迎登录
     </div>
-    <br/>
     <form action="user/userServlet" method="post">
         <input name="action" type="hidden" value="login">
         <table align="center" border="0">
@@ -58,25 +62,16 @@
                 <td class="td_right"><input id="password" name="password" placeholder="请输入密码" type="password"></td>
             </tr>
             <tr>
-                <td class="td_left"><label>身&nbsp;&nbsp;&nbsp;&nbsp;份：</label></td>
-                <td class="tdst_right"><input name="identity" type="radio" value="student">学生&nbsp;&nbsp;&nbsp;&nbsp;
-                    <input name="identity" type="radio" value="administrator">管理员
-                </td>
-            </tr>
-            <tr>
                 <td class="td_left"><label for="checkCode">验证码：</label></td>
                 <td class="tdst_right"><input id="checkCode" name="checkCode" placeholder="验证码" type="text">
-                    <img id="img_check" src="captcha.jpg" alt="">
+                    <img id="img_check" src="captcha.jpg" alt="" width="100px">
                 </td>
             </tr>
             <tr>
                 <td align="center" class="td_login" colspan="2"><input id="btn_sub" type="submit" value="立即登录"/>
                 </td>
             </tr>
-            <tr>
-                <td class="td_left"></td>
-                <td class="td_right"></td>
-            </tr>
+
         </table>
     </form>
     <div class="href_register">
@@ -88,5 +83,6 @@
         </table>
     </div>
 </div>
+<div class="overlay"></div>
 </body>
 </html>

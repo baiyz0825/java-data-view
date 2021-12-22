@@ -2,13 +2,13 @@
 .toptip {
     height: 40px;
     border: 0px solid red;
-    background: #efefef;
+    background: rgba(251, 251, 251, 0.6);
     font-size: 18px;
     position: fixed;
     top: 0;
     left: 0;
     width: 100%;
-    z-index: 1;
+    z-index: 2;
     box-shadow: 0 5px 10px rgba(0, 0, 0, .5);
 
 }
@@ -89,6 +89,6 @@
 }
 
 .dropdown:hover .img_user {
-    background-color: gray;
+    background: none;
 }
 

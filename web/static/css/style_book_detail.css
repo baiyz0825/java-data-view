@@ -1,18 +1,29 @@
 body {
-    background: url("../../static/img/oreg.png") no-repeat fixed;
+    background: url("../../static/img/boy_back.png") no-repeat fixed;
     background-size: cover;
 }
 
 .content {
-    width: 1000px;
-    height: 640px;
-    background: rgba(0, 0, 0, .6);
-    margin: 0 auto;
-    margin-top: 95px;
+    height: 670px;
+    width: 1030px;
+    background: rgba(255, 255, 255, .8);
+    margin-left: 75px;
+    padding-top: 25px;
+    margin-top: 50px;
+
+}
+
+.window {
+    background: rgba(0, 0, 0, .65);
+    width: 980px;
+    height: 630px;
+    margin-left: 25px;
+    /*margin: 0 auto;*/
+    /*margin-top: 95px;*/
+    padding-top: 25px;
     overflow: hidden;
     color: white;
     box-shadow: 0 5px 10px rgba(0, 0, 0, .7);
-    padding-top: 20px;
 }
 
 .book_img {
@@ -21,6 +32,7 @@ body {
     border: 0px solid red;
     padding-right: 30px;
     padding-left: 20px;
+    color: white;
 }
 
 .td_bookinform_title {
@@ -36,11 +48,53 @@ body {
     height: 40px;
     font-size: 25px;
     /*border-bottom: 2px solid #CCCCCC;*/
+    color: white;
 }
 
 .td_rebookinform {
     padding-left: 5px;
     font-size: 19px;
     color: #CCCCCC;
+    overflow: hidden;
     /*border-bottom: 1px solid #CCCCCC;*/
+}
+
+.re_btn {
+    width: 40px;
+    height: 25px;
+    border: 0px solid red;
+    padding: 0;
+}
+
+.re_btn a {
+    font-size: 20px;
+    color: white;
+    text-decoration: none;
+}
+
+.btn_box {
+    width: 50px;
+    border: 0px solid red;
+    margin-left: 400px;
+    text-align: center;
+    background: #F74B35;
+    cursor: pointer;
+}
+
+.overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    /*pointer-events: none;*/
+    /*background: rgba(255,255,255, 0.6);*/
+    backdrop-filter: blur(5px);
+}
+
+.overlay:hover {
+    transition: 0.5s filter;
+    backdrop-filter: none;
+    /*-webkit-filter: blur(5px);*/
+    /*pointer-events: auto;*/
 }
