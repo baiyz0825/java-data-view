@@ -1,52 +1,62 @@
 body {
-    background: url("../../static/img/oreg.png") no-repeat fixed;
+    background: url("../../static/img/boy_back.png") no-repeat fixed;
+    width: 100%;
+    height: 100%;
+    top: 0;
+    left: 0;
     background-size: cover;
+    -webkit-background-size: cover;
+    -o-background-size: cover;
+    background-position: center 0;
 }
 
 .content {
-    width: 90%;
-    height: 700px;
-    background: rgba(0, 0, 0, .6);
-    margin: 0 auto;
+    width: 950px;
+    height: 680px;
+    background: rgba(255, 255, 255, .8);
+    /*margin: 0 auto;*/
+    margin-left: 130px;
     margin-top: 50px;
     overflow: hidden;
     color: white;
     box-shadow: 0 5px 10px rgba(0, 0, 0, .7);
-}
-
-.content_left {
-    border: 0px solid black;
-    width: 600px;
-    height: 700px;
-    float: left;
+    position: relative;
+    /*z-index: 1;*/
 }
 
 .con_book {
-    border: 1px solid white;
-    width: 550px;
+    border: 0px solid red;
+    width: 750px;
     height: 220px;
-    margin-left: 45px;
+    margin-left: 60px;
     margin-top: 5px;
+    /*padding-top: 5px;*/
+    background: rgba(0, 0, 0, .5);
 
 }
 
 .td_bookimg {
-    padding-left: 10px;
+    padding-top: 5px;
+    padding-left: 30px;
     padding-right: 10px;
-    height: 150px;
-    width: 115px;
+    height: 205px;
+    width: 180px;
+    border: 0px solid red;
 }
 
 .td_bookinform {
     height: 22px;
-    width: 85px;
+    width: 100px;
     font-size: 15px;
+
+    padding-left: 15px;
 }
 
 .td_rebookinform {
     height: 22px;
-    width: 250px;
+    width: 270px;
     font-size: 15px;
+    border: 0px solid red;
 }
 
 .td_key {
@@ -62,4 +72,22 @@ body {
     text-decoration: none;
     cursor: pointer;
     padding: 5px;
+}
+
+.overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    /*pointer-events: none;*/
+    /*background: rgba(255,255,255, 0.6);*/
+    backdrop-filter: blur(5px);
+}
+
+.overlay:hover {
+    transition: 0.5s filter;
+    backdrop-filter: none;
+    /*-webkit-filter: blur(5px);*/
+    /*pointer-events: auto;*/
 }

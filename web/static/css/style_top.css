@@ -2,13 +2,13 @@
 .toptip {
     height: 40px;
     border: 0px solid blue;
-    background: #efefef;
+    background: rgba(251, 251, 251, 0.6);
     font-size: 18px;
     position: fixed;
     top: 0;
     left: 0;
     width: 100%;
-    z-index: 1;
+    z-index: 2;
     box-shadow: 0 5px 10px rgba(0, 0, 0, .5);
 }
 
@@ -24,13 +24,14 @@
 
 /*顶栏用户头像*/
 .img_user {
-    /*position: absolute;*/
+    /*position: fixed;*/
     width: 45px;
     height: 40px;
     padding-top: 4px;
     border: 0px solid red;
     cursor: pointer;
     margin-right: 30px;
+
 }
 
 .dropdown {
@@ -68,3 +69,5 @@
 .dropdown:hover .img_user {
     background-color: gray;
 }
+
+

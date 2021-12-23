@@ -1,18 +1,28 @@
 body {
-    background: url("../../static/img/oreg.png") no-repeat fixed;
+    background: url("../../static/img/boy_back.png") no-repeat fixed;
     background-size: cover;
 }
 
 .content {
-    width: 1000px;
-    height: 640px;
-    background: rgba(0, 0, 0, .6);
-    margin: 0 auto;
-    margin-top: 95px;
+    height: 670px;
+    width: 1030px;
+    background: rgba(255, 255, 255, .8);
+    margin-left: 75px;
+    padding-top: 25px;
+    margin-top: 50px;
+}
+
+.window {
+    background: rgba(0, 0, 0, .65);
+    width: 980px;
+    height: 630px;
+    margin-left: 25px;
+    /*margin: 0 auto;*/
+    /*margin-top: 95px;*/
+    padding-top: 25px;
     overflow: hidden;
     color: white;
     box-shadow: 0 5px 10px rgba(0, 0, 0, .7);
-    padding-top: 20px;
 }
 
 .book_img {
@@ -21,6 +31,7 @@ body {
     border: 0px solid red;
     padding-right: 30px;
     padding-left: 20px;
+    color: white;
 }
 
 .td_bookinform_title {
@@ -52,9 +63,10 @@ body {
     color: #CCCCCC;
     outline-style: none;
     background: none;
-    width: 280px;
+    width: 260px;
     height: 35px;
     border: 0px solid red;
+    /*overflow: hidden;*/
     /*border-bottom: 1px solid #CCCCCC;*/
 }
 
@@ -73,6 +85,12 @@ body {
     font-size: 20px;
     margin-left: 300px;
     cursor: pointer;
+    -webkit-transition-duration: 0.4s; /* Safari */
+    transition-duration: 0.4s;
+}
+
+#confirm:hover {
+    background-color: #F74B35
 }
 
 #cancel {
@@ -85,6 +103,12 @@ body {
     font-size: 20px;
     margin-left: 10px;
     cursor: pointer;
+    -webkit-transition-duration: 0.4s; /* Safari */
+    transition-duration: 0.4s;
+}
+
+#cancel:hover {
+    background-color: #F74B35
 }
 
 .td_rebookinform {
@@ -94,6 +118,6 @@ body {
 input:focus {
     border-color: #66afe9;
     outline: 0;
-    -webkit-box-shadow: inset 0 1px 1px rgba(0, 0, 0, .075), 0 0 8px rgba(102, 175, 233, .6);
-    box-shadow: inset 0 1px 1px rgba(0, 0, 0, .075), 0 0 8px rgba(102, 175, 233, .6)
+    -webkit-box-shadow: inset 0 1px 1px rgba(0, 0, 0, .075), 0 0 8px rgba(44, 251, 248, .6);
+    box-shadow: inset 0 1px 1px rgba(0, 0, 0, .075), 0 0 8px rgba(44, 251, 248, .6)
 }

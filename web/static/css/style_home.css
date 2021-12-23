@@ -1,13 +1,14 @@
 /*背景*/
 body {
-    background: url("../../static/img/oreg.png") no-repeat fixed;
+    background: url("../img/oreg.png") no-repeat fixed;
+    /*background-color: #D0EDB5;*/
     background-size: cover;
 }
 
 /*图片*/
 .img_home {
     height: 185px;
-    background-image: url("../../static/img/man.png");
+    background-image: url("../img/man.png");
     border: 0 solid black;
     display: flex;
     justify-content: center;
@@ -31,10 +32,10 @@ body {
     width: 850px;
     height: 120px;
     border: 0px solid red;
-    background: rgba(0, 0, 0, .6);
+    background: rgba(0, 0, 0, .65);
     margin: 0 auto;
     overflow: hidden;
-    box-shadow: 0 25px 45px rgba(0, 0, 0, .5);
+    box-shadow: 0 25px 45px rgba(0, 0, 0, .6);
     margin-bottom: 50px;
     padding-top: 9px;
 }
@@ -82,7 +83,7 @@ input::-webkit-input-placeholder { /* WebKit, Blink, Edge */
     width: 120px;
     height: 50px;
     /*background-color: #FB8573;*/
-    background: rgba(0, 0, 0, .6);
+    background: rgba(0, 0, 0, .65);
     border: none;
     /*border-radius: 5px;*/
     font-size: 25px;
@@ -91,7 +92,7 @@ input::-webkit-input-placeholder { /* WebKit, Blink, Edge */
     transition-duration: 0.4s;
     margin-bottom: 0;
     overflow: hidden;
-    box-shadow: 0 20px 45px rgba(0, 0, 0, .5);
+    box-shadow: 0 20px 45px rgba(0, 0, 0, .6);
 }
 
 #btn_conf:hover {
@@ -112,7 +113,7 @@ input::-webkit-input-placeholder { /* WebKit, Blink, Edge */
     overflow: hidden;
     border: 0 solid black;
     position: relative;
-    background: rgba(0, 0, 0, .6);
+    background: rgba(0, 0, 0, .65);
     padding-top: 10px;
 }
 
