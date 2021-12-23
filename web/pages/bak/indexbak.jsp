@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <%@include file="../include/head.jsp" %>
     <meta http-equiv="refresh"
-          content="0;url=${pageScope.basePath.concat("book/bookServlet?action=getIndexData&numberBook=2")}">
+          content="0;url=${pageScope.basePath.concat("book/bookServlet?action=getIndexData&numberBook=11")}">
     <title>Welcome!</title>
 </head>
 <body>

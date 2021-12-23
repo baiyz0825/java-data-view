@@ -158,8 +158,9 @@ public class BookServlet extends BaseServlet {
         List<Book> books = bookService.searchBookAll();
         //存入req 域中
         req.setAttribute("books", books);
+        resp.setCharacterEncoding("UTF-8");
         //请求转发-"/"为解析到项目路径
-        req.getRequestDispatcher("/pages/adminManager/bookManage.jsp").forward(req, resp);
+        req.getRequestDispatcher("/pages/adminManager/searchResults.jsp").forward(req, resp);
     }
 
     /**
@@ -178,6 +179,7 @@ public class BookServlet extends BaseServlet {
         bookService.deleteBookById(id);
         //重定向返回图书列表(还是访问servlet填充图书信息)
 //        System.out.println(req.getContextPath());
+        resp.setCharacterEncoding("UTF-8");
         //重定向返回页面。需要获取工程路径getContextPath()
         resp.sendRedirect(req.getContextPath() + "/book/bookServlet?action=pages&pageNo="+pageNo);
     }
@@ -185,7 +187,7 @@ public class BookServlet extends BaseServlet {
     /**
      * @param req:
      * @param resp:
-     * @Description: 查询分页服务
+     * @Description: 进入显示分页 普通用户
      * @Author: BaiYZ
      * @Date: 2021/12/9 8:40
      * @return: void
@@ -193,16 +195,37 @@ public class BookServlet extends BaseServlet {
     public void pages(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
         Integer pageNo = WebUtils.parseIntFromString(req.getParameter("pageNo"), Page.defaultPageNo);
         Integer pageSize = WebUtils.parseIntFromString(req.getParameter("pageSize"), Page.defaultPageSize);
-
         Page<Book> page = bookService.pages(pageNo, pageSize);
+        resp.setCharacterEncoding("UTF-8");
         req.setAttribute("page", page);
-        req.getRequestDispatcher("/pages/adminManager/bookManage.jsp").forward(req, resp);
+        req.getRequestDispatcher("/pages/book/searchResults.jsp").forward(req, resp);
     }
 
     /**
      * @param req:
      * @param resp:
-     * @Description: 模糊检索生成分页
+     * @Description: 进入显示分页 管理员（含有按钮）
+     * @Author: BaiYZ
+     * @Date: 2021/12/23 16:50
+     * @return: void
+     */
+    public void adminPages(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
+        Integer pageNo = WebUtils.parseIntFromString(req.getParameter("pageNo"), Page.defaultPageNo);
+        Integer pageSize = WebUtils.parseIntFromString(req.getParameter("pageSize"), Page.defaultPageSize);
+
+        Page<Book> page = bookService.pages(pageNo, pageSize);
+        req.setAttribute("page", page);
+        resp.setCharacterEncoding("UTF-8");
+//        resp.setContentType("text/html;charset=UTF-8");
+        resp.setContentType("text/css,charset=UTF-8");
+        req.getRequestDispatcher("/pages/adminManager/managerResult.jsp").forward(req, resp);
+//        req.getRequestDispatcher("/testPages/manager_result.html").forward(req, resp);
+    }
+
+    /**
+     * @param req:
+     * @param resp:
+     * @Description: 用户模糊检索生成分页（不含有管理按钮）
      * @Author: BaiYZ
      * @Date: 2021/12/12 1:22
      * @return: void
@@ -213,8 +236,28 @@ public class BookServlet extends BaseServlet {
         Integer pageNo = WebUtils.parseIntFromString(req.getParameter("pageNo"), Page.defaultPageNo);
         Integer pageSize = WebUtils.parseIntFromString(req.getParameter("pageSize"), Page.defaultPageSize);
         Page<Book> searchBookPage = bookService.searchBookPage(book, pageNo, pageSize);
+        resp.setCharacterEncoding("UTF-8");
         req.setAttribute("page", searchBookPage);
-        req.getRequestDispatcher("/pages/adminManager/bookManage.jsp").forward(req, resp);
+        req.getRequestDispatcher("/pages/book/searchResults.jsp").forward(req, resp);
+    }
+
+    /**
+     * @param req:
+     * @param resp:
+     * @Description: 管理员模糊检索生成分页（含有管理按钮）
+     * @Author: BaiYZ
+     * @Date: 2021/12/12 1:22
+     * @return: void
+     */
+    public void searchPagesAdmin(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
+        Book book = WebUtils.gernerateBean(req.getParameterMap(), new Book());
+//        System.out.println(book);
+        Integer pageNo = WebUtils.parseIntFromString(req.getParameter("pageNo"), Page.defaultPageNo);
+        Integer pageSize = WebUtils.parseIntFromString(req.getParameter("pageSize"), Page.defaultPageSize);
+        Page<Book> searchBookPage = bookService.searchBookPage(book, pageNo, pageSize);
+        resp.setCharacterEncoding("UTF-8");
+        req.setAttribute("page", searchBookPage);
+        req.getRequestDispatcher("/pages/adminManager/managerResult.jsp").forward(req, resp);
     }
 
     /**
@@ -231,7 +274,8 @@ public class BookServlet extends BaseServlet {
       /*  这里使用重定向的原因是因为，
         如果使用请求转发，这个时候还是一个请求request域中的数据依旧存在还是一次请求，并且在浏览器中使用F5进行刷新其还是会再次提交页面（默认提交最后一次请求）、
         也就是会导致多次向服务器发送插入请求*/
-        resp.sendRedirect(req.getContextPath() + "/book/bookServlet?action=pages");
+        resp.setCharacterEncoding("UTF-8");
+        resp.sendRedirect(req.getContextPath() + "/book/bookServlet?action=adminPages");
     }
 
     /**
@@ -259,7 +303,7 @@ public class BookServlet extends BaseServlet {
      */
     public void updateBook(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
         Book book = WebUtils.gernerateBean(req.getParameterMap(), new Book());
-        resp.sendRedirect(req.getContextPath() + "/book/bookServlet?action=pages");//防止刷新重复提交
+        resp.sendRedirect(req.getContextPath() + "/book/bookServlet?action=adminPages");//防止刷新重复提交
     }
 
     public void insertImgForBook(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {

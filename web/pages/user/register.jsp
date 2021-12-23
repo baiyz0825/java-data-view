@@ -5,11 +5,11 @@
 <head>
     <meta charset="UTF-8">
     <%@include file="../include/head.jsp" %>
+    <script type="text/javascript" src="static/bootstrap-5.1.3-dist/js/bootstrap.bundle.min.js"></script>
+    <link href="static/bootstrap-5.1.3-dist/css/bootstrap.min.css" rel="stylesheet">
     <script type="text/javascript" src="static/scripts/registerVerify.js"></script>
     <script src="static/scripts/captchaFlush.js" type="text/javascript"></script>
     <link href="static/css/style_register.css" rel="stylesheet" type="text/css">
-    <%--    <script src="static/bootstrap-5.1.3-dist/js/bootstrap.bundle.min.js"></script>--%>
-    <%--    <link href="static/bootstrap-5.1.3-dist/css/bootstrap.min.css" rel="stylesheet">--%>
     <link href="static/img/title_book.ico" rel="shortcut icon" type="image/x">
     <link href="static/css/style_top.css" rel="stylesheet" type="text/css">
     <title>注册</title>
@@ -20,7 +20,7 @@
     <table>
         <tr>
             <td class="toptip_logo"><a href="index.jsp" target="-blank" title="首页Logo">
-                <img src="static/img/LIBAIlogo.png" height="50px">
+                <img src="">
             </a></td>
             <td class="toptip_help"><a href="#" target="_blank"><strong>帮助？</strong></a></td>
             <td class="img_user"><img src="static/img/user2.png"></td>

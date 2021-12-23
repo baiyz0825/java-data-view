@@ -1,6 +1,8 @@
 package web.servlet;
 
 import bean.User;
+import com.google.gson.Gson;
+import com.google.gson.JsonObject;
 import org.apache.commons.codec.digest.DigestUtils;
 import service.imp.UserServiceImpl;
 import utils.WebUtils;
@@ -178,6 +180,8 @@ public class UserServlet extends BaseServlet {
                 //将cookie存储到resp中
                 resp.addCookie(userCookie);
                 //保存用户到session域之中（方便权限检查以及登陆信息的显示（页面切换时也可以显示，只要是访问一次也就是不关闭浏览器都应存在））
+                //设置session 15min过期
+                session.setMaxInactiveInterval(900);
                 session.setAttribute("user", verifyUser);
 //                请求转发
                 req.getRequestDispatcher("/index.jsp").forward(req, resp);
@@ -242,9 +246,18 @@ public class UserServlet extends BaseServlet {
      */
     public void logout(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
         //设置json回传注销是否成功信息
+        JsonObject jsonObject = new JsonObject();
+        Gson gson = new Gson();
         req.getSession().invalidate();
-        if (req.getSession().getAttribute("user") == null)
-            resp.getWriter().write("success");
+        if (req.getSession().getAttribute("user") == null) {
+            jsonObject.addProperty("msg", true);
+//            System.out.println(jsonObject.toString());
+            resp.getWriter().write(jsonObject.toString());
+        } else {
+            jsonObject.addProperty("msg", false);
+            resp.getWriter().write(String.valueOf(jsonObject));
+        }
+
         //使用上面Json代替
         //请求重定向清除所有session以及req中的信息3zx
         //resp.sendRedirect(req.getContextPath() + "/pages/user/logoutSuccess.html");

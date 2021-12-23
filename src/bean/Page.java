@@ -10,7 +10,7 @@ import java.util.List;
  */
 public class Page<T> {
     public static final int defaultPageNo = 1;
-    public static final int defaultPageSize = 2;
+    public static final int defaultPageSize = 6;
     private Integer pageNo;//当前分页号
     private Integer pageSize;//当前分页大小
     private Integer pageCount;//当前页面总数

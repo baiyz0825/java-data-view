@@ -58,6 +58,7 @@ public class FileServlet extends HttpServlet {
                             String filename = fileItem.getName().substring(fileItem.getName().lastIndexOf("."));
                             //获取存盘路径
                             String StoreRootPath = FilelUtils.getSavePath();
+                            //设置写入路径
                             String ImgPath = "\\Img\\Book";
                             String randomUUID = WebUtils.getUUID();
                             filename = randomUUID + filename;
@@ -88,6 +89,8 @@ public class FileServlet extends HttpServlet {
             //是的话输出
             //不是的话进行存储
         }
+        //重定向回上传成功页面
+        resp.sendRedirect(req.getContextPath() + "/pages/adminManager/uploadSuccess.html");//防止刷新重复提交
     }
 
     public void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {

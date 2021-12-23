@@ -10,30 +10,7 @@
     <link href="static/img/title_book.ico" rel="shortcut icon" type="image/x">
     <link href="static/css/style_home.css" rel="stylesheet">
     <link href="static/css/style_top.css" rel="stylesheet">
-    <script type="text/javascript">
-        // let indexUrl = "http://localhost:8088/JavaDataView/index,jsp";
-        // let errorPage = "http://localhost:8088/JavaDataView/pages/common/errprPage.html";
-
-        //jquery a标签不能使用click事件，其触发的是onclick事件
-        // function aLinkBtn() {
-        //     $.ajax({
-        //         url: "user/userServlet",
-        //         type: "GET",
-        //         dataType: "json",
-        //         data: {
-        //             action: "logout"
-        //         },
-        //         success: function (data) {
-        //             alert(data);
-        //             if (data === "success") {
-        //                 $(location).attr("href", indexUrl);
-        //             } else {
-        //                 $(location).attr("href", errorPage);
-        //             }
-        //         }
-        //     })
-        // }
-    </script>
+    <script src="static/scripts/logout.js"></script>
     <title>首页</title>
 </head>
 <body>
@@ -50,7 +27,11 @@
                     <a href="pages/user/register.jsp">注册</a>
                 </c:when>
                 <c:when test="${sessionScope.user != null}">
-                    <a href="#">注销</a>
+                    <c:if test="${sessionScope.user.admin == 1}">
+                        <a href="book/bookServlet?action=adminPages&pageNo=1&pageSize=6">管理期刊</a>
+                    </c:if>
+                    <!--在onClick事件中添加一个返回false既可以阻止元素的默认行为，并且当不配置href标签的#时其不会默认跳转top页面也就是当前地址栏后加一个#-->
+                    <a href="" onclick="clickMouse();return false;">注销</a>
                 </c:when>
             </c:choose>
             <a href="#">帮助？</a>

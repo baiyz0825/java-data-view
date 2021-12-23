@@ -12,6 +12,8 @@
 <head>
     <meta charset="UTF-8">
     <%@include file="../include/head.jsp" %>
+    <script type="text/javascript" src="static/bootstrap-5.1.3-dist/js/bootstrap.bundle.min.js"></script>
+    <link href="static/bootstrap-5.1.3-dist/css/bootstrap.min.css" rel="stylesheet">
     <link href="static/css/style.css" rel="stylesheet" type="text/css">
     <link href="static/img/title_book.ico" rel="shortcut icon" type="image/x">
     <link href="static/css/style_top.css" rel="stylesheet" type="text/css">
@@ -24,7 +26,7 @@
     <table>
         <tr>
             <td>首页logo<a href="#" target="-blank" title="首页Logo">
-                <img src="#">
+                <img src="">
             </a></td>
             <td class="img_user"><img src="static/img/user2.png"></td>
         </tr>
@@ -82,8 +84,8 @@
     <div class="href_register">
         <table>
             <tr>
-                <td class="td_rgleft"><a href="pages/user/register.jsp" target="_blank">马上注册</a></td>
-                <td class="td_rgright"><a href="#" target="_blank">忘记密码?</a></td>
+                <td class="td_rgleft"><a href="pages/user/register.jsp" target="_self">马上注册</a></td>
+                <td class="td_rgright"><a href="#" target="_self">忘记密码?</a></td>
             </tr>
         </table>
     </div>

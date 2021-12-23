@@ -47,7 +47,7 @@ public class IndexFilter implements Filter {
         if (httpServletRequest.getSession().getAttribute("indexData") != null) {
             chain.doFilter(request, response);
         } else {
-            httpServletRequest.getRequestDispatcher("/book/bookServlet?action=getIndexData&numberBook=2").forward(request, response);//不允许直接跳转，直接过滤}
+            httpServletRequest.getRequestDispatcher("/book/bookServlet?action=getIndexData&numberBook=11").forward(request, response);//不允许直接跳转，直接过滤}
         }
     }
 }
