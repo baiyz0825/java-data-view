@@ -3,6 +3,7 @@ package web.servlet;
 import bean.Book;
 import bean.Page;
 import service.imp.BookServiceImpl;
+import utils.FilelUtils;
 import utils.WebUtils;
 
 import javax.servlet.ServletException;
@@ -174,14 +175,15 @@ public class BookServlet extends BaseServlet {
     public void delete(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
 //        BookServiceImpl bookService = new BookServiceImpl();
         String id = req.getParameter("id");//获取传入的参数
-        String pageNo = req.getParameter("pageNo");
+        String ImgPath = req.getParameter("ImgPath");
 //        System.out.println(id);
         bookService.deleteBookById(id);
+        FilelUtils.deleteFile(ImgPath, "ImgBook");
         //重定向返回图书列表(还是访问servlet填充图书信息)
 //        System.out.println(req.getContextPath());
         resp.setCharacterEncoding("UTF-8");
         //重定向返回页面。需要获取工程路径getContextPath()
-        resp.sendRedirect(req.getContextPath() + "/book/bookServlet?action=pages&pageNo="+pageNo);
+        resp.sendRedirect(req.getContextPath() + "/book/bookServlet?action=adminPages&pageNo=");
     }
 
     /**

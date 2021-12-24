@@ -107,7 +107,7 @@
                             <p><a href="book/bookServlet?action=getBook&number=${book.number}">修改</a></p>
                             <p><a href="book/bookServlet?action=insertImgForBook&number=${book.number}">加图</a></p>
                             <p><a class="confirmDelete"
-                                  href="book/bookServlet?action=delete&id=${book.number}&pageNo=${requestScope.page.pageNo}">删除</a>
+                                  href="book/bookServlet?action=delete&id=${book.number}&pageNo=${requestScope.page.pageNo}&ImgPath=${book.src}">删除</a>
                             </p>
 
                         </td>
@@ -159,7 +159,7 @@
                             <p><a href="book/bookServlet?action=getBook&number=${book.number}">修改</a></p>
                             <p><a href="book/bookServlet?action=insertImgForBook&number=${book.number}">加图</a></p>
                             <p><a class="confirmDelete"
-                                  href="book/bookServlet?action=delete&id=${book.number}&pageNo=${requestScope.page.pageNo}">删除</a>
+                                  href="book/bookServlet?action=delete&id=${book.number}&ImgPath=${book.src}">删除</a>
                             </p>
                         </td>
                     </tr>

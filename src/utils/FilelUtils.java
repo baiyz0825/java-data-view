@@ -1,8 +1,11 @@
 package utils;
 
+import java.io.File;
 import java.io.IOException;
 import java.io.InputStream;
+import java.util.Map;
 import java.util.Properties;
+import java.util.TreeMap;
 import java.util.UUID;
 
 /**
@@ -12,6 +15,23 @@ import java.util.UUID;
  * @date 2021-12-19 12:10:51
  */
 public class FilelUtils {
+    private static Map<String, String> fileSortMaps;
+    private static String rootPath;
+
+    static {
+        Properties propertiesPath = new Properties();
+        InputStream inputStream = FilelUtils.class.getClassLoader().getResourceAsStream("fileUpload.properties");
+        try {
+            propertiesPath.load(inputStream);
+
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+        rootPath = propertiesPath.getProperty("path");
+        fileSortMaps = new TreeMap<>();
+        fileSortMaps.put("ImgBook", rootPath + "\\Img\\Book");
+    }
+
     /**
      * @Description: 获取随机识别码区
      * @Author: BaiYZ
@@ -28,15 +48,28 @@ public class FilelUtils {
      * @Date: 2021/12/19 14:04
      * @return: java.lang.String
      */
-    public static String getSavePath() {
-        Properties propertiesPath = new Properties();
-        InputStream inputStream = FilelUtils.class.getClassLoader().getResourceAsStream("fileUpload.properties");
-        try {
-            propertiesPath.load(inputStream);
+    public static String getSavePath(String fileSort) {
+        return fileSortMaps.get(fileSort);
+    }
 
-        } catch (IOException e) {
+    /**
+     * @param path:
+     * @Description: 删除服务器文件
+     * @Author: BaiYZ
+     * @Date: 2021/12/24 11:13
+     * @return: boolean
+     */
+    public static boolean deleteFile(String path, String fileSort) {
+        String realPath = fileSortMaps.get(fileSort) + "\\" + path.substring(path.indexOf("/") + 1);
+        try {
+            File file = new File(realPath);
+            if (file.exists())
+                return file.delete();
+            else
+                return false;
+        } catch (NullPointerException e) {
             e.printStackTrace();
         }
-        return propertiesPath.getProperty("path");
+        return false;
     }
 }

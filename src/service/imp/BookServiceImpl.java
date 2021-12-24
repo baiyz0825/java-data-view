@@ -68,7 +68,7 @@ public class BookServiceImpl implements BookService {
         int recordCount = bookDao.searchAllCountBookRecord();
         page.setRecordCount(recordCount);
         int pageCount = recordCount / pageSize;//可能存在余数，图书还得一页
-        if (recordCount / pageSize != 0)
+        if ((recordCount % pageSize) != 0)//判断是否整除，不整除说明其还需要一页
             pageCount++;
         page.setPageCount(pageCount);
         List<Book> books = bookDao.booksForOnePages(pageNo, pageSize);//查询分页列表

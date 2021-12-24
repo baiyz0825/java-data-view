@@ -14,6 +14,7 @@
 <body>
 <form action="file/fileServlet" method="post" enctype="multipart/form-data">
     <input type="hidden" name="number" value="${empty requestScope.BookImg.number ? "":requestScope.BookImg.number}">
+    <input type="hidden" name="src" value="${empty requestScope.BookImg.src ? "":requestScope.BookImg.src}">
     您要上传的${empty requestScope.BookImg.name ? "":requestScope.BookImg.name}封面图片：<input name="image" type="file" value="">
     <input type="submit" value="确认提交">
 </form>

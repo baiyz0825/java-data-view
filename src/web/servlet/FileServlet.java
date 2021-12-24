@@ -16,7 +16,9 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.io.File;
 import java.io.IOException;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 /**
  * @author BaiYZ
@@ -28,6 +30,9 @@ public class FileServlet extends HttpServlet {
 
     @Override
     protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
+//        if (src != null && src.length() != 0)
+//            FilelUtils.deleteFile(src, "ImgBook");
+        Map<String, String> paramsMap = new HashMap<>();
         //移出提交保留的参数
         req.removeAttribute("BookImg");
         //判断上传的数据是否是多段的，如果是多段的才进行上传
@@ -41,28 +46,28 @@ public class FileServlet extends HttpServlet {
                 //解析数据
                 //获取上传的多段数据的List集合
                 List<FileItem> list = servletFileUpload.parseRequest(req);
-                String number = null;
                 for (FileItem fileItem : list) {
                     if (fileItem.isFormField()) {
-                        System.out.println(fileItem.getFieldName());
-                        number = fileItem.getString("UTF-8");
-                        System.out.println(number);
+                        paramsMap.put(fileItem.getFieldName(), fileItem.getString("UTF-8"));
                     } else {
                         //获取表单项的值
-                        System.out.println(fileItem.getFieldName());
+//                        System.out.println(fileItem.getFieldName());
                         //获取文件名
-                        System.out.println(fileItem.getName());
+//                        System.out.println(fileItem.getName());
                         //输出文件进行保存
                         try {
+                            //判断src是否存在，如果存在先删除在上传即覆盖！
+                            String src = paramsMap.get("src");
+                            if (src != null && !src.equals("")) {
+                                FilelUtils.deleteFile(src, "ImgBook");//调用工具类删除图片
+                            }
                             //获取后缀名称
                             String filename = fileItem.getName().substring(fileItem.getName().lastIndexOf("."));
                             //获取存盘路径
-                            String StoreRootPath = FilelUtils.getSavePath();
-                            //设置写入路径
-                            String ImgPath = "\\Img\\Book";
+                            String StoreRootPath = FilelUtils.getSavePath("ImgBook");
                             String randomUUID = WebUtils.getUUID();
                             filename = randomUUID + filename;
-                            String finalName = StoreRootPath + ImgPath + "\\" + filename;
+                            String finalName = StoreRootPath + "\\" + filename;
                             //配置相对路径存入数据库
                             String relativeFilePath = "BookImg/" + filename;
                             //输出到文件夹中
@@ -71,10 +76,11 @@ public class FileServlet extends HttpServlet {
                             fileItem.write(output);
                             //地址存入数据库
                             BookServiceImpl bookService = new BookServiceImpl();
+                            //从参数表获取期刊编号
+                            String number = paramsMap.get("number");
                             if (number != null) {
                                 Book book = bookService.searchBookById(number);
                                 book.setSrc(relativeFilePath);
-                                book.setAuthor("我是利辛县");
                                 bookService.updateBook(book);
                             }
                         } catch (Exception e) {
