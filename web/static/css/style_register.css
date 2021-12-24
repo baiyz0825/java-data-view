@@ -1,6 +1,6 @@
 /*背景*/
 body {
-    background: url("../../static/img/background_mount.png") no-repeat fixed;
+    background: url("../../static/img/back_login.png") no-repeat fixed;
     background-size: cover;
 }
 
@@ -9,7 +9,7 @@ body {
     color: white;
     font-size: 35px;
     width: 100%;
-    height: 80px;
+    height: 70px;
     border: 1px hidden white;
     border-bottom-style: solid;
 
@@ -22,17 +22,25 @@ body {
 
 /*表单*/
 .content {
-    width: 680px;
-    height: 600px;
+    width: 420px;
+    height: 480px;
     border: 0px solid white;
-    background: rgba(0, 0, 0, .6);
-    /*border-radius: 10px;*/
-    overflow: auto;
-    box-shadow: 0 25px 45px rgba(0, 0, 0, .5);
+    background: rgba(0, 0, 0, .65);
+    overflow: hidden;
+    box-shadow: 0 25px 45px rgba(0, 0, 10, .6);
+    backdrop-filter: blur(5px) saturate(180%);
+    -webkit-backdrop-filter: blur(5px) saturate(180%);
     font-size: 20px;
-    margin: 86px auto;
+    margin: 120px auto;
+    border-radius: 20px;
+    position: relative;
+    z-index: 1;
 }
 
+/*提示*/
+.alert-danger {
+    color: #F74B35;
+}
 
 /*左侧表项*/
 .td_left {
@@ -106,27 +114,55 @@ input::-webkit-input-placeholder { /* WebKit, Blink, Edge */
 
 /*立即注册表项*/
 .td_login {
-    padding-top: 30px;
+    padding-top: 25px;
+    border: 0px solid red;
 }
 
 /*已注册？去登录*/
 .href_register {
-    width: 680px;
-    height: 30px;
-    border: 0px solid red;
+    /*margin-top: 0;*/
+    /*width: 200px;*/
+    /*height: 25px;*/
+    /*border: 1px solid red;*/
     /*background: rgba(79, 206, 241, 0.5)*/
 
 }
 
 .td_rgright {
-    width: 680px;
-    height: 30px;
-    text-align: center;
-    margin-bottom: 10px;
+    width: 420px;
+    height: 25px;
+    /*margin-bottom: 10px;*/
+    padding-left: 280px;
+
+    border: 0px solid blue;
 }
 
 .td_rgright a {
     color: white;
     text-decoration: none;
     font-size: 17px;
+}
+
+.overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    /*pointer-events: none;*/
+    /*background: rgba(255,255,255, 0.6);*/
+    backdrop-filter: blur(5px);
+}
+
+.overlay:hover {
+    transition: 0.5s filter;
+    backdrop-filter: none;
+    /*-webkit-filter: blur(5px);*/
+    /*pointer-events: auto;*/
+}
+
+input:focus {
+    outline: 0;
+    -webkit-box-shadow: inset 0 1px 1px rgba(0, 0, 0, .075), 0 0 8px rgba(44, 251, 248, .6);
+    box-shadow: inset 0 1px 1px rgba(0, 0, 0, .075), 0 0 8px rgba(44, 251, 248, .6)
 }
