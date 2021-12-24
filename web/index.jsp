@@ -28,7 +28,7 @@
                 </c:when>
                 <c:when test="${sessionScope.user != null}">
                     <c:if test="${sessionScope.user.admin == 1}">
-                        <a href="book/bookServlet?action=adminPages&pageNo=1&pageSize=6">管理期刊</a>
+                        <a href="book/bookServlet?action=adminPages&pageNo=1&pageSize=3">管理期刊</a>
                     </c:if>
                     <!--在onClick事件中添加一个返回false既可以阻止元素的默认行为，并且当不配置href标签的#时其不会默认跳转top页面也就是当前地址栏后加一个#-->
                     <a href="" onclick="clickMouse();return false;">注销</a>

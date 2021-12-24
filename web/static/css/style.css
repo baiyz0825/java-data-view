@@ -1,20 +1,24 @@
 /*背景*/
 body {
-    background: url("../../static/img/background_mount.png") no-repeat fixed;
+    background: url("../img/back_login.png") no-repeat fixed;
     background-size: cover;
 }
 
 /*表单*/
 .content {
-    width: 600px;
-    height: 500px;
+    width: 420px;
+    height: 350px;
     border: 0px solid red;
-    background: rgba(0, 0, 0, .6);
-    /*border-radius: 10px;*/
-    margin: 100px auto;
+    background: rgba(0, 0, 0, .65);
+    border-radius: 20px;
+    margin: 150px auto;
     overflow: hidden;
-    box-shadow: 0 25px 45px rgba(0, 0, 0, .5);
+    box-shadow: 0 25px 45px rgba(0, 0, 10, .6);
+    backdrop-filter: blur(5px) saturate(180%);
+    -webkit-backdrop-filter: blur(5px) saturate(180%);
     font-size: 20px;
+    z-index: 1;
+    position: relative;
 }
 
 /*欢迎登录*/
@@ -22,13 +26,18 @@ body {
     color: white;
     font-size: 35px;
     width: 100%;
-    height: 80px;
+    height: 70px;
     border: 1px hidden white;
     border-bottom-style: solid;
     padding-top: 10px;
     text-align: center;
     overflow: hidden;
     /*background-color: #81DAF5;*/
+}
+
+/*提示*/
+.alert-danger {
+    color: #F74B35;
 }
 
 /*左侧表项*/
@@ -66,12 +75,12 @@ input::-webkit-input-placeholder { /* WebKit, Blink, Edge */
 
 .tdst_right {
     color: #a4a4a4;
-    padding-left: 10px;
+    padding-left: 5px;
     font-size: 17px;
 }
 /*验证码表项*/
 #checkCode {
-    width: 150px;
+    width: 155px;
 }
 
 /*验证码图片*/
@@ -101,14 +110,16 @@ input::-webkit-input-placeholder { /* WebKit, Blink, Edge */
 }
 /*立即登录表项*/
 .td_login {
-    padding-top: 30px;
+    padding-top: 25px;
+    border: 0px solid red;
 }
 
 /*马上注册*/
 .td_rgleft {
     width: 300px;
-    height: 50px;
+    height: 25px;
     padding-left: 50px;
+    padding-top: 0;
 }
 
 .td_rgleft a {
@@ -120,9 +131,10 @@ input::-webkit-input-placeholder { /* WebKit, Blink, Edge */
 /*忘记密码*/
 .td_rgright {
     width: 300px;
-    height: 50px;
+    height: 25px;
     padding-right: 50px;
     text-align: right;
+    padding-top: 0;
 }
 
 .td_rgright a {
@@ -131,9 +143,33 @@ input::-webkit-input-placeholder { /* WebKit, Blink, Edge */
     font-size: 17px;
 }
 
-/*.href_register {*/
-/*    width: 400px;*/
-/*    height: 40px;*/
-/*    border: 0px solid red;*/
-/*    overflow: hidden;*/
-/*}*/
+.href_register {
+    /*width: 400px;*/
+    /*height: 40px;*/
+    border: 0px solid red;
+    overflow: hidden;
+}
+
+.overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    /*pointer-events: none;*/
+    /*background: rgba(255,255,255, 0.6);*/
+    backdrop-filter: blur(5px);
+}
+
+.overlay:hover {
+    transition: 0.5s filter;
+    backdrop-filter: none;
+    /*-webkit-filter: blur(5px);*/
+    /*pointer-events: auto;*/
+}
+
+input:focus {
+    outline: 0;
+    -webkit-box-shadow: inset 0 1px 1px rgba(0, 0, 0, .075), 0 0 8px rgba(44, 251, 248, .6);
+    box-shadow: inset 0 1px 1px rgba(0, 0, 0, .075), 0 0 8px rgba(44, 251, 248, .6)
+}

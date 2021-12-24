@@ -162,6 +162,17 @@ public class BookServiceImpl implements BookService {
     }
 
     /**
+     * @Description: 更新图书照片信息
+     * @Author: BaiYZ
+     * @Date: 2021/12/5 17:03
+     * @return: int
+     */
+    @Override
+    public int updateBookImg(String ImgPath, String number) {
+        return bookDao.updateBookImg(ImgPath, number);
+    }
+
+    /**
      * @param book :
      * @Description: 添加图书信息
      * @Author: BaiYZ

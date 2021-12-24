@@ -76,8 +76,20 @@ public class BookDaoImpl extends BaseDao implements BookDao {
      */
     @Override
     public int updateBook(Book book) {
-        String sql = "update `Book` set name=?,sortBook=?,publisher=?,author=?,prices=?,remainNumber=?,publishData=?,src=? where number = ?";
-        return update(sql, book.getName(), book.getSortBook(), book.getPublisher(), book.getAuthor(), book.getPrices(), book.getRemainNumber(), book.getPublishData(), book.getSrc(), book.getNumber());
+        String sql = "update `Book` set name=?,sortBook=?,publisher=?,author=?,prices=?,remainNumber=?,publishData=? where number = ?";
+        return update(sql, book.getName(), book.getSortBook(), book.getPublisher(), book.getAuthor(), book.getPrices(), book.getRemainNumber(), book.getPublishData(), book.getNumber());
+    }
+
+    /**
+     * @Description: 更新图书照片信息
+     * @Author: BaiYZ
+     * @Date: 2021/12/3 21:31
+     * @return: int
+     */
+    @Override
+    public int updateBookImg(String ImgPath, String number) {
+        String sql = "update `Book` set src=? where number = ?";
+        return update(sql, ImgPath, number);
     }
 
     /**

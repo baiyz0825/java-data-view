@@ -305,6 +305,7 @@ public class BookServlet extends BaseServlet {
      */
     public void updateBook(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
         Book book = WebUtils.gernerateBean(req.getParameterMap(), new Book());
+        bookService.updateBook(book);
         resp.sendRedirect(req.getContextPath() + "/book/bookServlet?action=adminPages");//防止刷新重复提交
     }
 

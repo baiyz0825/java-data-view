@@ -71,7 +71,7 @@ public class FileServlet extends HttpServlet {
                             //配置相对路径存入数据库
                             String relativeFilePath = "BookImg/" + filename;
                             //输出到文件夹中
-                            System.out.println("输出的目标文件名称为：" + finalName);
+//                            System.out.println("输出的目标文件名称为：" + finalName);
                             File output = new File(finalName);
                             fileItem.write(output);
                             //地址存入数据库
@@ -79,9 +79,8 @@ public class FileServlet extends HttpServlet {
                             //从参数表获取期刊编号
                             String number = paramsMap.get("number");
                             if (number != null) {
-                                Book book = bookService.searchBookById(number);
-                                book.setSrc(relativeFilePath);
-                                bookService.updateBook(book);
+//                                System.out.println(relativeFilePath);
+                                bookService.updateBookImg(relativeFilePath, number);
                             }
                         } catch (Exception e) {
                             e.printStackTrace();

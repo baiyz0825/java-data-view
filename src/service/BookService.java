@@ -73,6 +73,8 @@ public interface BookService {
      */
     int updateBook(Book book);
 
+    int updateBookImg(String ImgPath, String number);
+
     /**
      * @param book:
      * @Description: 添加图书信息

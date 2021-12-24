@@ -110,10 +110,11 @@
 # bug
 
 1.登陆成功返回首页无图片数据，request域中为空（filter过滤器问题，没有拦截/index.jsp ???） 2.图书分页页面，大小刚好整除时显示页面多一页 pageCount/pageSize
+2.修改期刊信息之后期刊图片路径被从数据库更新成null
 
 # 已修复
 
-1.修复跳转无图片问题，原因为：filter过滤器默认不过滤内部请求转发 2.修复分页页面数量 修改pageCount/pageSize 为pageCount%pageSize来判断其是否整除
+1.修复跳转无图片问题，原因为：filter过滤器默认不过滤内部请求转发 2.修复分页页面数量 修改pageCount/pageSize 为pageCount%pageSize来判断其是否整除 2.修复期刊信息更新时带来的图片丢失问题
 
 # 注意
 

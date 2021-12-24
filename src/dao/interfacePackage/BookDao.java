@@ -55,6 +55,8 @@ public interface BookDao {
      */
     int updateBook(Book book);
 
+    int updateBookImg(String ImgPath, String number);
+
     /**
      * @param id:
      * @Description: 删除图书
