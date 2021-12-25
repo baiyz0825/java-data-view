@@ -89,13 +89,12 @@
     </div>
 </div>
 <div class="content">
-    <div class="content_left">
         <c:forEach items="${requestScope.page.pageData}" var="book" begin="0" end="2">
             <div class="con_book">
                 <table align="" border="0">
                     <tr>
                         <td class="td_bookimg" rowspan="8">
-                            <img height="150px" src="${pageScope.resourcesPath.concat(book.src)}" alt="">
+                            <img height="200px" src="${pageScope.resourcesPath.concat(book.src)}" alt="">
                         </td>
                         <td class="td_bookinform">
                             <label>期刊ID编号:</label>
@@ -136,51 +135,6 @@
             </div>
         </c:forEach>
 
-    </div>
-    <div class="content_left">
-        <c:forEach items="${requestScope.page.pageData}" var="book" begin="3" end="5">
-            <div class="con_book">
-                <table align="" border="0">
-                    <tr>
-                        <td class="td_bookimg" rowspan="8"><img height="150px"
-                                                                src="${pageScope.resourcesPath.concat(book.src)}"
-                                                                alt="">
-                        </td>
-                        <td class="td_bookinform"><label>期刊ID编号:</label></td>
-                        <td class="td_rebookinform"><span>${book.number}</span></td>
-                    </tr>
-                    <tr>
-                        <td class="td_bookinform"><label>期刊名称:</label></td>
-                        <td class="td_rebookinform"><span>${book.name}</span></td>
-                    </tr>
-                    <tr>
-                        <td class="td_bookinform"><label>期刊分类:</label></td>
-                        <td class="td_rebookinform"><span>${book.sortBook}</span></td>
-                    </tr>
-                    <tr>
-                        <td class="td_bookinform"><label>期刊出版社:</label></td>
-                        <td class="td_rebookinform"><span>${book.publisher}</span></td>
-                    </tr>
-                    <tr>
-                        <td class="td_bookinform"><label>期刊作者:</label></td>
-                        <td class="td_rebookinform"><span>${book.author}</span></td>
-                    </tr>
-                    <tr>
-                        <td class="td_bookinform"><label>出版日期:</label></td>
-                        <td class="td_rebookinform"><span>${book.publishData}</span></td>
-                    </tr>
-                    <tr>
-                        <td class="td_bookinform"><label>期刊价格:</label></td>
-                        <td class="td_rebookinform"><span>${book.prices}</span></td>
-                    </tr>
-                    <tr>
-                        <td class="td_bookinform"><label>期刊库存:</label></td>
-                        <td class="td_rebookinform"><span>${book.remainNumber}</span></td>
-                    </tr>
-                </table>
-            </div>
-        </c:forEach>
-    </div>
 </div>
 <div class="bottomtip">
     <table align="center" border="0">

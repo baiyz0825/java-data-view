@@ -31,7 +31,7 @@ body {
     border: 0px solid red;
     padding-right: 30px;
     padding-left: 20px;
-    color: white;
+    /*color: white;*/
 }
 
 .td_bookinform_title {
@@ -40,6 +40,7 @@ body {
     width: 600px;
     /*font-size: 45px;*/
     border: 0px solid red;
+    color: white;
 }
 
 .td_bookinform {
@@ -47,6 +48,7 @@ body {
     width: 180px;
     height: 40px;
     font-size: 25px;
+    color: white;
     /*border-bottom: 2px solid #CCCCCC;*/
 }
 
@@ -65,7 +67,7 @@ body {
     background: none;
     width: 260px;
     height: 35px;
-    border: 0px solid red;
+    border: 0px solid white;
     /*overflow: hidden;*/
     /*border-bottom: 1px solid #CCCCCC;*/
 }
@@ -75,25 +77,27 @@ body {
     padding-bottom: 0;
 }
 
-#confirm {
-    width: 70px;
-    height: 40px;
+#picture{
+    /*width: 70px;*/
+    /*height: 100px;*/
     background: rgba(20, 20, 20, 0.5);
     color: white;
     border-radius: 5px;
     border: none;
     font-size: 20px;
-    margin-left: 300px;
     cursor: pointer;
+    padding: 7px 10px;
     -webkit-transition-duration: 0.4s; /* Safari */
     transition-duration: 0.4s;
+    text-decoration: none;
+    margin-left: 170px;
 }
 
-#confirm:hover {
+#picture:hover {
     background-color: #F74B35
 }
 
-#cancel {
+#confirm {
     width: 70px;
     height: 40px;
     background: rgba(20, 20, 20, 0.5);
@@ -105,6 +109,26 @@ body {
     cursor: pointer;
     -webkit-transition-duration: 0.4s; /* Safari */
     transition-duration: 0.4s;
+}
+
+#confirm:hover {
+    background-color: #F74B35
+}
+
+#cancel {
+    padding: 7px 10px;
+    /*width: 70px;*/
+    /*height: 40px;*/
+    background: rgba(20, 20, 20, 0.5);
+    color: white;
+    border-radius: 5px;
+    border: none;
+    font-size: 20px;
+    margin-left: 10px;
+    cursor: pointer;
+    -webkit-transition-duration: 0.4s; /* Safari */
+    transition-duration: 0.4s;
+    text-decoration: none;
 }
 
 #cancel:hover {

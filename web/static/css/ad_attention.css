@@ -1,0 +1,21 @@
+body {
+    background: url("../../static/img/403page.png") no-repeat fixed;
+    background-size: cover;
+}
+
+.content{
+    height: 50px;
+    width: 600px;
+    background: orange;
+    border: 1px solid orange;
+    margin-top: 360px;
+    margin-left: 400px;
+    padding-bottom: 15px;
+    color: white;
+    font-size: 20px;
+    font-weight: bold;
+}
+
+.content p a{
+    color: #F74B35;
+}

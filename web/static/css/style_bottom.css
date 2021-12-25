@@ -22,17 +22,25 @@
     width: 80px;
     height: 25px;
     position: static;
+    background: rgba(255, 255, 255, .6);
 }
 
 .botton_key_jump {
     width: 50px;
     height: 25px;
-    margin-left: 1px;
+    background: rgba(0, 0, 0, .5);
+    color: white;
+    -webkit-transition-duration: 0.4s; /* Safari */
+    transition-duration: 0.4s;
+}
+
+#inputPageNoLabel:hover {
+    background-color: #F74B35
 }
 
 #inputPageNo {
     width: 50px;
-    height: 19px;
+    height: 25px;
 }
 
 .num {

@@ -11,10 +11,13 @@
 <head>
     <meta charset="UTF-8">
     <%@include file="../include/head.jsp" %>
+    <link href="../../static/css/success.css" rel="stylesheet" type="text/css">
     <title>Title</title>
 
 </head>
 <body>
-<div>登陆成功！</div>
+<div class="content" align="center">
+    <p>登陆成功！<span class="dot">...</span></p>
+</div>
 </body>
 </html>

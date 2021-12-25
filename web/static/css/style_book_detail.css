@@ -40,6 +40,7 @@ body {
     height: 70px;
     width: 600px;
     font-size: 45px;
+    color: white;
 }
 
 .td_bookinform {
@@ -57,6 +58,22 @@ body {
     color: #CCCCCC;
     overflow: hidden;
     /*border-bottom: 1px solid #CCCCCC;*/
+}
+
+.td_rebookinform a{
+    border: 0px solid red;
+    border-radius: 5px;
+    text-decoration: none;
+    color: white;
+    padding: 4px 12px;
+    margin-left: 160px;
+    background: rgba(0,0,0, .6);
+    -webkit-transition-duration: 0.4s; /* Safari */
+    transition-duration: 0.4s;
+}
+
+.td_rebookinform a:hover{
+    background: #F74B35;
 }
 
 .re_btn {

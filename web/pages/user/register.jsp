@@ -17,22 +17,36 @@
 
 <body>
 <div class="toptip">
-    <table>
-        <tr>
-            <td class="toptip_logo"><a href="index.jsp" target="-blank" title="首页Logo">
-                <img src="">
-            </a></td>
-            <td class="toptip_help"><a href="#" target="_blank"><strong>帮助？</strong></a></td>
-            <td class="img_user"><img src="static/img/user2.png"></td>
-        </tr>
-    </table>
+    <div class="toptip_logo"><a href="#" target="">
+        <img height="40px" src="static/img/LIBAIlogo.png" alt="">
+    </a></div>
+
+    <div class="dropdown">
+        <button class="img_user"><img src="static/img/user2.png" alt=""></button>
+        <div class="dropdown-content">
+            <c:choose>
+                <c:when test="${sessionScope.user == null}">
+                    <a href="pages/user/login.jsp">登录</a>
+                    <a href="pages/user/register.jsp">注册</a>
+                </c:when>
+                <c:when test="${sessionScope.user != null}">
+                    <c:if test="${sessionScope.user.admin == 1}">
+                        <a href="book/bookServlet?action=adminPages&pageNo=1&pageSize=6">管理期刊</a>
+                        <a href="http://localhost:8088/JavaDataView/pages/adminManager/bookEdit.jsp">添加期刊</a>
+                    </c:if>
+                    <!--在onClick事件中添加一个返回false既可以阻止元素的默认行为，并且当不配置href标签的#时其不会默认跳转top页面也就是当前地址栏后加一个#-->
+                    <a href="" onclick="clickMouse();return false;">注销</a>
+                </c:when>
+            </c:choose>
+            <a href="#">帮助？</a>
+        </div>
+    </div>
 </div>
 
 <div class="content">
     <div class="con_wel">
         欢迎注册
     </div>
-    <br/>
     <form action="user/userServlet" method="post">
         <input name="action" type="hidden" value="register">
         <table align="center" border="0">
@@ -66,14 +80,7 @@
             </tr>
             <tr>
                 <td class="td_left"><label for="password_repeat">确&nbsp;&nbsp;&nbsp;&nbsp;定：</label></td>
-                <td class="td_right"><input id="password_repeat" name="password" placeholder="重复密码" type="password">
-                </td>
-            </tr>
-            <tr>
-                <td class="td_left"><label>身&nbsp;&nbsp;&nbsp;&nbsp;份：</label></td>
-                <td class="tdst_right">
-                    <input name="identity" type="radio" value="0">学生&nbsp;&nbsp;&nbsp;&nbsp;
-                    <input name="identity" type="radio" value="1">老师
+                <td class="td_right"><input id="password_repeat" name="password" placeholder="RepeatPassword" type="password">
                 </td>
             </tr>
             <tr>
@@ -84,8 +91,8 @@
             </tr>
             <tr>
                 <td class="td_left"><label for="checkCode">验证码：</label></td>
-                <td class="td_right"><input id="checkCode" name="checkCode" placeholder="验证码" type="text" value="">
-                    <img id="img_check" src="captcha.jpg">
+                <td class="td_right"><input id="checkCode" name="checkCode" placeholder="VerificationCode" type="text" value="">
+                    <img id="img_check" src="captcha.jpg" width="105px">
                 </td>
             </tr>
             <tr>
@@ -94,7 +101,6 @@
             </tr>
         </table>
     </form>
-    <br/>
     <div class="href_register">
         <table>
             <tr>
@@ -103,5 +109,6 @@
         </table>
     </div>
 </div>
+<div class="overlay"></div>
 </body>
 </html>

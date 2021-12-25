@@ -27,21 +27,32 @@
 .toptip_search {
     padding-top: 2px;
     width: 450px;
+    height: 40px;
     border: 0px solid red;
     float: left;
 }
 
 #name, #sortBook, #publisher, #author, #publishData {
-    width: 70px;
+    width: 85px;
     height: 25px;
     background: none;
-    padding-left: 10px;
+    padding-left: 5px;
     font-size: 14px;
 }
-
+/*搜索按键*/
 #btn_conf {
-    height: 30px;
+    color: white;
+    margin-left: 5px;
+    height: 26px;
     width: 50px;
+    font-size: 14px;
+    background: rgba(0, 0, 0, .5);
+    -webkit-transition-duration: 0.4s; /* Safari */
+    transition-duration: 0.4s;
+}
+
+#btn_conf:hover {
+    background-color: #F74B35
 }
 
 /*顶栏用户头像*/
@@ -52,8 +63,8 @@
     padding-top: 4px;
     border: 0px solid red;
     cursor: pointer;
-    margin-right: 30px;
-
+    margin-right: 45px;
+    background: none                                                      ;
 }
 
 .dropdown {
@@ -89,6 +100,6 @@
 }
 
 .dropdown:hover .img_user {
-    background: none;
+    background: grey;
 }
 
