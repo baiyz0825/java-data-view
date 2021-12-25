@@ -93,7 +93,7 @@ public class BookServiceImpl implements BookService {
         int recordCount = bookDao.searchBooksConditionCount(book);
         page.setRecordCount(recordCount);
         int pageCount = recordCount / pageSize;//可能存在余数，图书还得一页
-        if (recordCount / pageSize != 0)
+        if (recordCount % pageSize != 0)
             pageCount++;
         page.setPageCount(pageCount);
         List<Book> books = bookDao.searchBooksConditionPages(book, pageNo, pageSize);//查询分页列表
