@@ -11,41 +11,94 @@
 <head>
     <meta charset="UTF-8">
     <%@include file="../include/head.jsp" %>
-    <title>添加修改</title>
-
+    <link href="static/css/style_top.css" rel="stylesheet" type="text/css">
+    <link href="static/css/book_detail_ad.css" rel="stylesheet" type="text/css">
+    <link href="static/img/title_book.ico" rel="shortcut icon" type="image/x">
+    <title>期刊详情页</title>
 </head>
 <body>
-<div>修改图书信息</div>
-<form action="book/bookServlet" method="get">
-    <%--修改期刊时，需要回显，因此传入Servlet进行查询内容放入Req进行保存，之后由页面进行解析，因此发送参数含有number属性，
-但是添加期刊不需要回显因此不存在number请求参数,所以，${empty param.number ? "addBook":"updateBook"} 如果其参数为空 empty 参数=>>>推出是空的=真！ 那么就是添加，否则修改--%>
-    <input type="hidden" name="action" value="${empty param.number ? "addBook":"updateBook"}">
-    <table class="table">
-        <tr>
-            <td>期刊ID编号</td>
-            <td>期刊名称</td>
-            <td>期刊种类</td>
-            <td>期刊出版社</td>
-            <td>期刊作者</td>
-            <td>期刊价格</td>
-            <td>出版时间</td>
-            <td>期刊库存</td>
-            <td colspan="2"></td>
-        </tr>
-        <tr>
-            <!--回显当前修改的期刊信息 当添加图书这个requestScope（request域）中不含book因此为空，当修改则是由servlet查找到当前图书信息放入request域中-->
-            <td><input type="text" name="number" value="${requestScope.book.number}"></td>
-            <td><input type="text" name="name" value="${requestScope.book.name}"></td>
-            <td><input type="text" name="sortBook" value="${requestScope.book.sortBook}"></td>
-            <td><input type="text" name="publisher" value="${requestScope.book.publisher}"></td>
-            <td><input type="text" name="author" value="${requestScope.book.author}"></td>
-            <td><input type="text" name="prices" value="${requestScope.book.prices}"></td>
-            <td><input type="text" name="publishData" value="${requestScope.book.publishData}"></td>
-            <td><input type="text" name="remainNumber" value="${requestScope.book.remainNumber}"></td>
-            <td><input type="submit" value="确认"></td>
-        </tr>
-    </table>
-</form>
 
+<div class="toptip">
+    <div class="toptip_logo"><a href="#" target="">
+        <img height="40px" src="static/img/LIBAIlogo.png">
+    </a></div>
+
+    <div class="dropdown">
+        <button class="img_user"><img src="static/img/user2.png"></button>
+        <div class="dropdown-content">
+            <!--      <a href="#">注册</a>-->
+            <!--      <a href="#">登录</a>-->
+            <a href="#">帮助？</a>
+        </div>
+    </div>
+</div>
+
+<div class="content">
+    <div class="window">
+        <form action="book/bookServlet" method="get">
+            <table align="center" border="0">
+                <tr>
+                    <td class="book_img" rowspan="9"><img align="center" height="600px"
+                                                          src="${pageScope.resourcesPath.concat(requestScope.book.src)}">
+                    </td>
+                    <td class="td_bookinform_title" colspan="2"><input id="name" name="name" type="text"
+                                                                       value="${requestScope.book.name}">
+                        <div style="border:1px solid #CCC "></div>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="td_bookinform"><label for="number"><strong>· 期刊ID编号:</strong></label></td>
+                    <td class="td_rebookinform"><input id="number" name="number" type="text"
+                                                       value="${requestScope.book.number}">
+                    </td>
+                </tr>
+                <tr>
+                    <td class="td_bookinform"><label for="sortBook"><strong>· 期刊分类:</strong></label></td>
+                    <td class="td_rebookinform"><input id="sortBook" name="sortBook" type="text"
+                                                       value="${requestScope.book.sortBook}"></td>
+                </tr>
+                <tr>
+                    <td class="td_bookinform"><label for="publisher"><strong> · 期刊出版社：</strong></label></td>
+                    <td class="td_rebookinform"><input id="publisher" name="publisher" type="text"
+                                                       value="${requestScope.book.publisher}">
+                    </td>
+                </tr>
+                <tr>
+                    <td class="td_bookinform"><label for="author"><strong> · 期刊作者：</strong></label></td>
+                    <td class="td_rebookinform"><input id="author" name="author" type="text"
+                                                       value="${requestScope.book.author}"></td>
+                </tr>
+                <tr>
+                    <td class="td_bookinform"><label for="publishData"><strong>· 期刊日期：</strong></label></td>
+                    <td class="td_rebookinform"><input id="publishData" name="publishData" type="text"
+                                                       value="${requestScope.book.publishData}">
+                    </td>
+                </tr>
+                <tr>
+                    <td class="td_bookinform"><label for="prices"> <strong>· 期刊价格：</strong></label></td>
+                    <td class="td_rebookinform"><input id="prices" name="prices" type="text"
+                                                       value="${requestScope.book.prices}"></td>
+                </tr>
+                <tr>
+                    <td class="td_bookinform"><label for="remainNumber"> <strong>· 期刊库存：</strong></label></td>
+                    <td class="td_rebookinform"><input id="remainNumber" name="remainNumber" type="text"
+                                                       value="${requestScope.book.remainNumber}">
+                    </td>
+                </tr>
+                <tr>
+                    <td class="td_confirm" colspan="2">
+                        <input id="confirm" type="submit" value="确认"/>
+                        <a id="cancel"
+                           href="http://localhost:8088/JavaDataView/book/bookServlet?action=adminPages&pageNo=1&pageSize=6"
+                           target="_self">取消</a>
+                    </td>
+                </tr>
+            </table>
+        </form>
+    </div>
+</div>
+<%
+    request.removeAttribute("book");
+%>
 </body>
 </html>

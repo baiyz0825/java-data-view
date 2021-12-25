@@ -3,10 +3,12 @@
   <component name="WebContextManager">
     <option name="state">
       <map>
+        <entry key="file://$PROJECT_DIR$/web/pages/adminManager/bookEdit.jsp" value="file://$PROJECT_DIR$/web" />
         <entry key="file://$PROJECT_DIR$/web/pages/adminManager/bookManage.jsp" value="file://$PROJECT_DIR$/web" />
         <entry key="file://$PROJECT_DIR$/web/pages/adminManager/managerResult.jsp" value="file://$PROJECT_DIR$/web" />
         <entry key="file://$PROJECT_DIR$/web/pages/adminManager/manager_result.jsp" value="file://$PROJECT_DIR$/web" />
         <entry key="file://$PROJECT_DIR$/web/pages/adminManager/searchResults.jsp" value="file://$PROJECT_DIR$/web" />
+        <entry key="file://$PROJECT_DIR$/web/pages/adminManager/uploadBookImg.jsp" value="file://$PROJECT_DIR$/web" />
         <entry key="file://$PROJECT_DIR$/web/pages/book/bookDetails.jsp" value="file://$PROJECT_DIR$/web" />
         <entry key="file://$PROJECT_DIR$/web/pages/book/bookManage.jsp" value="file://$PROJECT_DIR$/web" />
         <entry key="file://$PROJECT_DIR$/web/pages/book/bookSearch.jsp" value="file://$PROJECT_DIR$/web/pages/book" />
