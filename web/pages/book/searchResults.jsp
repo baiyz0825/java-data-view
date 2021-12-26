@@ -84,12 +84,12 @@
                     <a href="" onclick="clickMouse();return false;">注销</a>
                 </c:when>
             </c:choose>
-            <a href="#">帮助？</a>
+            <a href="pages/user/help.html">帮助？</a>
         </div>
     </div>
 </div>
 <div class="content">
-        <c:forEach items="${requestScope.page.pageData}" var="book" begin="0" end="2">
+    <c:forEach items="${requestScope.page.pageData}" var="book" begin="0" end="2">
             <div class="con_book">
                 <table align="" border="0">
                     <tr>

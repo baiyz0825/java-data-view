@@ -22,6 +22,8 @@
                 <h3>您要上传的&nbsp${empty requestScope.BookImg.name ? "":requestScope.BookImg.name}封面图片：</h3>
                 <p><input name="image" type="file" value="选择文件"></p>
                 <p><input type="submit" value="确认提交"></p>
+                <p><a id="cancel"
+                      href="javascript:" onclick="self.location=document.referrer;">取消</a></p>
             </div>
         </form>
     </div>

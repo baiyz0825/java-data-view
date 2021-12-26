@@ -1,3 +1,4 @@
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%--
   Created by IntelliJ IDEA.
   User: byz08
@@ -40,9 +41,21 @@
     <div class="dropdown">
         <button class="img_user"><img src="static/img/user2.png"></button>
         <div class="dropdown-content">
-            <a href="#">注册</a>
-            <a href="#">登录</a>
-            <a href="#">帮助？</a>
+            <c:choose>
+                <c:when test="${sessionScope.user == null}">
+                    <a href="pages/user/login.jsp">登录</a>
+                    <a href="pages/user/register.jsp">注册</a>
+                </c:when>
+                <c:when test="${sessionScope.user != null}">
+                    <c:if test="${sessionScope.user.admin == 1}">
+                        <a href="book/bookServlet?action=adminPages&pageNo=1&pageSize=6">管理期刊</a>
+                        <a href="http://localhost:8088/JavaDataView/pages/adminManager/bookEdit.jsp">添加期刊</a>
+                    </c:if>
+                    <!--在onClick事件中添加一个返回false既可以阻止元素的默认行为，并且当不配置href标签的#时其不会默认跳转top页面也就是当前地址栏后加一个#-->
+                    <a href="" onclick="clickMouse();return false;">注销</a>
+                </c:when>
+            </c:choose>
+            <a href="pages/user/help.html">帮助？</a>
         </div>
     </div>
 </div>

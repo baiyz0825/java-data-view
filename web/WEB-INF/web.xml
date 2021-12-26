@@ -74,4 +74,12 @@
         <dispatcher>FORWARD</dispatcher>
         <dispatcher>REQUEST</dispatcher>
     </filter-mapping>
+    <error-page>
+        <error-code>404</error-code>
+        <location>/pages/error/errorPage404.jsp</location>
+    </error-page>
+    <error-page>
+        <error-code>500</error-code>
+        <location>/pages/error/errorPage500.jsp</location>
+    </error-page>
 </web-app>

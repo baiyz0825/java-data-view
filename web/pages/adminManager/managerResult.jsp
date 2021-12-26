@@ -84,7 +84,7 @@
                     <a href="" onclick="clickMouse();return false;">注销</a>
                 </c:when>
             </c:choose>
-            <a href="#">帮助？</a>
+            <a href="pages/user/help.html">帮助？</a>
         </div>
     </div>
 </div>
@@ -105,7 +105,6 @@
                     </td>
                     <td class="td_key" rowspan="8">
                         <p><a href="book/bookServlet?action=getBook&number=${book.number}">修改</a></p>
-                        <p><a href="book/bookServlet?action=insertImgForBook&number=${book.number}">加图</a></p>
                         <p><a class="confirmDelete"
                               href="book/bookServlet?action=delete&id=${book.number}&pageNo=${requestScope.page.pageNo}&ImgPath=${book.src}">删除</a>
                         </p>

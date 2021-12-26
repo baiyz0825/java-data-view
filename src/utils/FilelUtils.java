@@ -20,12 +20,13 @@ public class FilelUtils {
 
     static {
         Properties propertiesPath = new Properties();
-        InputStream inputStream = FilelUtils.class.getClassLoader().getResourceAsStream("fileUpload.properties");
+        InputStream inputStream = FilelUtils.class.getClassLoader().getResourceAsStream("fileUploadPath.properties");
         try {
             propertiesPath.load(inputStream);
 
         } catch (IOException e) {
             e.printStackTrace();
+            throw new RuntimeException(e);
         }
         rootPath = propertiesPath.getProperty("path");
         fileSortMaps = new TreeMap<>();
@@ -69,7 +70,8 @@ public class FilelUtils {
                 return false;
         } catch (NullPointerException e) {
             e.printStackTrace();
+            throw new RuntimeException(e);
         }
-        return false;
+//        return false;
     }
 }

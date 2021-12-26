@@ -35,7 +35,7 @@ public class WebUtils {
         try {
             return Integer.parseInt(target);//字符串不为空能够成功转换就返回
         } catch (NumberFormatException e) {
-            e.printStackTrace();
+//            e.printStackTrace();
         }
         return defaultInteger;//返回默认值
     }

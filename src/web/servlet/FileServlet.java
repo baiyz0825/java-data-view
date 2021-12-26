@@ -84,11 +84,13 @@ public class FileServlet extends HttpServlet {
                             }
                         } catch (Exception e) {
                             e.printStackTrace();
+                            throw new RuntimeException(e);
                         }
                     }
                 }
             } catch (FileUploadException e) {
                 e.printStackTrace();
+                throw new RuntimeException(e);
             }
             //判断是否为普通表单
             //是的话输出

@@ -13,6 +13,8 @@
         <entry key="file://$PROJECT_DIR$/web/pages/book/bookManage.jsp" value="file://$PROJECT_DIR$/web" />
         <entry key="file://$PROJECT_DIR$/web/pages/book/bookSearch.jsp" value="file://$PROJECT_DIR$/web/pages/book" />
         <entry key="file://$PROJECT_DIR$/web/pages/book/searchResults.jsp" value="file://$PROJECT_DIR$/web" />
+        <entry key="file://$PROJECT_DIR$/web/pages/error/errorPage404.jsp" value="file://$PROJECT_DIR$/web" />
+        <entry key="file://$PROJECT_DIR$/web/pages/error/errorPage500.jsp" value="file://$PROJECT_DIR$/web" />
         <entry key="file://$PROJECT_DIR$/web/pages/include/bootStrapCss.jsp" value="file://$PROJECT_DIR$/web" />
         <entry key="file://$PROJECT_DIR$/web/pages/include/commonJs.jsp" value="file://$PROJECT_DIR$/web" />
         <entry key="file://$PROJECT_DIR$/web/pages/include/dropdownTopTip.jsp" value="file://$PROJECT_DIR$/web" />

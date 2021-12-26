@@ -28,7 +28,7 @@
         <div class="dropdown-content">
             <!--      <a href="#">注册</a>-->
             <!--      <a href="#">登录</a>-->
-            <a href="#">帮助？</a>
+            <a href="pages/user/help.html">帮助？</a>
         </div>
     </div>
 </div>
@@ -36,13 +36,16 @@
 <div class="content">
     <div class="window">
         <form action="book/bookServlet" method="get">
+            <%--修改期刊时，需要回显，因此传入Servlet进行查询内容放入Req进行保存，之后由页面进行解析，因此发送参数含有number属性，
+但是添加期刊不需要回显因此不存在number请求参数,所以，${empty param.number ? "addBook":"updateBook"} 如果其参数为空 empty 参数=>>>推出是空的=真！ 那么就是添加，否则修改--%>
+            <input type="hidden" name="action" value="${empty requestScope.book.number ? "addBook":"updateBook"}">
             <table align="center" border="0">
                 <tr>
                     <td class="book_img" rowspan="9"><img align="center" height="600px" width="450px"
                                                           src="${pageScope.resourcesPath.concat(requestScope.book.src)}">
                     </td>
                     <td class="td_bookinform_title" colspan="2"><input id="name" name="name" type="text"
-                                                                       value="${requestScope.book.name}">
+                                                                       value="${empty requestScope.book.name?"期刊名称":requestScope.book.name}">
                         <div style="border:1px solid #CCC "></div>
                     </td>
                 </tr>
@@ -91,8 +94,7 @@
                             href="book/bookServlet?action=insertImgForBook&number=${book.number}">上传封面</a>
                         <input id="confirm" type="submit" value="确认"/>
                         <a id="cancel"
-                           href="http://localhost:8088/JavaDataView/book/bookServlet?action=adminPages&pageNo=1&pageSize=6"
-                           target="_self">取消</a>
+                           href="http://localhost:8088/JavaDataView/book/bookServlet?action=adminPages&pageNo=1&pageSize=3">取消</a>
                     </td>
                 </tr>
             </table>

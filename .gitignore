@@ -6,4 +6,4 @@
 *.iml
 out
 gen
-src/fileUpload.properties
+src/fileUploadPath.properties

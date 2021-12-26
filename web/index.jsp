@@ -34,7 +34,7 @@
                     <a href="" onclick="clickMouse();return false;">注销</a>
                 </c:when>
             </c:choose>
-            <a href="#">帮助？</a>
+            <a href="pages/user/help.html">帮助？</a>
         </div>
     </div>
 </div>
