@@ -118,7 +118,7 @@ input::-webkit-input-placeholder { /* WebKit, Blink, Edge */
 }
 
 .imglist {
-    animation: rolling 10s linear infinite;
+    animation: rolling 30s linear infinite;
     position: absolute;
     display: flex;
 }
@@ -126,7 +126,6 @@ input::-webkit-input-placeholder { /* WebKit, Blink, Edge */
 img {
     float: left;
     margin-right: 5px;
-
 }
 
 @keyframes rolling {

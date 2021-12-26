@@ -12,7 +12,7 @@
     <meta charset="UTF-8">
     <%@include file="../include/head.jsp" %>
     <link href="static/css/style_top.css" rel="stylesheet" type="text/css">
-    <link href="static/css/book_detail_ad.css" rel="stylesheet" type="text/css">
+    <link href="static/css/style_book_detail_ad.css" rel="stylesheet" type="text/css">
     <link href="static/img/title_book.ico" rel="shortcut icon" type="image/x">
     <title>期刊详情页</title>
 </head>
@@ -38,7 +38,7 @@
         <form action="book/bookServlet" method="get">
             <table align="center" border="0">
                 <tr>
-                    <td class="book_img" rowspan="9"><img align="center" height="600px"
+                    <td class="book_img" rowspan="9"><img align="center" height="600px" width="450px"
                                                           src="${pageScope.resourcesPath.concat(requestScope.book.src)}">
                     </td>
                     <td class="td_bookinform_title" colspan="2"><input id="name" name="name" type="text"
@@ -87,6 +87,8 @@
                 </tr>
                 <tr>
                     <td class="td_confirm" colspan="2">
+                        <a id="picture"
+                            href="book/bookServlet?action=insertImgForBook&number=${book.number}">上传封面</a>
                         <input id="confirm" type="submit" value="确认"/>
                         <a id="cancel"
                            href="http://localhost:8088/JavaDataView/book/bookServlet?action=adminPages&pageNo=1&pageSize=6"

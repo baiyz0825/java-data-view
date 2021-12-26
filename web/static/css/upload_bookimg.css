@@ -1,0 +1,46 @@
+body {
+    background: url("../../static/img/boy_back.png") no-repeat fixed;
+    background-size: cover;
+}
+
+.content {
+    height: 670px;
+    width: 1030px;
+    background: rgba(255, 255, 255, .8);
+    margin-left: 75px;
+    padding-top: 25px;
+    margin-top: 50px;
+
+}
+
+.window {
+    background: rgba(0, 0, 0, .65);
+    width: 980px;
+    height: 200px;
+    margin-left: 25px;
+    /*margin: 0 auto;*/
+    /*margin-top: 95px;*/
+    padding-top: 25px;
+    overflow: hidden;
+    color: white;
+    box-shadow: 0 5px 10px rgba(0, 0, 0, .7);
+}
+
+.con_text{
+    border: 0px solid red;
+    width: 580px;
+    height: 170px;
+    margin-left: 50px;
+}
+
+input {
+    margin-left: 50px;
+    font-size: 15px;
+    -webkit-transition-duration: 0.4s; /* Safari */
+    transition-duration: 0.4s;
+}
+
+input:hover{
+    background: #F74B35;
+}
+

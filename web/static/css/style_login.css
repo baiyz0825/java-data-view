@@ -120,6 +120,7 @@ input::-webkit-input-placeholder { /* WebKit, Blink, Edge */
     height: 25px;
     padding-left: 50px;
     padding-top: 0;
+    border: 0px solid red;
 }
 
 .td_rgleft a {

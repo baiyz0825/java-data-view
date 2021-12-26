@@ -7,24 +7,26 @@ body {
     background-size: cover;
     -webkit-background-size: cover;
     -o-background-size: cover;
-    background-position: center 0;
+    overflow: hidden;
+    /*background-position: center 0;*/
 }
 
 .content {
     width: 950px;
-    height: 680px;
+    height: 695px;
     background: rgba(255, 255, 255, .8);
     /*margin: 0 auto;*/
-    margin-left: 130px;
-    margin-top: 50px;
+    margin-left: 120px;
+    margin-top: 45px;
     overflow: hidden;
     color: white;
     box-shadow: 0 5px 10px rgba(0, 0, 0, .7);
     position: relative;
-    /*z-index: 1;*/
+    z-index: 1;
 }
 
 .con_book {
+    padding-top: 5px;
     border: 0px solid red;
     width: 750px;
     height: 220px;
@@ -48,8 +50,9 @@ body {
     height: 22px;
     width: 100px;
     font-size: 15px;
-
     padding-left: 15px;
+    color: white;
+    font-weight: bold;
 }
 
 .td_rebookinform {
@@ -57,6 +60,7 @@ body {
     width: 270px;
     font-size: 15px;
     border: 0px solid red;
+    color: white;
 }
 
 .td_key {
@@ -72,6 +76,17 @@ body {
     text-decoration: none;
     cursor: pointer;
     padding: 5px;
+    -webkit-transition-duration: 0.4s; /* Safari */
+    transition-duration: 0.4s;
+}
+.td_key p a:hover{
+    background-color: #F74B35
+}
+
+#inputPageNo{
+    background: none;
+    height: 22px;
+    width: 30px;
 }
 
 .overlay {
@@ -91,3 +106,4 @@ body {
     /*-webkit-filter: blur(5px);*/
     /*pointer-events: auto;*/
 }
+

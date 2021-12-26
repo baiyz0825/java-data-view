@@ -30,8 +30,8 @@
     padding-top: 4px;
     border: 0px solid red;
     cursor: pointer;
-    margin-right: 30px;
-
+    margin-right: 45px;
+    background: none;
 }
 
 .dropdown {

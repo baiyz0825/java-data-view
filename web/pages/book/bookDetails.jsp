@@ -48,44 +48,48 @@
 </div>
 
 <div class="content">
-    <table align="center" border="0">
-        <tr>
-            <td class="book_img" rowspan="8"><img align="center" height="600px"
-                                                  src="${pageScope.resourcesPath.concat(requestScope.book.src)}"
-                                                  alt="${requestScope.book.name}"></td>
-            <td class="td_bookinform_title" colspan="2"><span>${requestScope.book.name}</span>
-                <div style="border:1px solid #CCC "></div>
-            </td>
-        </tr>
-        <tr>
-            <td class="td_bookinform"><strong>· 期刊ID编号:</strong></td>
-            <td class="td_rebookinform">ISBN: ${requestScope.book.number}</td>
-        </tr>
-        <tr>
-            <td class="td_bookinform"><strong>· 期刊分类:</strong></td>
-            <td class="td_rebookinform">${requestScope.book.sortBook}</td>
-        </tr>
-        <tr>
-            <td class="td_bookinform"><strong>· 期刊出版社：</strong></td>
-            <td class="td_rebookinform">${requestScope.book.publisher}</td>
-        </tr>
-        <tr>
-            <td class="td_bookinform"><strong>· 期刊作者：</strong></td>
-            <td class="td_rebookinform">${requestScope.book.author}</td>
-        </tr>
-        <tr>
-            <td class="td_bookinform"><strong>· 期刊日期：</strong></td>
-            <td class="td_rebookinform">${requestScope.book.publishData}</td>
-        </tr>
-        <tr>
-            <td class="td_bookinform"><strong>· 期刊价格：</strong></td>
-            <td class="td_rebookinform">${requestScope.book.prices}</td>
-        </tr>
-        <tr>
-            <td class="td_bookinform"><strong>· 期刊库存：</strong></td>
-            <td class="td_rebookinform">${requestScope.book.remainNumber}</td>
-        </tr>
-    </table>
+    <div class="window">
+        <table align="center" border="0">
+            <tr>
+                <td class="book_img" rowspan="8"><img align="center" height="600px"
+                                                      src="${pageScope.resourcesPath.concat(requestScope.book.src)}"
+                                                      alt="${requestScope.book.name}"></td>
+                <td class="td_bookinform_title" colspan="2"><span>${requestScope.book.name}</span>
+                    <div style="border:1px solid #CCC "></div>
+                </td>
+            </tr>
+            <tr>
+                <td class="td_bookinform"><strong>· 期刊ID编号:</strong></td>
+                <td class="td_rebookinform">ISBN: ${requestScope.book.number}</td>
+            </tr>
+            <tr>
+                <td class="td_bookinform"><strong>· 期刊分类:</strong></td>
+                <td class="td_rebookinform">${requestScope.book.sortBook}</td>
+            </tr>
+            <tr>
+                <td class="td_bookinform"><strong>· 期刊出版社：</strong></td>
+                <td class="td_rebookinform">${requestScope.book.publisher}</td>
+            </tr>
+            <tr>
+                <td class="td_bookinform"><strong>· 期刊作者：</strong></td>
+                <td class="td_rebookinform">${requestScope.book.author}</td>
+            </tr>
+            <tr>
+                <td class="td_bookinform"><strong>· 期刊日期：</strong></td>
+                <td class="td_rebookinform">${requestScope.book.publishData}</td>
+            </tr>
+            <tr>
+                <td class="td_bookinform"><strong>· 期刊价格：</strong></td>
+                <td class="td_rebookinform">${requestScope.book.prices}</td>
+            </tr>
+            <tr>
+                <td class="td_bookinform"><strong>· 期刊库存：</strong></td>
+                <td class="td_rebookinform">${requestScope.book.remainNumber}
+                    <a href="#">返回</a>
+                </td>
+            </tr>
+        </table>
+    </div>
 </div>
 
 <%
