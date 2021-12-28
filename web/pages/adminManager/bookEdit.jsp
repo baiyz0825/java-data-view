@@ -42,56 +42,56 @@
             <table align="center" border="0">
                 <tr>
                     <td class="book_img" rowspan="9"><img align="center" height="600px" width="450px"
-                                                          src="${pageScope.resourcesPath.concat(requestScope.book.src)}">
+                                                          src="${pageScope.resourcesPath.concat(sessionScope.book.src)}">
                     </td>
                     <td class="td_bookinform_title" colspan="2"><input id="name" name="name" type="text"
-                                                                       value="${empty requestScope.book.name?"期刊名称":requestScope.book.name}">
+                                                                       value="${empty sessionScope.book.name?"期刊名称":sessionScope.book.name}">
                         <div style="border:1px solid #CCC "></div>
                     </td>
                 </tr>
                 <tr>
                     <td class="td_bookinform"><label for="number"><strong>· 期刊ID编号:</strong></label></td>
                     <td class="td_rebookinform"><input id="number" name="number" type="text"
-                                                       value="${requestScope.book.number}">
+                                                       value="${sessionScope.book.number}">
                     </td>
                 </tr>
                 <tr>
                     <td class="td_bookinform"><label for="sortBook"><strong>· 期刊分类:</strong></label></td>
                     <td class="td_rebookinform"><input id="sortBook" name="sortBook" type="text"
-                                                       value="${requestScope.book.sortBook}"></td>
+                                                       value="${sessionScope.book.sortBook}"></td>
                 </tr>
                 <tr>
                     <td class="td_bookinform"><label for="publisher"><strong> · 期刊出版社：</strong></label></td>
                     <td class="td_rebookinform"><input id="publisher" name="publisher" type="text"
-                                                       value="${requestScope.book.publisher}">
+                                                       value="${sessionScope.book.publisher}">
                     </td>
                 </tr>
                 <tr>
                     <td class="td_bookinform"><label for="author"><strong> · 期刊作者：</strong></label></td>
                     <td class="td_rebookinform"><input id="author" name="author" type="text"
-                                                       value="${requestScope.book.author}"></td>
+                                                       value="${sessionScope.book.author}"></td>
                 </tr>
                 <tr>
                     <td class="td_bookinform"><label for="publishData"><strong>· 期刊日期：</strong></label></td>
                     <td class="td_rebookinform"><input id="publishData" name="publishData" type="text"
-                                                       value="${requestScope.book.publishData}">
+                                                       value="${sessionScope.book.publishData}">
                     </td>
                 </tr>
                 <tr>
                     <td class="td_bookinform"><label for="prices"> <strong>· 期刊价格：</strong></label></td>
                     <td class="td_rebookinform"><input id="prices" name="prices" type="text"
-                                                       value="${requestScope.book.prices}"></td>
+                                                       value="${sessionScope.book.prices}"></td>
                 </tr>
                 <tr>
                     <td class="td_bookinform"><label for="remainNumber"> <strong>· 期刊库存：</strong></label></td>
                     <td class="td_rebookinform"><input id="remainNumber" name="remainNumber" type="text"
-                                                       value="${requestScope.book.remainNumber}">
+                                                       value="${sessionScope.book.remainNumber}">
                     </td>
                 </tr>
                 <tr>
                     <td class="td_confirm" colspan="2">
                         <a id="picture"
-                            href="book/bookServlet?action=insertImgForBook&number=${book.number}">上传封面</a>
+                           href="book/bookServlet?action=insertImgForBook&number=${book.number}">上传封面</a>
                         <input id="confirm" type="submit" value="确认"/>
                         <a id="cancel"
                            href="http://localhost:8088/JavaDataView/book/bookServlet?action=adminPages&pageNo=1&pageSize=3">取消</a>
@@ -102,7 +102,7 @@
     </div>
 </div>
 <%
-    request.removeAttribute("book");
+    request.getSession().removeAttribute("book");
 %>
 </body>
 </html>

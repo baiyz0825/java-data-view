@@ -291,7 +291,7 @@ public class BookServlet extends BaseServlet {
     public void getBook(HttpServletRequest req,HttpServletResponse resp) throws ServletException,IOException{
         String number = req.getParameter("number");
         Book book = bookService.searchBookById(number);
-        req.setAttribute("book", book);
+        req.getSession().setAttribute("book", book);
         req.getRequestDispatcher("/pages/adminManager/bookEdit.jsp").forward(req, resp);//一次请求，需要request域中值
     }
 

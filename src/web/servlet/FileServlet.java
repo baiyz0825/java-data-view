@@ -81,6 +81,8 @@ public class FileServlet extends HttpServlet {
                             if (number != null) {
 //                                System.out.println(relativeFilePath);
                                 bookService.updateBookImg(relativeFilePath, number);
+                                Book book = bookService.searchBookById(number);
+                                req.getSession().setAttribute("book", book);
                             }
                         } catch (Exception e) {
                             e.printStackTrace();
@@ -97,6 +99,7 @@ public class FileServlet extends HttpServlet {
             //不是的话进行存储
         }
         //重定向回上传成功页面
+//        req.getRequestDispatcher("/pages/adminManager/uploadSuccess.html");
         resp.sendRedirect(req.getContextPath() + "/pages/adminManager/uploadSuccess.html");//防止刷新重复提交
     }
 
