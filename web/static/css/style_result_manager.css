@@ -33,8 +33,7 @@ body {
     margin-left: 60px;
     margin-top: 5px;
     /*padding-top: 5px;*/
-    background: rgba(0, 0, 0, .5);
-
+    background: rgba(0, 0, 0, .65);
 }
 
 .td_bookimg {

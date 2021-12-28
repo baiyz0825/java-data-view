@@ -14,7 +14,7 @@ body {
 }
 
 .window {
-    background: rgba(0, 0, 0, .65);
+    background: rgba(0, 0, 0, .35);
     width: 980px;
     height: 200px;
     margin-left: 25px;
@@ -28,19 +28,59 @@ body {
 
 .con_text{
     border: 0px solid red;
-    width: 580px;
+    width: 880px;
     height: 170px;
     margin-left: 50px;
 }
 
 input {
-    margin-left: 50px;
-    font-size: 15px;
+    /*margin-left: 50px;*/
+    font-size: 18px;
     -webkit-transition-duration: 0.4s; /* Safari */
     transition-duration: 0.4s;
+    border: none;
+}
+
+#image{
+    border: 0px solid red;
+    height: 30px;
+    width: 200px;
+    overflow: hidden;
+}
+
+#submit{
+    border: 0px solid red;
+    height: 30px;
+    width: 90px;
+    overflow: hidden;
 }
 
 input:hover{
     background: #F74B35;
 }
 
+#cancel{
+    height: 30px;
+    width: 90px;
+    padding-top: 3px;
+    padding-bottom: 3px;
+    padding-left: 8px;
+    padding-right: 8px;
+    border: 0px solid red;
+    background: white;
+    margin-left: 10px;
+    font-size: 18px;
+}
+
+.con_text a{
+    font-size: 15px;
+    text-decoration: none;
+    color: black;
+    -webkit-transition-duration: 0.4s; /* Safari */
+    transition-duration: 0.4s;
+}
+
+#cancel:hover{
+    background: #F74B35;
+
+}

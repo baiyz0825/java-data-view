@@ -8,7 +8,7 @@ body {
 /*图片*/
 .img_home {
     height: 185px;
-    background-image: url("../img/man.png");
+    /*background-image: url("../img/man.png");*/
     border: 0 solid black;
     display: flex;
     justify-content: center;

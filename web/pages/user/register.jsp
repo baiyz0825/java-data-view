@@ -54,7 +54,7 @@
                 <td align="center" colspan="2">
                     <div class="alert-danger" style="background: none">
                         <strong id="errorMsg">${empty requestScope.errorMsg?"":requestScope.errorMsg}</strong>
-                        </br>
+                        <br>
                     </div>
                 </td>
             </tr>

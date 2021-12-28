@@ -64,7 +64,7 @@
     <div class="window">
         <table align="center" border="0">
             <tr>
-                <td class="book_img" rowspan="8"><img align="center" height="600px"
+                <td class="book_img" rowspan="8"><img align="center" height="600px" width="425px"
                                                       src="${pageScope.resourcesPath.concat(requestScope.book.src)}"
                                                       alt="${requestScope.book.name}"></td>
                 <td class="td_bookinform_title" colspan="2"><span>${requestScope.book.name}</span>

@@ -19,11 +19,13 @@
             <input type="hidden" name="number" value="${empty requestScope.BookImg.number ? "":requestScope.BookImg.number}">
             <input type="hidden" name="src" value="${empty requestScope.BookImg.src ? "":requestScope.BookImg.src}">
             <div class="con_text">
-                <h3>您要上传的&nbsp${empty requestScope.BookImg.name ? "":requestScope.BookImg.name}封面图片：</h3>
-                <p><input name="image" type="file" value="选择文件"></p>
-                <p><input type="submit" value="确认提交"></p>
-                <p><a id="cancel"
-                      href="javascript:" onclick="self.location=document.referrer;">取消</a></p>
+
+                <h2>您要上传的&nbsp${empty requestScope.BookImg.name ? "":requestScope.BookImg.name}封面图片：</h2>
+                <p><input id="image" name="image" type="file" value="选择文件"></p>
+                <p><input id="submit" name="submit" type="submit" value="确认提交">
+                    <a id="cancel" href="javascript:" onclick="self.location=document.referrer;">取消</a>
+                </p>
+
             </div>
         </form>
     </div>

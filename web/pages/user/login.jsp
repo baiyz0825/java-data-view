@@ -60,7 +60,7 @@
                 <td align="center" colspan="2">
                     <div class="alert-danger" style="background: none">
                         <strong>${empty requestScope.errorMsg ?"":requestScope.errorMsg}</strong>
-                        </br>
+                        <br>
                     </div>
                 </td>
             </tr>
@@ -77,7 +77,7 @@
             <tr>
                 <td class="td_left"><label for="checkCode">验证码：</label></td>
                 <td class="tdst_right"><input id="checkCode" name="checkCode" placeholder="验证码" type="text">
-                    <img id="img_check" src="captcha.jpg" alt="">
+                    <img id="img_check" src="captcha.jpg" alt="" width="100px">
                 </td>
             </tr>
             <tr>
