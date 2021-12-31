@@ -32,6 +32,9 @@
                 return confirm("你确认删除" + "\"" + $(this).parent().parent().find("td:eq(1)").text() + "\"" + "吗？");
                 // return confirm("你确认删除"+"吗？");
             })
+            let msg = "${empty sessionScope.successMsg ?"":sessionScope.successMsg}";
+            if (msg != "")
+                alert(msg);
         })
     </script>
     <title>管理员</title>
@@ -66,7 +69,6 @@
             </table>
         </form>
     </div>
-
     <div class="dropdown">
         <button class="img_user"><img src="static/img/user2.png" alt=""></button>
         <div class="dropdown-content">
@@ -192,5 +194,8 @@
         </tr>
     </table>
 </div>
+<%
+    session.removeAttribute("successMsg");
+%>
 </body>
 </html>

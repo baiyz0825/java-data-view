@@ -182,6 +182,7 @@ public class BookServlet extends BaseServlet {
         //重定向返回图书列表(还是访问servlet填充图书信息)
 //        System.out.println(req.getContextPath());
         resp.setCharacterEncoding("UTF-8");
+        req.getSession().setAttribute("successMsg", "删除成功！");
         //重定向返回页面。需要获取工程路径getContextPath()
         resp.sendRedirect(req.getContextPath() + "/book/bookServlet?action=adminPages&pageNo=");
     }
@@ -288,10 +289,12 @@ public class BookServlet extends BaseServlet {
      * @param resp:
      * @return: void
      */
-    public void getBook(HttpServletRequest req,HttpServletResponse resp) throws ServletException,IOException{
+    public void getBook(HttpServletRequest req,HttpServletResponse resp) throws ServletException,IOException {
         String number = req.getParameter("number");
         Book book = bookService.searchBookById(number);
         req.getSession().setAttribute("book", book);
+        //用于转化提交方式是add还是update
+        req.setAttribute("book", book);
         req.getRequestDispatcher("/pages/adminManager/bookEdit.jsp").forward(req, resp);//一次请求，需要request域中值
     }
 
@@ -306,6 +309,7 @@ public class BookServlet extends BaseServlet {
     public void updateBook(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
         Book book = WebUtils.gernerateBean(req.getParameterMap(), new Book());
         bookService.updateBook(book);
+        req.getSession().setAttribute("successMsg", "修改成功！");
         resp.sendRedirect(req.getContextPath() + "/book/bookServlet?action=adminPages");//防止刷新重复提交
     }
 
