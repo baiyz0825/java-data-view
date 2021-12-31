@@ -12,7 +12,7 @@ $(function () {
         let prices = $("#prices").val();
         let regExpData = /^(^\d{4})-(0?[1-9]|1[0-2])-((0?[1-9])|((1|2)[0-9])|30|31)$/; // yyyy-mm-dd
         let regExpPrices = /^(\d{0,4})(\.\d{1,3})?$/;// 0~9999 1~3位小数
-        let regExpRemainNumber = /^\d{1,5}$/;
+        let regExpRemainNumber = /^\d{1,5}$/; //匹配0~99999
         if (bookName == "" || bookName === "期刊名称") {
             alert("请输入期刊名称！");
             return false;
