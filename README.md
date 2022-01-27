@@ -5,6 +5,7 @@
 # 项目界面
 
 ![项目首页UI图1](StoreFile/DiscribeImgQQ%E6%88%AA%E5%9B%BE20220128014615.png)
+</br>
 ![项目首页UI图1](StoreFile/DiscribeImgQQ%E6%88%AA%E5%9B%BE20220128014638.png)
 
 # 项目采用技术
