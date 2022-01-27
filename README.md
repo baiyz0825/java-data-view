@@ -99,20 +99,6 @@
 24. 测试图片覆盖上传
 25. 测试期刊详情修改页面
 
-# 未测试
-
-# 存在问题，无法检索时间匹配的期刊信息
-
-`JDBC format [yyyy-MM-dd] to create a java.sql.Date`
-
-# 需求
-
-1.实现图片下载
-
-# bug
-
-1.登陆成功返回首页无图片数据，request域中为空（filter过滤器问题，没有拦截/index.jsp ???） 2.图书分页页面，大小刚好整除时显示页面多一页 pageCount/pageSize
-2.修改期刊信息之后期刊图片路径被从数据库更新成null
 
 # 已修复
 
