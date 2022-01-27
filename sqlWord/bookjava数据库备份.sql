@@ -4,7 +4,7 @@
  Source Server         : MySqlNas
  Source Server Type    : MySQL
  Source Server Version : 80027
- Source Host           : nas.spacewarp.tech:33066
+ Source Host           : xxxxxxxx:33066
  Source Schema         : bookjava
 
  Target Server Type    : MySQL
