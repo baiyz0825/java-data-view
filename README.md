@@ -1,6 +1,11 @@
 # 项目说明
 
-使用JavaWeb开发的数据库显示界面的课程设计
+&emsp;使用JavaWeb开发的数据库显示界面的课程设计，支持数据分页查询以及期刊的模糊搜索，首页采用动态二维码生成进行校验，支持上传图片。
+
+# 项目界面
+
+![项目首页UI图1](StoreFile/DiscribeImgQQ%E6%88%AA%E5%9B%BE20220128014615.png)
+![项目首页UI图1](StoreFile/DiscribeImgQQ%E6%88%AA%E5%9B%BE20220128014638.png)
 
 # 项目采用技术
 
@@ -107,3 +112,17 @@
 # 注意
 
 BookImg 挂载到 StoreFile/Img/Book 但是实际存盘路径为\\StoreFile 文件存储根目录！！！
+
+# 详情页面展示
+
+## 用户登陆界面
+
+![登陆界面](StoreFile/DiscribeImgQQ%E6%88%AA%E5%9B%BE20220128014723.png)
+
+## 管理界面
+
+![管理界面](StoreFile/DiscribeImgQQ%E6%88%AA%E5%9B%BE20220128014739.png)
+
+## 修改界面
+
+![修改界面](StoreFile/DiscribeImgQQ%E6%88%AA%E5%9B%BE20220128014816.png)
