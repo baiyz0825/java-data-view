@@ -1,7 +1,9 @@
 # 项目说明
 
 &emsp;使用JavaWeb开发的数据库显示界面的课程设计，支持数据分页查询以及期刊的模糊搜索，首页采用动态二维码生成进行校验，支持上传图片，用户密码采用md5加密，支持期刊的分页显示。
-
+<br/>
+[报告链接](https://gitee.com/mw521/java-data-view/blob/master/报告/)
+<br/>
 # 项目界面
 
 ![项目首页UI图1](StoreFile/DiscribeImgQQ%E6%88%AA%E5%9B%BE20220128014615.png)
