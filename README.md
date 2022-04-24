@@ -4,6 +4,16 @@
 <br/>
 **[报告链接](https://gitee.com/mw521/java-data-view/blob/master/报告/基于JavaWeb开发的期刊管理系统.md)**
 <br/>
+使用方法：<br/>
+这里说明一下：大致的使用方法<br/>
+1、get clone 我的这个项目git<br/>
+2、使用idea打开项目目录<br/>
+3、导入sql数据库文件（默认账号密码在工程里有一个excle存储）<br/>
+4、在项目结构中配置相应的lib路径<br/>
+5、配置jdk版本17<br/>
+6、修改数据库properties文件，改为你的数据库链接配置<br/>
+7、配置你的tomcat（idea右上角添加运行配置，导入你的tomcat，然后idea会提示修正项目，修正即可，之后，上面会显示工程访问路径，点击就可以访问）<br/>
+8、进行访问即可<br/>
 # 项目界面
 
 ![项目首页UI图1](StoreFile/DiscribeImgQQ%E6%88%AA%E5%9B%BE20220128014615.png)
