@@ -4,7 +4,7 @@
 <br/>
 **[报告链接](https://gitee.com/mw521/java-data-view/blob/master/报告/基于JavaWeb开发的期刊管理系统.md)**
 <br/>
-使用方法：<br/>
+ **使用方法** ：<br/>
 这里说明一下：大致的使用方法<br/>
 1、get clone 我的这个项目git<br/>
 2、使用idea打开项目目录<br/>
