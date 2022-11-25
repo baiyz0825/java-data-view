@@ -1,4 +1,9 @@
 > gitee现在图床存在问题，需要预览图片请去/storeFile文件夹查看
+
+# 欢迎关注我的博客
+<font color=green face="STCAIYUN">分享学习过程的心得：--->>>>>[Bai's Blog](https://blog.baiyz.top/index.html)<<<<---</font>
+
+<div align=center><img src="data.png"></div>
 # 项目说明
 
 &emsp;使用JavaWeb开发的数据库显示界面的课程设计，支持数据分页查询以及期刊的模糊搜索，首页采用动态二维码生成进行校验，支持上传图片，用户密码采用md5加密，支持期刊的分页显示。

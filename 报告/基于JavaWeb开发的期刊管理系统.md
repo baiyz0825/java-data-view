@@ -67,12 +67,12 @@
 期刊信息（期刊编号，期刊名称，期刊分类，作者，出版社，出版日期，库存数量，封面，价格，名称）
 期刊基本信息E-R图：
 
-[drawio](A1HRkERbOZkBtKb0CKj38RhHsCSijnSbH0LmhgmgnMA.svg)
+![img.png](images/期刊基本信息er.png)
 
 用户信息（用户名，手机号，权限，密码，性别）
 用户信息E-R图：
 
-[drawio](2kdPGFh8rVbzcPQJWHk_H7e0k85vKR75qU_nEUpYVMs.svg)
+![img.png](images/用户信息er.png)
 
 ### 2.3.2 数据库逻辑结构设计
 将概念结构设计的E-R模型转换成与支持数据模型相符合的逻辑结构。首先由E-R模型设计信息表。
@@ -106,7 +106,7 @@
 
     最后合并局部E-R模型，生成全局逻辑结构。
 
-[drawio](t8hhDv60ljB92Yt6k1yrwLSvTnB0swJLPoB0Rb_a2Hg.svg)
+![img](images/数据库关系图.png)
 
 # 三、系统详细设计
 ## 3.1 系统开发及运行环境
@@ -130,7 +130,7 @@
    * Dao层
 Dao层又名持久层，主要负责与数据库进行交互，使用向下对接数据库，向上提供数据封装的方法，来实现业务过程中数据的持久化。
 
-[drawio](SZeR_oO0WRteL4bzX2jnQ1d-3jCd2p9EAjsJi31BruE.svg)
+![img](images/三层关系图.png)
 
 2. JavaBean组件
 
@@ -188,7 +188,7 @@ Dao层又名持久层，主要负责与数据库进行交互，使用向下对�
 ### 3.2.1 JDBC数据库连接技术
     由于采用了C/S的软件结构，这里后端服务主要采用Java语言进行开发，使用由Oracle公司提供的JDBC技术对于数据库进行连接、查询、修改等操作。也是一个独立于数据库管理系统提供通用的SQL数据库存取以及操作的公用**接口。**
 
-[drawio](ixF6TN2CBGfx2wS_leuDNEo-71KVsGGkd1QLbFe6tw0.svg)
+![img](images/jdbc数据库.png)
 
 ### 3.2.2 基础数据库连接工具类
 根据JDBC数据库连接方法，主要有以下几个步骤：
@@ -223,7 +223,7 @@ public class DB{
 
     这里我们采用阿里开源的Druid数据库连接池Jar，考虑到我们需要提供对于期刊信息以及用户信息的增删改查功能，为此我们设计了一个数据库连接类，用于初始化数据库连接池，管理与释放数据库连接。其基本类的方法构建如下图所示：
 
-[drawio](GUlzXSfBOsTb4SQW0zm1zYv3SwaHkukZ7IRKbtlyLVk.svg)
+![img](images/基本类方法.png)
 
     核心代码如下：
 
@@ -323,7 +323,7 @@ HTML设计:
     表格最末包含两个超链接，分别是注册页的跳转，和忘记密码的跳转。
 CSS设计:
 
-[drawio](TvNgzlsVPX7qcMtJmZNJr4jdbkVhHN0OxvQ7c7CDGpM.svg)
+![img](images/登陆页面设计.png)
 
     参考上图设计的CSS布局样式，固定表单大小，设置表单位置，表单背景呈现效果为半透明黑色毛玻璃样式，通过修改 `background: rgba(0, 0, 0, .65)`设置透明度，设置背景高斯模糊度与饱和度`backdrop-filter: blur(5px) saturate(180%)` 呈现毛玻璃特效。表单标签外设置盒外阴影增强立体感。效果图如下：
 
@@ -416,7 +416,7 @@ HTML设计：
     注册页面内容与登录页内容基本一致，注册页表单内增加了用户手机号、确认密码和选择性别表单项，其中性别`type="radio"`它的样式是单选类型，所以设置value属性不相同，其他`type`类型都参照登录页设计。表单底部更换为 已有账号？去登录 超链接，其余内容均不改变。该表单也要提交，所以表单标签也包含在`<form>`标签内。
 CSS设计：
 
-[drawio](IaaCZYLs0hu5zcCA1US1w2Yu8K9IuycrHXA7kG31smE.svg)
+![img](images/注册页面设计.png)
 
     参考上图设计的CSS布局样式，基本布局与登录设计差不多，只需要修改表单大小以及表单位置，表单背景等与登录页保持一致。呈现效果为半透明黑色毛玻璃样式。效果图如下：
 
@@ -440,7 +440,7 @@ HTML设计：
     `<body>`标签内为页面主体部分，在搜索栏上方添加图片，美化页面。搜索栏按照`<table>`标签设计为每行五个单元格，分别显示表单项：期刊名称、期刊作者、期刊分类、出版日期、出版社，第二行显示每个表单项的输入框。然后将表单的提交按键（搜索）放置到`<table>`标签下。页面最底用于展示部分期刊，导入`<img src="" alt="">`标签展示期刊封面，并且外层嵌套`<a href="">`标签，当用户点击展示图片时，可以跳转到该图书的详情页。
 CSS设计：
 
-[drawio](leghgw9ywfXD_3zUYdrAFByqbAT0xxRvEknZqePe_lQ.svg)
+![img](images/首页.png)
 
     首页需要将一张卡通图与搜索栏层叠放置，并且该图片在上方，所以该图片的`<div>`需要放置到搜索栏`<div>`的前面，然后让该图片始终居中，缩放窗口时，图片随窗口移动而移动。`justify-content: center;align-items: center;`
     搜索栏和搜索按键的样式参照登录注册页，这里就不在赘述。效果图如下：
@@ -473,7 +473,7 @@ HTML设计：
     `<body>` 标签内将展示一页搜索结果，每行搜索结果放置到`<table>`标签内，标签都要包含封面信息、期刊编号、期刊名称、期刊作者、期刊分类、期刊出版社、期刊价格、期刊库存等信息。封面作为第一行第一个单元格，设置纵向占8行，`rowspan="8"`。其他行左单元格为表单项，有单元格为结果信息。在期刊信息右侧设置两个按键，分别是删除和修改。将修改按键设置为超链接，将跳转到修改期刊详情页。
 CSS设计：
 
-[drawio](LIDsKHKvOyTwgCjCKvVkaCoEvtsDlgZ2ArfA9ycohqc.svg)
+![img](images/修改期刊.png)
 
     一页的结果都放在`<div class="content">`标签内，每一条搜索记录都在`<div class="window">`标签内，设置`content`标签背景为透明白色，`window`标签为透明黑色，显示层叠效果，每一条记录内的搜索结果被`<table>`标签嵌套，控制其表格样式，设置字体为白色，加粗表单项，设置封面位置使其与表单项有间隔不显得拥挤，由于表单项的限制，一页显示三条记录。
     删除按键和修改按键的鼠标悬浮加深效果参照前面按键设置，超链接去掉下划线修改颜色与删除按键样式一致，`border-radios: 5px;`设置边框为圆角，更美观。效果图如下：
@@ -555,11 +555,11 @@ HTML设计：
     搜索结果全部包含在一个<table>标签内，具体格式参照搜索页结果设置，只有期刊名称单独占用两个单元格放大显示，然后增加一行，放置上传封面、确认和取消按键。
 <table>标签内容布局：
 
-[drawio](kEEBCkran4OV8lLsxVOSE9lreHrm_Odm05e5CmaUbvc.svg)
+![img](images/详情页.png)
 
 CSS设计：
 
-[drawio](fP2DjAurOn9FIJdqdFLQ6M9uimFa4B1P1kjdlqb0zBo.svg)
+![img](images/详情页css.png)
 
     层叠效果参照搜索页的效果，白色透明背景层叠黑色透明背景。封面图片大小在HTML页面固定高度比例，显示大图。输入框只有标题框有底框线，其他的保持透明，当有鼠标点击时，有荧光效果，放大标题字体，使信息更醒目，再加粗表单项，表单项字体颜色设置为白色，表单结果字体颜色为灰色，区分表单色。
     最后一行单元格设置三个按键，加深效果参照之前的设置，效果图如下：
@@ -603,7 +603,7 @@ CSS设计：
     该页面是普通用户的搜索结果页，搜索结果内容与管理员结果并不同。没有详细表单项，以及修改和删除按键。其余CSS样式都不变。
 CSS设计：
 
-[drawio](wB7xtDd2erg5EKf4crF59bMJMcIjBixaDgpd_U7ku4Y.svg)
+![img](images/分页检索.png)
 
 效果图如下：
 
@@ -693,7 +693,7 @@ function clickMouse() {
 }
 ```
 #### 3.3.1.3 页面逻辑
-[drawio](mlyXO3k4cNpbgxjuUusMPOL34CNUByKQowJwU_V6vAc.svg)
+![img](images/页面跳转逻辑图.png)
 
     页面跳转开关有顶栏超链接、页面确认或取消按键以及自动跳转等。所有页面发生错误时会直接跳转到404错误页、403错误页或500错误页。
 
@@ -755,7 +755,7 @@ function clickMouse() {
 
 通过使用工具包以及分析详细的数据库查询流程，我们设计实现的接口以及其实现类关系如下图所示：
 
-[drawio](uUz8BwpyAHoZQpnMKqRoxJGjIeIcgQViHZjPw_J9i9k.svg)
+![img](images/接口实现类图.png)
 
 1. BaseDao类：实现通用的基本的数据库查询操作。
 2. BookDao接口：定义基本的期刊数据操作方法包括期刊查询、期刊模糊查询、期刊删除、期刊增加、期刊修改等...
@@ -1408,11 +1408,11 @@ public class UserDaoImpl extends BaseDao implements UserDao {
 生命周期：
     Filter接口中有三个方法，分别是init()、doFilter()、destory()。在一个Filter初始化的时候会先执行初始化方法，对其中信息或者数据做一个初步的处理，然后调用过滤方法过滤所需要的数据，或者是执行逻辑函数，最后执行销毁方法，执行完销毁方法就会被JVM的垃圾处理机回收。
 
-[drawio](emYAgrKUNMeNnyopzGr5eh7RjrnaScn_t2guDWuN1QA.svg)
+![img](images/过滤器生命周期.png)
 处理流程：
     捕获HttpRequest——>调用doFilter()方法处理请求——>传递请求到servlet——>servlet处理数据——>返回servlet返回的Response。特别的其如果有多个处理方法，则其会一次传递过滤链，直到所有的Filter均被过滤完成，但是若其中有一个过滤链条不执行doFilter()方法，那么过滤链条断裂，客户端无法收到服务器返回的数据。
 
-[drawio](GNhIJydUuz9kC4uqDBAG4UYBMGszK64W9iZxaNU7mIo.svg)
+![img](images/过滤器处理流程.png)
 
    1. AdminFilter 管理员权限过滤器
 
@@ -1454,8 +1454,7 @@ AdminFilter中doFilter()方法中实现过滤的核心代码：
 
     在第一次访问Index.jsp页面的时候其无法自动发起响应给后端的Servlet程序获取页面的动态数据，因此需要一种方法发送请求对其页面数据进行渲染，通过技术分析发现有三种办法，第一种是通过一个虚拟首页进行跳转发送请求数据，之后由服务端Servlet跳转到首页。第二种是通过JavaScript中的windows.onload()事件发送ajax请求，或者使用Jquery框架即执行`$(function(){$.ajax({"请求内容"})})` 即可向服务端发送请求数据。第三种是使用Filter过滤器进行实现，当用户打开页面的时候,Filter过滤器寻找Session域之中存储的IndexData属性信息，如果没有则说明没有发送请求获取首页信息（请求转发），如果存在则表示已经获取到了首页信息那么进行放行即可。
 
-[drawio](THkmY12bX7267C2xlht_uVVztAOqb96QGb2jQiZBGnQ.svg)
-
+![img](images/首页页面渲染逻辑.png)
 IndexFilter中doFilter()方法中实现过滤的核心代码：
 
 ```java
@@ -1754,19 +1753,17 @@ resp.sendRedirect(req.getContextPath() + "/book/bookServlet?action=adminPages&pa
 ### 3.4.1 用户登陆模块
     根据需求分析来看，用户登陆模块应该具有用户登陆表单，用户登陆校验，以及用户登陆之后的相关数据处理，因此主要设计流程图如下所示：
 
-[drawio](LBG7SsoGbD2PyFUPUQnL2M-nNLlsCi2mMv3-amHSCPM.svg)
-
+![img](images/登陆处理流程.png)
     根据流程图可以知道，在用户注册的过程中，需要通过用户提交表单信息到后台服务端，之后通过服务端进行数据的封装与解析，转化用户密码为MD5加密格式，然后调用Service层提供的用户方法使用用户提交的表单中的用户编号在数据库中进行匹配，当查找到匹配的用户名或用户编号时，返回获取到的MD5加密后的密码，在Servlet中与用户表单提交的进行比对，检查其是否一致，如果一致则返回用户登陆成功，不一致则进行提示。
 
 ### 3.4.2 用户注册模块
     在用户注册模块基本流程与用户登陆一致，但是不同之处是在客户端首先需要进行用户名是否合法的检测，当用户名合法之后判断其是否填写了手机号呢，如果其填写了手机号，那么需要对其手机号进行位数检测，观察其是否符合大陆手机号码的长度以及数字范围要求，之后对其输入的密码强度进行判断，当通过以上几步JavaScript检测之后发送用户表单信息到后端服务器，按照以下流程进行数据存储，最终返回给用户注册成功标志即可。
 
-[drawio](5GrKvSZisM4n4Ayj6iG5z_jznFwNCMlu8rdOXq_CH0A.svg)
-
+![img](images/用户处理流程.png)
 ### 3.4.3 用户检索模块与期刊修改模块
     用户检索模块主要是通过指定关键词回传到服务端，调用服务端的Servlet程序对其进行处理，当服务端程序获取到用户需要搜索的表单详情之后，判断其是数据是否合法，调用Service层中的方法查询数据库，当数据到达Dao层时，对其进行判断转化为模糊匹配的SQL语句在进行不查询数据库你，之后逐层将其查询结果返回到页面上，其主要查询流程如图所示。
 
-[drawio](Oi3WcPt1LvZcoQ1juvj3gV0eZkiF4kOZ5iJ03d9WEaI.svg)
+![img](images/用户检索流程.png)
 
 # 四、系统测试
 ## 4.1 前端调试
@@ -1948,7 +1945,7 @@ resp.sendRedirect(req.getContextPath() + "/book/bookServlet?action=adminPages&pa
 ## 4.3 页面连调
     通过前端以及后端的分模块测试之后，可以清楚的明白前后端模块中各自存在的问题并且及时修复。但是对于前后端模块连接之后是否存在问题无法给定结论，因此52这时需要将前后端页面相互组织起来进行整体调优与测试。具体测试流程如图所示：
 
-[drawio](7a-Nj0nuBjP3kbyXvJEHeQBCrpTCqNDIzjrL9rHprZc.svg)
+![img](images/页面联调流程.png)
 
     将工程部署到Tomcat服务器后，分别使用不同的用户客户端浏览器访问服务，模拟真实用户登陆注册过程，用户1不进行登陆只进行检索功能。用户2进行一般用户的注册——>登陆——>检索功能，用来测试页面注册以及页面登陆过程是否正常，另外在成功执行上述测试方法之后注销用户再次登陆测试Cookie是否可以成功存储到用户客户端中方便下次登陆。最后使用User3进行管理员登陆，检查在管理员数据通过后台校验之后其管理属性能否正确显示到页面上，一方面检测其管理权限过滤，一方面检查增删改查期刊信息是否能够成功写入数据库之中。最后通过多次清空浏览器缓存信息，观察页面各个状态相应是否正常。
 
