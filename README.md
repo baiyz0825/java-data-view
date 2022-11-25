@@ -1,6 +1,31 @@
+> gitee现在图床存在问题，需要预览图片请去/storeFile文件夹查看
+
+# 欢迎关注我的博客
+<font color=green face="STCAIYUN">分享学习过程的心得：--->>>>>[Bai's Blog](https://blog.baiyz.top/index.html)<<<<---</font>
+
+<div align=center><img src="data.png"></div>
+
 # 项目说明
 
-使用JavaWeb开发的期刊管理系统的课程设计
+&emsp;使用JavaWeb开发的数据库显示界面的课程设计，支持数据分页查询以及期刊的模糊搜索，首页采用动态二维码生成进行校验，支持上传图片，用户密码采用md5加密，支持期刊的分页显示。
+<br/>
+**[报告链接](报告/基于JavaWeb开发的期刊管理系统.md)**
+<br/>
+ **使用方法** ：<br/>
+这里说明一下：大致的使用方法<br/>
+1、get clone 我的这个项目git<br/>
+2、使用idea打开项目目录<br/>
+3、导入sql数据库文件（默认账号密码在工程里有一个excle存储）<br/>
+4、在项目结构中配置相应的lib路径<br/>
+5、配置jdk版本17<br/>
+6、修改数据库properties文件，改为你的数据库链接配置<br/>
+7、配置你的tomcat（idea右上角添加运行配置，导入你的tomcat，然后idea会提示修正项目，修正即可，之后，上面会显示工程访问路径，点击就可以访问）<br/>
+8、进行访问即可<br/>
+# 项目界面
+
+![项目首页UI图1](StoreFile/DiscribeImgQQ%E6%88%AA%E5%9B%BE20220128014615.png)
+<br/><br/><br/>
+![项目首页UI图1](StoreFile/DiscribeImgQQ%E6%88%AA%E5%9B%BE20220128014638.png)
 
 # 项目采用技术
 
@@ -99,20 +124,6 @@
 24. 测试图片覆盖上传
 25. 测试期刊详情修改页面
 
-# 未测试
-
-# 存在问题，无法检索时间匹配的期刊信息
-
-`JDBC format [yyyy-MM-dd] to create a java.sql.Date`
-
-# 需求
-
-1.实现图片下载
-
-# bug
-
-1.登陆成功返回首页无图片数据，request域中为空（filter过滤器问题，没有拦截/index.jsp ???） 2.图书分页页面，大小刚好整除时显示页面多一页 pageCount/pageSize
-2.修改期刊信息之后期刊图片路径被从数据库更新成null
 
 # 已修复
 
@@ -121,3 +132,17 @@
 # 注意
 
 BookImg 挂载到 StoreFile/Img/Book 但是实际存盘路径为\\StoreFile 文件存储根目录！！！
+
+# 详情页面展示
+
+## 用户登陆界面
+
+![登陆界面](StoreFile/DiscribeImgQQ%E6%88%AA%E5%9B%BE20220128014723.png)
+
+## 管理界面
+
+![管理界面](StoreFile/DiscribeImgQQ%E6%88%AA%E5%9B%BE20220128014739.png)
+
+## 修改界面
+
+![修改界面](StoreFile/DiscribeImgQQ%E6%88%AA%E5%9B%BE20220128014816.png)
