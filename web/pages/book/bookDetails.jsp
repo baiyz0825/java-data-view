@@ -21,7 +21,8 @@
         <img height="40px" src="static/img/LIBAIlogo.png">
     </a></div>
     <div class="toptip_search">
-        <form action="" method="get">
+        <form action="book/bookServlet" method="get">
+            <input name="action" type="hidden" value="searchPages">
             <table align="center">
                 <tr>
                     <td class="td_search"><input id="name" name="name" placeholder="期刊名称" type="text" value=""></td>
